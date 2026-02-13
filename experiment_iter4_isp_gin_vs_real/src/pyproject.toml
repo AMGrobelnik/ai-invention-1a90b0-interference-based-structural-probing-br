@@ -1,0 +1,17 @@
+[project]
+name = "isp-gin-experiment"
+version = "0.1.0"
+description = "ISP-GIN vs RealGIN-Aug vs GIN: Graph Classification on TUDatasets with 10-Fold CV"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    "torch>=2.1.0",
+    "numpy>=1.26.0,<2.3.0",
+    "networkx>=3.0",
+    "loguru>=0.7.0",
+    "scikit-learn>=1.3.0",
+    "scipy>=1.11.0",
+]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"

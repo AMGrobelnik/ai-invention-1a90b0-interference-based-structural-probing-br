@@ -1,0 +1,341 @@
+{
+  "metadata": {
+    "method_name": "ISP-GIN",
+    "description": "Interference-Based Structural Probing with Graph Isomorphism Network. Complex-valued message passing with harmonic initialization to distinguish 1-WL-equivalent graph pairs.",
+    "init_strategies": [
+      "degree",
+      "random_walk_t2",
+      "random_walk_t3"
+    ],
+    "K_values": [
+      1,
+      2,
+      4
+    ],
+    "L_values": [
+      1,
+      2,
+      3
+    ],
+    "omega_type": "golden_ratio",
+    "epsilon": 1e-06,
+    "total_pairs": 55,
+    "total_configs_per_pair": 140,
+    "total_wall_clock_s": 12.67,
+    "summary": {
+      "best_config": {
+        "name": "random_walk_t3_K1_L1",
+        "pairs_distinguished": 35
+      },
+      "baseline_wl_distinguished": 0,
+      "per_init_best": {
+        "degree": {
+          "best_K": 16,
+          "best_L": 4,
+          "best_single_config_frac": 0.0,
+          "best_single_config_count": 0,
+          "any_config_count": 0,
+          "any_config_frac": 0.0
+        },
+        "random_walk_t2": {
+          "best_K": 16,
+          "best_L": 4,
+          "best_single_config_frac": 0.0,
+          "best_single_config_count": 0,
+          "any_config_count": 0,
+          "any_config_frac": 0.0
+        },
+        "random_walk_t3": {
+          "best_K": 16,
+          "best_L": 4,
+          "best_single_config_frac": 0.6363636363636364,
+          "best_single_config_count": 35,
+          "any_config_count": 35,
+          "any_config_frac": 0.6363636363636364
+        },
+        "wl_color_r3": {
+          "best_K": 16,
+          "best_L": 4,
+          "best_single_config_frac": 0.0,
+          "best_single_config_count": 0,
+          "any_config_count": 0,
+          "any_config_frac": 0.0
+        },
+        "local_topology": {
+          "best_K": 16,
+          "best_L": 4,
+          "best_single_config_frac": 0.6363636363636364,
+          "best_single_config_count": 35,
+          "any_config_count": 35,
+          "any_config_frac": 0.6363636363636364
+        },
+        "multihop_hash": {
+          "best_K": 16,
+          "best_L": 4,
+          "best_single_config_frac": 0.0,
+          "best_single_config_count": 0,
+          "any_config_count": 0,
+          "any_config_frac": 0.0
+        },
+        "spectral": {
+          "best_K": 16,
+          "best_L": 4,
+          "best_single_config_frac": 0.43636363636363634,
+          "best_single_config_count": 24,
+          "any_config_count": 24,
+          "any_config_frac": 0.43636363636363634
+        }
+      },
+      "per_dataset": {
+        "brec_basic": {
+          "total": 10,
+          "distinguished_any_config": 10,
+          "frac": 1.0
+        },
+        "brec_regular": {
+          "total": 15,
+          "distinguished_any_config": 15,
+          "frac": 1.0
+        },
+        "brec_cfi": {
+          "total": 10,
+          "distinguished_any_config": 10,
+          "frac": 1.0
+        },
+        "csl": {
+          "total": 20,
+          "distinguished_any_config": 20,
+          "frac": 1.0
+        }
+      },
+      "epsilon_sensitivity": {
+        "strict": {
+          "epsilon": 0.01,
+          "pairs_distinguished": 55,
+          "frac": 1.0
+        },
+        "moderate": {
+          "epsilon": 0.0001,
+          "pairs_distinguished": 55,
+          "frac": 1.0
+        },
+        "standard": {
+          "epsilon": 1e-06,
+          "pairs_distinguished": 55,
+          "frac": 1.0
+        },
+        "loose": {
+          "epsilon": 1e-08,
+          "pairs_distinguished": 55,
+          "frac": 1.0
+        }
+      }
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "brec_basic",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,3],[0,5],[0,7],[0,8],[1,4],[1,5],[1,6],[1,7],[1,8],[2,4],[2,6],[2,7],[2,8],[2,9],[3,6],[3,8],[3,9],[4,5],[4,6],[4,7],[4,9],[5,7],[5,8],[5,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 0,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_basic",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "14412.03808594",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "indistinguishable",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 14412.03808594}, \"local_topology_K8_L4\": {\"distinguished\": true, \"l2\": 9807.28710938}, \"local_topology_K4_L4\": {\"distinguished\": true, \"l2\": 807...",
+          "metadata_wall_clock_s": 0.23
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,1],[0,2],[0,3],[0,5],[0,6],[0,9],[1,3],[1,4],[1,5],[1,6],[1,7],[2,3],[2,6],[2,7],[2,8],[2,9],[3,8],[3,9],[4,5],[4,6],[4,8],[5,9],[6,7],[6,8],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 1,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_basic",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "14412.04003906",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "indistinguishable",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 14412.04003906}, \"local_topology_K8_L4\": {\"distinguished\": true, \"l2\": 9807.28710938}, \"local_topology_K4_L4\": {\"distinguished\": true, \"l2\": 807...",
+          "metadata_wall_clock_s": 0.23
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,3],[0,4],[0,6],[0,7],[0,8],[0,9],[1,2],[1,4],[1,5],[1,6],[1,8],[1,9],[2,3],[2,5],[2,6],[3,4],[3,6],[3,8],[4,7],[4,9],[5,7],[5,9],[6,8],[6,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 2,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_basic",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "14412.03808594",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "indistinguishable",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 14412.03808594}, \"local_topology_K8_L4\": {\"distinguished\": true, \"l2\": 9807.28710938}, \"local_topology_K4_L4\": {\"distinguished\": true, \"l2\": 807...",
+          "metadata_wall_clock_s": 0.23
+        }
+      ]
+    },
+    {
+      "dataset": "brec_regular",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,4],[0,7],[0,8],[0,9],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[2,9],[3,4],[3,6],[3,7],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 10,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_regular",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "78388.5703125",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "distinguished",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 78388.5703125}, \"spectral_K16_L4\": {\"distinguished\": true, \"l2\": 73839.8828125}, \"random_walk_t3_K16_L4\": {\"distinguished\": true, \"l2\": 50958.17...",
+          "metadata_wall_clock_s": 0.23
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,2],[1,3],[1,5],[1,6],[1,7],[1,9],[2,5],[2,6],[2,7],[2,8],[3,4],[3,5],[3,6],[3,7],[3,8],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 11,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_regular",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "78388.578125",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "distinguished",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 78388.578125}, \"spectral_K16_L4\": {\"distinguished\": true, \"l2\": 73839.890625}, \"random_walk_t3_K16_L4\": {\"distinguished\": true, \"l2\": 50958.1796...",
+          "metadata_wall_clock_s": 0.23
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[2,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 12,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_regular",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "78388.578125",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "distinguished",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 78388.578125}, \"spectral_K16_L4\": {\"distinguished\": true, \"l2\": 73839.8828125}, \"random_walk_t3_K16_L4\": {\"distinguished\": true, \"l2\": 50958.179...",
+          "metadata_wall_clock_s": 0.23
+        }
+      ]
+    },
+    {
+      "dataset": "brec_cfi",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,1],[0,3],[0,7],[0,8],[0,9],[1,5],[2,3],[2,4],[2,6],[2,7],[2,9],[3,7],[3,8],[3,9],[4,5],[4,6],[4,7],[4,9],[6,7],[6,9],[7,8],[8,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 35,
+          "metadata_wl_level": "3-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_cfi",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "9547.62988281",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "indistinguishable",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 9547.62988281}, \"random_walk_t3_K16_L4\": {\"distinguished\": true, \"l2\": 6626.50488281}, \"local_topology_K8_L4\": {\"distinguished\": true, \"l2\": 415...",
+          "metadata_wall_clock_s": 0.23
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,8],[0,9],[1,2],[1,3],[1,7],[1,8],[2,7],[2,8],[3,4],[3,7],[3,9],[4,7],[4,9],[5,6],[5,9],[6,8],[7,8],[7,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 36,
+          "metadata_wl_level": "3-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_cfi",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "9547.62988281",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "indistinguishable",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 9547.62988281}, \"random_walk_t3_K16_L4\": {\"distinguished\": true, \"l2\": 6626.50537109}, \"local_topology_K8_L4\": {\"distinguished\": true, \"l2\": 415...",
+          "metadata_wall_clock_s": 0.23
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,2],[0,3],[0,4],[0,6],[0,7],[0,9],[1,3],[1,8],[2,4],[2,5],[2,8],[2,9],[3,5],[3,6],[3,7],[4,5],[4,9],[5,6],[5,7],[5,9],[6,7],[7,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 37,
+          "metadata_wl_level": "3-WL",
+          "metadata_same_wl_color": true,
+          "metadata_dataset": "brec_cfi",
+          "predict_baseline_wl": "indistinguishable",
+          "predict_isp_best": "distinguished",
+          "predict_isp_best_config": "local_topology_K16_L4",
+          "predict_isp_best_l2_distance": "9547.63085938",
+          "predict_isp_degree_K8_L3": "indistinguishable",
+          "predict_isp_rw_t2_K8_L3": "indistinguishable",
+          "predict_isp_rw_t3_K8_L3": "distinguished",
+          "predict_isp_wl_r3_K8_L3": "indistinguishable",
+          "predict_isp_local_topology_K8_L3": "distinguished",
+          "predict_isp_multihop_hash_K8_L3": "indistinguishable",
+          "predict_isp_spectral_K8_L3": "indistinguishable",
+          "metadata_top_configs": "{\"local_topology_K16_L4\": {\"distinguished\": true, \"l2\": 9547.63085938}, \"random_walk_t3_K16_L4\": {\"distinguished\": true, \"l2\": 6626.50537109}, \"local_topology_K8_L4\": {\"distinguished\": true, \"l2\": 415...",
+          "metadata_wall_clock_s": 0.23
+        }
+      ]
+    }
+  ]
+}

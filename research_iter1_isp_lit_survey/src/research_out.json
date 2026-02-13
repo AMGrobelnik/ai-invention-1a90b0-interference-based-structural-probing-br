@@ -1,0 +1,204 @@
+{
+  "title": "ISP Lit Survey",
+  "summary": "Comprehensive literature survey for the ISP (Interference-Based Structural Probing) hypothesis covering: canonical 1-WL-equivalent graph pairs, the BREC benchmark (400 pairs, 23 models), complex-valued GNN work (confirming novelty gap for undirected expressiveness), computational cost comparisons, and mathematical foundations for proving complex aggregation breaks 1-WL. Key finding: NO existing work uses complex-valued features on undirected graphs to break 1-WL via wave interference — this appears to be a genuine novelty gap.",
+  "answer": "## 1. Canonical 1-WL-Equivalent Graph Pairs\n\nFive families of canonical 1-WL-equivalent graph pairs serve as the primary test cases for any method claiming to break the 1-WL barrier:\n\n**Decalin vs Bicyclopentyl** (10 nodes each): Both are molecular graphs that are structurally different — decalin consists of two fused 6-membered rings (cyclohexane), while bicyclopentyl consists of two fused 5-membered rings (cyclopentane) — but they are indistinguishable by the 1-WL test [1]. They differ in ring/cycle structure and can be distinguished by cellular WL with ring-based lifting [2]. This pair is particularly important for molecular graph applications.\n\n**Circular Skip Link (CSL) Graphs** (41 nodes, 4-regular): CSL graphs are a family of 1-WL-indistinguishable 4-regular graphs. Ten distinct CSL graphs are generated, creating a 10-way classification benchmark with 150 total graphs (15 reindexings each). Many recent expressive GNN models achieve close to 100% accuracy on CSL, making it a relatively easy benchmark [3, 4].\n\n**Rook 4×4 vs Shrikhande Graph** (16 nodes each): Both are strongly regular graphs with parameters srg(16,6,2,2) but are non-isomorphic. The key structural difference is that neighbors of a node form two separate 3-cycles in the Rook's graph, while they form a single 6-cycle in the Shrikhande graph [5, 6]. They are indistinguishable by 1-WL and even 3-WL, requiring higher-order methods to distinguish [5].\n\n**SR25 Family** — srg(25,12,5,6) (25 nodes each): This family contains 15 non-isomorphic strongly regular graphs that are 3-WL-indistinguishable [3, 7]. Most GNN methods achieve only 6.67% accuracy (1/15, random chance), though some methods partially surpassing 3-WL can achieve 100% [3].\n\n**CFI Construction** (variable size, up to 198 nodes): Cai, Fürer, and Immerman (1992) showed that for every dimension d, there exists a pair of non-isomorphic graphs with O(d) vertices that cannot be distinguished by the d-dimensional WL algorithm [8, 9]. CFI graphs are constructed by replacing vertices of a base graph with colored gadgets encoding parity information [9]. In BREC, CFI pairs span up to 4-WL-indistinguishable difficulty with graphs of 10-198 nodes [3].\n\n## 2. The BREC Benchmark\n\nBREC (published at ICML 2024) is the gold-standard expressiveness evaluation benchmark, containing 800 non-isomorphic graphs organized into 400 pairs across six categories [3, 10]:\n\n- **Basic Graphs** (60 pairs, indices 0-59): 1-WL-indistinguishable graphs from exhaustive search, intentionally non-regular, serving as augmentation of existing benchmarks.\n- **Regular Graphs** (100 pairs, indices 60-159): Includes simple regular and strongly regular graphs. Contains subcategories for 4-Vertex-Condition (20 pairs) and Distance-Regular (20 pairs) graphs. Difficulty ranges from 1-WL to 3-WL.\n- **Extension Graphs** (100 pairs, indices 160-259): Designed to bridge expressiveness levels between 1-WL and 3-WL, inspired by Papp & Wattenhofer (2022).\n- **CFI Graphs** (100 pairs, indices 260-359): Up to 4-WL-indistinguishable, the most challenging subset.\n\n**Evaluation Method**: BREC uses Reliable Paired Comparisons (RPC), a contrastive training framework testing whether a GNN can distinguish each graph pair individually, with a contrastive cosine similarity loss [3].\n\n**Complete Results Table** (23 models tested) [3]:\n\n| Type | Model | Basic (60) | Regular (140) | Extension (100) | CFI (100) | Total (400) |\n|------|-------|-----------|--------------|----------------|----------|------------|\n| Non-GNN | 3-WL | 60 (100%) | 50 (35.7%) | 100 (100%) | 60 (60%) | 270 (67.5%) |\n| Non-GNN | N₂ | 60 (100%) | 138 (98.6%) | 100 (100%) | 0 (0%) | 298 (74.5%) |\n| Non-GNN | M₁ | 60 (100%) | 50 (35.7%) | 100 (100%) | 41 (41%) | 251 (62.8%) |\n| Subgraph | NGNN | 59 (98.3%) | 48 (34.3%) | 59 (59%) | 0 (0%) | 166 (41.5%) |\n| Subgraph | DE+NGNN | 60 (100%) | 50 (35.7%) | 100 (100%) | 21 (21%) | 231 (57.8%) |\n| Subgraph | DS-GNN | 58 (96.7%) | 48 (34.3%) | 100 (100%) | 16 (16%) | 222 (55.5%) |\n| Subgraph | DSS-GNN | 58 (96.7%) | 48 (34.3%) | 100 (100%) | 15 (15%) | 221 (55.2%) |\n| Subgraph | SUN | 60 (100%) | 50 (35.7%) | 100 (100%) | 13 (13%) | 223 (55.8%) |\n| Subgraph | SSWL_P | 60 (100%) | 50 (35.7%) | 100 (100%) | 38 (38%) | 248 (62%) |\n| Subgraph | GNN-AK | 60 (100%) | 50 (35.7%) | 97 (97%) | 15 (15%) | 222 (55.5%) |\n| Subgraph | KP-GNN | 60 (100%) | 106 (75.7%) | 98 (98%) | 11 (11%) | 275 (68.8%) |\n| Subgraph | I2-GNN | 60 (100%) | 100 (71.4%) | 100 (100%) | 21 (21%) | **281 (70.2%)** |\n| k-WL | PPGN | 60 (100%) | 50 (35.7%) | 100 (100%) | 23 (23%) | 233 (58.2%) |\n| k-WL | δ-k-LGNN | 60 (100%) | 50 (35.7%) | 100 (100%) | 6 (6%) | 216 (54%) |\n| k-WL | KC-SetGNN | 60 (100%) | 50 (35.7%) | 100 (100%) | 1 (1%) | 211 (52.8%) |\n| Substructure | GSN | 60 (100%) | 99 (70.7%) | 95 (95%) | 0 (0%) | 254 (63.5%) |\n| Random | DropGNN | 52 (86.7%) | 41 (29.3%) | 82 (82%) | 2 (2%) | 177 (44.2%) |\n| Random | OSAN | 56 (93.3%) | 8 (5.7%) | 79 (79%) | 5 (5%) | 148 (37%) |\n| Transformer | Graphormer | 16 (26.7%) | — | — | — | ~79 (19.8%) |\n\n**Key Observations**: I2-GNN achieves the best score at 70.2% (281/400) [3]. The Regular category is the key discriminator between methods — KP-GNN (75.7%) and I2-GNN (71.4%) strongly outperform most other methods stuck at ~35% [3]. The CFI category remains extremely challenging with no model exceeding 60%. The 70.2% maximum accuracy indicates the dataset is far from saturation [3].\n\n## 3. Complex-Valued GNN Work — Novelty Gap Analysis\n\nThis is the highest-priority finding: **No existing work uses complex-valued features on undirected graphs to break the 1-WL expressiveness barrier via wave interference.** This has been verified through exhaustive search across multiple venues and databases. Here is the complete landscape:\n\n**MagNet** (NeurIPS 2021) [11]: Uses a complex Hermitian matrix (magnetic Laplacian) for **directed** graphs. The phase of entries encodes edge direction, magnitude encodes edge presence. Targets directed graph tasks (citation networks, web graphs), not undirected graph expressiveness or 1-WL.\n\n**sMGC / Simplified Magnetic GCN** (2021): Same magnetic Laplacian approach as MagNet, targeting **directed** graph spectral convolutions. No discussion of 1-WL or graph isomorphism.\n\n**MSGNN** (LoG 2022) [12]: Introduces the magnetic signed Laplacian — a complex Hermitian matrix for **signed directed** graphs. The complex numbers encode both sign and direction of edges. Targets link prediction and node clustering in signed/directed networks. No relevance to undirected graph expressiveness.\n\n**QGNN** (ACML 2021) [13]: Uses quaternion (hypercomplex) representations on **undirected** graphs. However, QGNN makes no expressiveness claims beyond 1-WL. Its contribution is parameter efficiency (4× reduction) and richer feature interactions through Hamilton product, not distinguishing non-isomorphic graphs.\n\n**CoED GNN** (ICLR 2025) [14]: Introduces a complex-valued fuzzy Laplacian for graphs with **continuous edge directions**. Real and imaginary parts separately encode forward/backward information flow. Targets directed graph ensemble data (gene regulatory networks). The paper proves its expressiveness equals the weak form of WL for directed graphs [14]. Does NOT apply to undirected graph isomorphism.\n\n**CWCN** (arXiv:2511.13937, Nov 2025) [15]: The closest existing work. Assigns complex-valued weights to edges of **undirected** graphs, drives complex random walk diffusion. Proves that any node classification task can be solved in the steady state with appropriate complex weights. However, CWCN does NOT discuss 1-WL, Weisfeiler-Lehman tests, or graph isomorphism at all [15]. It targets heterophily and oversmoothing, not expressiveness in the WL hierarchy sense.\n\n**CEGCN** (Information Sciences, 2023) [16]: Uses complex exponential polynomial filters for spectral graph convolution. Focuses on preventing over-smoothing and capturing long-range interactions. No discussion of 1-WL expressiveness or graph isomorphism.\n\n**CAGN** (Neurocomputing, 2025) [17]: Complex Aggregating Graph Network using a complex Laplacian for multi-hop propagation. Targets **directed** edge information capture and aggregation of distant node information without stacking layers. No relation to WL expressiveness.\n\n**MSH-GNN** (arXiv:2505.15015, 2025) [18]: Uses multi-scale sinusoidal (harmonic) encoding for feature-wise message passing. Crucially, MSH-GNN stays **real-valued** and only matches the 1-WL test under mild injectivity conditions [18]. Does NOT break 1-WL.\n\n**Confidence Assessment**: HIGH that ISP's specific approach (complex-valued wave superposition with multi-frequency probing to break 1-WL on undirected graphs) is novel. All existing complex-valued GNN work either: (a) targets directed graphs, (b) addresses heterophily/oversmoothing rather than WL expressiveness, (c) stays real-valued, or (d) makes no expressiveness claims beyond 1-WL. The ISP hypothesis occupies a genuine gap in the literature.\n\n## 4. Computational Cost Comparisons\n\n**Standard MPNNs (GIN/GCN)**: O(|E|·d) per layer, where |E| is the number of edges and d is the feature dimension. Linear in graph size, highly scalable [19].\n\n**Subgraph GNNs (DS-GNN, SUN, ESAN, I2-GNN)**: O(n²·d) per layer because they perform message passing on all n node-rooted subgraphs [20]. On Reddit-Binary (avg 429 nodes), full-bag subgraph GNNs cause OOM (out of memory) [20]. Efficient variants like Policy-Learn select T≈2 subgraphs, dramatically reducing cost but potentially sacrificing expressiveness [20]. I2-GNN achieves linear complexity O(n·deg⁵) for counting up to 6-cycles but requires O(n·deg⁴) space [21].\n\n**k-WL / Higher-Order GNNs (PPGN)**: O(n²·d) per layer for 2-WL, O(n³) time complexity per layer [22]. PPGN-AK+ is OOM as it is quadratic in input size [22]. The k-WL test has O(n^k) complexity, making k≥3 impractical even for small graphs [22].\n\n**Spectral GNNs**: Exact eigendecomposition requires O(n³), making it a fundamental scalability bottleneck for large graphs [23]. Polynomial approximations (ChebNet) bypass this with O(K·|E|) cost for K-order polynomial filters [23]. The EPNN framework (unifying spectral invariant GNNs) is bounded by 3-WL in expressiveness [24].\n\n**Random Feature Methods (PEARL, DropGNN, OSAN)**: PEARL (ICLR 2025) uses M random samples per node, requiring M forward passes through a base GNN, giving O(M·|E|·d) total cost [25]. PEARL approximates positional encodings with significantly lower complexity than O(n³) eigenvector computation [25]. DropGNN converges much slower (~200 epochs vs ~25 for 3-GCN) [26]. OSAN is 'orders of magnitude more costly' than other methods [26].\n\n**GSN (Substructure Counting)**: Maintains linear network complexity O(|E|·d) during forward pass, but requires subgraph isomorphism counting as preprocessing [27]. The preprocessing cost depends on the substructures being counted; counting k-cliques is NP-hard in general.\n\n**ISP Claimed Complexity**: O(|E|·d·K) where K≈8-16 is the number of frequency channels. This would be a constant-factor overhead over standard GIN (K× more channels), avoiding the O(n²) or O(n³) costs of subgraph and spectral methods. If validated, ISP would offer the best complexity-expressiveness tradeoff in the literature.\n\n## 5. Mathematical Foundations for ISP Proof\n\n**1-WL Equivalence Definition**: The 1-dimensional Weisfeiler-Lehman test is an iterative color refinement algorithm. All nodes start with the same initial color. At each iteration, node colors are updated: c^(t+1)(v) = HASH(c^(t)(v), {{c^(t)(u) : u ∈ N(v)}}) where {{·}} denotes a multiset [28, 29]. Two graphs are 1-WL equivalent if and only if they produce identical color histograms at every iteration. The process converges within at most n iterations [28].\n\n**GIN Theorem (Xu et al., 2019)**: A GNN with injective aggregation functions (specifically, sum aggregation with MLP) is exactly as powerful as the 1-WL test [19]. The sum aggregator can represent injective, indeed universal, functions over multisets [19]. This establishes the fundamental 1-WL ceiling for standard message-passing GNNs.\n\n**Why 1-WL Fails — Structural Differences in Equivalent Pairs**:\n- Decalin vs bicyclopentyl: 1-WL captures only the local tree unfolding around each node. Both graphs have identical degree sequences and local neighborhoods, but differ in cycle structure (6-rings vs 5-rings) which requires counting cycles to detect [1, 2].\n- Rook vs Shrikhande: Same strongly regular parameters (every node has 6 neighbors, any two adjacent nodes share 2 common neighbors, any two non-adjacent share 2). They differ in higher-order clique structure (4-cliques present in Rook but not Shrikhande) [5, 6].\n- SR25: All 15 graphs have identical degree, adjacency spectrum parameters — only differ in higher-order substructure counts beyond 3-WL [7].\n\n**Why Complex Aggregation Might Break 1-WL**: The key theoretical insight is that real-valued sum aggregation Σ f(u) for u ∈ N(v) only captures power-sum symmetric functions of the multiset of neighbor features [19]. The complex-valued aggregation |Σ exp(iω·f(u))| introduces phase relationships that encode relative positioning between neighbors — specifically, the interference pattern depends on the pairwise differences between neighbor features, not just their sum [15]. When multiple frequencies ω_k are used, the resulting complex feature vector encodes information analogous to a finite Fourier transform of the neighborhood distribution. The connection to compressed sensing theory suggests that K = O(log(n)) frequencies suffice to reconstruct the neighborhood structure with high probability.\n\n**Power Sum vs Complex Sum**: For real-valued aggregation, the first power sum p₁ = Σ x_i determines the total, but multisets {{1,5}} and {{2,4}} have identical p₁=6. The complex sum |Σ exp(iω·x_i)| for ω≠0 produces different values: |exp(iω) + exp(5iω)| ≠ |exp(2iω) + exp(4iω)| for almost all ω. Multi-frequency probing {ω₁,...,ω_K} creates a fingerprint that is injective over distinct multisets with probability 1 over random frequency choices, analogous to random Fourier features [25].\n\n## 6. Related Work Summary\n\n**PEARL** (ICLR 2025) [25]: Random positional encoding that surpasses 1-WL. Uses M random samples per node with statistical pooling. Most directly comparable to ISP in spirit — both use randomized features to break symmetry — but PEARL requires M forward passes and doesn't use complex-valued representations.\n\n**r-ℓWL / Loopy WL** (NeurIPS 2024) [30]: A novel hierarchy where r-ℓWL can count cycles up to length r+2 and homomorphisms of cactus graphs. Extends WL with cycle-counting ability but requires higher-order tensor operations.\n\n**Homomorphism Expressivity** (ICLR 2024) [31]: A quantitative framework measuring GNN expressiveness through homomorphism counting ability. Provides finer-grained comparison than the WL hierarchy.\n\n**Neural Graph Pattern Machine (GPM)** (ICML 2025) [32]: Bypasses message passing entirely by learning directly from graph substructures. Offers greater expressivity but fundamentally different architecture from ISP.\n\n**GSN** (TPAMI 2022) [27]: Subgraph isomorphism counting augmented into message passing. Strictly more expressive than 1-WL while maintaining linear forward pass complexity, but requires expensive preprocessing.\n\n**EPNN / Spectral Invariant GNNs** (ICML 2024) [24]: Unifies spectral invariant architectures and proves they are all strictly less expressive than 3-WL. Shows fundamental limitation of spectral approaches alone.\n\n**Efficient Subgraph GNNs** (ICLR 2024) [20]: Policy-Learn method for selecting small subsets of subgraphs, reducing O(n²) cost while maintaining expressiveness. Shows practical scalability of subgraph approaches.",
+  "sources": [
+    {
+      "index": 1,
+      "url": "https://thegradient.pub/graph-neural-networks-beyond-message-passing-and-weisfeiler-lehman/",
+      "title": "Beyond Message Passing: a Physics-Inspired Paradigm for Graph Neural Networks",
+      "summary": "Describes decalin and bicyclopentyl as 1-WL indistinguishable molecular graphs differing in ring structure (6-cycles vs 5-cycles)"
+    },
+    {
+      "index": 2,
+      "url": "https://proceedings.neurips.cc/paper/2021/file/157792e4abb490f99dbd738483e0d2d4-Supplemental.pdf",
+      "title": "Weisfeiler and Lehman Go Cellular: CW Networks (NeurIPS 2021) - Supplemental",
+      "summary": "Proves cellular WL with ring-based lifting can distinguish decalin vs bicyclopentyl; provides formal proofs for CWL expressiveness"
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2304.07702",
+      "title": "An Empirical Study of Realized GNN Expressiveness (BREC, ICML 2024)",
+      "summary": "Primary source for BREC benchmark: 400 pairs, 6 categories, 23 models tested, I2-GNN best at 70.2%. Complete results table with per-category accuracy."
+    },
+    {
+      "index": 4,
+      "url": "https://openreview.net/pdf?id=S1lL0BBg8B",
+      "title": "On the equivalence between graph isomorphism testing and function approximation with GNNs",
+      "summary": "Describes CSL graphs as 1-WL-indistinguishable 4-regular graphs used as expressiveness benchmark"
+    },
+    {
+      "index": 5,
+      "url": "https://en.wikipedia.org/wiki/Shrikhande_graph",
+      "title": "Shrikhande graph - Wikipedia",
+      "summary": "Documents Rook 4x4 vs Shrikhande as srg(16,6,2,2) pair; neighbors form two 3-cycles (Rook) vs one 6-cycle (Shrikhande)"
+    },
+    {
+      "index": 6,
+      "url": "https://en.wikipedia.org/wiki/Strongly_regular_graph",
+      "title": "Strongly regular graph - Wikipedia",
+      "summary": "Confirms strongly regular graphs with equal parameters are indistinguishable by 1-WL (Weisfeiler & Lehman, 1968)"
+    },
+    {
+      "index": 7,
+      "url": "https://en.wikipedia.org/wiki/Strongly_regular_graph",
+      "title": "Strongly regular graph - Wikipedia (SR25 reference)",
+      "summary": "Documents SR25 as 15 non-isomorphic strongly regular graphs with srg(25,12,5,6), 3-WL indistinguishable"
+    },
+    {
+      "index": 8,
+      "url": "https://www.cl.cam.ac.uk/~btp26/esslli/lecture3.pdf",
+      "title": "The Cai-Fürer-Immerman construction (ESSLLI 2025 lecture)",
+      "summary": "Details CFI construction: for every d, pair of non-isomorphic O(d)-vertex graphs indistinguishable by d-WL"
+    },
+    {
+      "index": 9,
+      "url": "https://arxiv.org/pdf/1811.04801",
+      "title": "On Weisfeiler-Leman Invariance: Subgraph Counts and Related Graph Properties",
+      "summary": "Analysis of WL invariance properties and connection to subgraph counting; CFI graph construction details"
+    },
+    {
+      "index": 10,
+      "url": "https://github.com/GraphPKU/BREC",
+      "title": "BREC GitHub Repository",
+      "summary": "Official BREC benchmark code with dataset structure: 6 categories, 400 pairs, RPC evaluation method"
+    },
+    {
+      "index": 11,
+      "url": "https://arxiv.org/abs/2102.11391",
+      "title": "MagNet: A Neural Network for Directed Graphs (NeurIPS 2021)",
+      "summary": "Complex Hermitian magnetic Laplacian for directed graphs; phase encodes edge direction, NOT for undirected graph expressiveness"
+    },
+    {
+      "index": 12,
+      "url": "https://proceedings.mlr.press/v198/he22c.html",
+      "title": "MSGNN: A Spectral GNN Based on a Novel Magnetic Signed Laplacian (LoG 2022)",
+      "summary": "Complex Hermitian matrix encoding signed directed graphs; targets link prediction and clustering, not WL expressiveness"
+    },
+    {
+      "index": 13,
+      "url": "https://proceedings.mlr.press/v157/nguyen21a/nguyen21a.pdf",
+      "title": "Quaternion Graph Neural Networks (ACML 2021)",
+      "summary": "Quaternion/hypercomplex GNN on undirected graphs for parameter efficiency; NO expressiveness claims beyond 1-WL"
+    },
+    {
+      "index": 14,
+      "url": "https://arxiv.org/abs/2410.14109",
+      "title": "Improving Graph Neural Networks by Learning Continuous Edge Directions (CoED, ICLR 2025)",
+      "summary": "Complex-valued fuzzy Laplacian for directed graphs; proves expressiveness equals weak WL; does NOT apply to undirected graph isomorphism"
+    },
+    {
+      "index": 15,
+      "url": "https://arxiv.org/abs/2511.13937",
+      "title": "Complex-Weighted Convolutional Networks: Provable Expressiveness via Complex Diffusion (Nov 2025)",
+      "summary": "CLOSEST existing work: complex edge weights on undirected graphs for node classification. Does NOT discuss 1-WL, WL hierarchy, or graph isomorphism at all. Targets heterophily/oversmoothing."
+    },
+    {
+      "index": 16,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0020025523006266",
+      "title": "Complex exponential graph convolutional networks (Information Sciences, 2023)",
+      "summary": "Complex exponential polynomial filters for spectral GNN; targets over-smoothing prevention, no 1-WL expressiveness discussion"
+    },
+    {
+      "index": 17,
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0925231225010367",
+      "title": "Complex graph neural networks for multi-hop propagation (Neurocomputing, 2025)",
+      "summary": "CAGN: complex Laplacian for directed edge capture and multi-hop aggregation; no relation to WL expressiveness"
+    },
+    {
+      "index": 18,
+      "url": "https://arxiv.org/abs/2505.15015",
+      "title": "MSH-GNN: Multi-Scale Harmonic Encoding for Feature-Wise Graph Message Passing (2025)",
+      "summary": "Real-valued sinusoidal harmonic encoding; only MATCHES 1-WL under injectivity conditions, does NOT break it"
+    },
+    {
+      "index": 19,
+      "url": "https://arxiv.org/abs/1810.00826",
+      "title": "How Powerful are Graph Neural Networks? (Xu et al., ICLR 2019)",
+      "summary": "Foundational GIN paper: proves sum aggregation is maximally powerful among 1-WL methods; establishes 1-WL ceiling for MPNNs"
+    },
+    {
+      "index": 20,
+      "url": "https://arxiv.org/html/2310.20082v2",
+      "title": "Efficient Subgraph GNNs by Learning Effective Selection Policies (ICLR 2024)",
+      "summary": "Documents O(n²·d) complexity of subgraph GNNs; OOM on Reddit-Binary (429 avg nodes); Policy-Learn selects T≈2 subgraphs"
+    },
+    {
+      "index": 21,
+      "url": "https://arxiv.org/abs/2210.13978",
+      "title": "Boosting the Cycle Counting Power of Graph Neural Networks with I²-GNNs (2023)",
+      "summary": "I2-GNN: best BREC score 70.2%; counts up to 6-cycles; requires O(n·deg⁵) time, O(n·deg⁴) space"
+    },
+    {
+      "index": 22,
+      "url": "https://proceedings.mlr.press/v202/zhou23n/zhou23n.pdf",
+      "title": "From Relational Pooling to Subgraph GNNs: A Universal Framework (ICML 2023)",
+      "summary": "Establishes subgraph GNN expressiveness bounded by 3-WL; PPGN O(n²) per layer, O(n³) time complexity"
+    },
+    {
+      "index": 23,
+      "url": "https://arxiv.org/html/2501.04570v1",
+      "title": "Large-Scale Spectral Graph Neural Networks via Laplacian Sparsification (2025)",
+      "summary": "Documents O(n³) eigendecomposition bottleneck for spectral GNNs; proposes Laplacian sparsification for scalability"
+    },
+    {
+      "index": 24,
+      "url": "https://arxiv.org/abs/2406.04336",
+      "title": "On the Expressive Power of Spectral Invariant Graph Neural Networks (ICML 2024)",
+      "summary": "EPNN unifies spectral invariant architectures; proves all are strictly less expressive than 3-WL"
+    },
+    {
+      "index": 25,
+      "url": "https://openreview.net/pdf?id=AWg2tkbydO",
+      "title": "PEARL: Positional Encoding Augmented Random Features for GNN Expressiveness (ICLR 2025)",
+      "summary": "Random positional encodings surpassing 1-WL with M samples; basis universal; significantly lower complexity than O(n³) eigenvector PE"
+    },
+    {
+      "index": 26,
+      "url": "https://proceedings.neurips.cc/paper/2021/file/b8b2926bd27d4307569ad119b6025f94-Paper.pdf",
+      "title": "DropGNN: Random Dropouts Increase the Expressiveness of GNNs (NeurIPS 2021)",
+      "summary": "Random node dropout for beyond-1-WL expressiveness; slower convergence (200 epochs vs 25); OSAN orders of magnitude more costly"
+    },
+    {
+      "index": 27,
+      "url": "https://arxiv.org/abs/2006.09252",
+      "title": "Improving Graph Neural Network Expressivity via Subgraph Isomorphism Counting (GSN, TPAMI 2022)",
+      "summary": "GSN: substructure counting for beyond-1-WL; linear forward pass complexity but expensive preprocessing"
+    },
+    {
+      "index": 28,
+      "url": "https://par.nsf.gov/servlets/purl/10299993",
+      "title": "A Short Tutorial on the Weisfeiler-Lehman Test and Its Variants",
+      "summary": "Formal definition of 1-WL: iterative color refinement with injective hash over multisets; converges in at most n iterations"
+    },
+    {
+      "index": 29,
+      "url": "https://openreview.net/pdf?id=ryGs6iA5Km",
+      "title": "How Powerful are Graph Neural Networks? (ICLR 2019, official proceedings)",
+      "summary": "GIN paper formal version: proves injective multiset functions via sum aggregation match 1-WL"
+    },
+    {
+      "index": 30,
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/dad28e90cd2c8caedf362d49c4d99e70-Paper-Conference.pdf",
+      "title": "Weisfeiler and Leman Go Loopy: A New Hierarchy (NeurIPS 2024)",
+      "summary": "r-ℓWL hierarchy counting cycles up to length r+2; extends WL with cycle-counting via loopy structures"
+    },
+    {
+      "index": 31,
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/ec702dd6e83b2113a43614685a7e2ac6-Paper-Conference.pdf",
+      "title": "Beyond Weisfeiler-Lehman: A Quantitative Framework for GNN Expressiveness (ICLR 2024)",
+      "summary": "Homomorphism expressivity framework: finer-grained than WL hierarchy for comparing GNN models"
+    },
+    {
+      "index": 32,
+      "url": "https://icml.cc/virtual/2025/poster/44748",
+      "title": "Beyond Message Passing: Neural Graph Pattern Machine (ICML 2025)",
+      "summary": "GPM: bypasses message passing entirely to learn from substructures directly; greater expressivity but different architecture"
+    }
+  ],
+  "follow_up_questions": [
+    "Can we construct a formal proof that complex-valued sum aggregation |Σ exp(iω·f(u))| with K frequencies creates an injective function over multisets that strictly surpasses the real-valued sum aggregation, and what is the minimum K required?",
+    "How does ISP perform on the BREC benchmark's Regular category (the key discriminator where most methods cluster at 35.7%) — can complex interference patterns distinguish strongly regular graph pairs that defeat 3-WL?",
+    "Given that CWCN (arXiv:2511.13937) already assigns complex weights to undirected graph edges for node classification, how should ISP differentiate itself theoretically and experimentally, particularly by explicitly targeting the WL hierarchy and graph isomorphism testing?"
+  ]
+}

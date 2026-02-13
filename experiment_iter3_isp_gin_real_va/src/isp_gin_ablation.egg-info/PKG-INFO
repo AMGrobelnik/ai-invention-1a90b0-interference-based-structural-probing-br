@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: isp-gin-ablation
+Version: 0.1.0
+Summary: ISP-GIN Real-Valued Ablation & Interference Isolation Experiment
+Requires-Python: <3.12,>=3.10
+Requires-Dist: numpy<2.3.0,>=1.26.0
+Requires-Dist: networkx>=3.0
+Requires-Dist: scipy>=1.10.0
+Requires-Dist: loguru>=0.7.0

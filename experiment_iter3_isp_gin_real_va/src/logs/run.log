@@ -1,0 +1,240 @@
+2026-02-13 16:28:12.296 | INFO     | __main__:main:594 - Loading data from mini_data_out.json
+2026-02-13 16:28:12.297 | INFO     | __main__:main:601 - Loaded 12 examples across 4 datasets
+2026-02-13 16:28:12.297 | INFO     | __main__:run_experiment:349 - Processing dataset 'brec_basic': 3 pairs
+2026-02-13 16:28:13.288 | INFO     | __main__:run_experiment:349 - Processing dataset 'brec_regular': 3 pairs
+2026-02-13 16:28:13.357 | INFO     | __main__:run_experiment:349 - Processing dataset 'brec_cfi': 3 pairs
+2026-02-13 16:28:13.417 | INFO     | __main__:run_experiment:349 - Processing dataset 'csl': 3 pairs
+2026-02-13 16:28:13.509 | INFO     | __main__:main:610 - Experiment completed in 1.2s
+2026-02-13 16:28:13.510 | INFO     | __main__:main:613 - ============================================================
+2026-02-13 16:28:13.510 | INFO     | __main__:main:614 - AGGREGATE RESULTS
+2026-02-13 16:28:13.511 | INFO     | __main__:main:615 - ============================================================
+2026-02-13 16:28:13.511 | INFO     | __main__:main:620 -   isp_gin_local_topology_L1                  9/12  (0.7500)
+2026-02-13 16:28:13.512 | INFO     | __main__:main:620 -   isp_gin_local_topology_L2                  9/12  (0.7500)
+2026-02-13 16:28:13.512 | INFO     | __main__:main:620 -   isp_gin_local_topology_L3                  9/12  (0.7500)
+2026-02-13 16:28:13.513 | INFO     | __main__:main:620 -   isp_gin_local_topology_L4                  9/12  (0.7500)
+2026-02-13 16:28:13.513 | INFO     | __main__:main:620 -   isp_gin_random_walk_t3_L1                  9/12  (0.7500)
+2026-02-13 16:28:13.513 | INFO     | __main__:main:620 -   isp_gin_random_walk_t3_L2                  9/12  (0.7500)
+2026-02-13 16:28:13.514 | INFO     | __main__:main:620 -   isp_gin_random_walk_t3_L3                  9/12  (0.7500)
+2026-02-13 16:28:13.514 | INFO     | __main__:main:620 -   isp_gin_random_walk_t3_L4                  9/12  (0.7500)
+2026-02-13 16:28:13.515 | INFO     | __main__:main:620 -   isp_gin_rw_t2_L3                           0/12  (0.0000)
+2026-02-13 16:28:13.515 | INFO     | __main__:main:620 -   isp_gin_rw_t3_K16_L3                       9/12  (0.7500)
+2026-02-13 16:28:13.516 | INFO     | __main__:main:620 -   isp_gin_rw_t3_L3                           9/12  (0.7500)
+2026-02-13 16:28:13.516 | INFO     | __main__:main:620 -   isp_gin_rw_t4_L3                           9/12  (0.7500)
+2026-02-13 16:28:13.517 | INFO     | __main__:main:620 -   isp_gin_rw_t5_L3                           9/12  (0.7500)
+2026-02-13 16:28:13.517 | INFO     | __main__:main:620 -   isp_gin_rw_t6_L3                           9/12  (0.7500)
+2026-02-13 16:28:13.518 | INFO     | __main__:main:620 -   isp_nomp_mag_local_topology                0/12  (0.0000)
+2026-02-13 16:28:13.518 | INFO     | __main__:main:620 -   isp_nomp_mag_random_walk_t3                0/12  (0.0000)
+2026-02-13 16:28:13.519 | INFO     | __main__:main:620 -   isp_nomp_phase_local_topology             12/12  (1.0000)
+2026-02-13 16:28:13.519 | INFO     | __main__:main:620 -   isp_nomp_phase_random_walk_t3             12/12  (1.0000)
+2026-02-13 16:28:13.519 | INFO     | __main__:main:620 -   real_gin_aug_L1                           12/12  (1.0000)
+2026-02-13 16:28:13.519 | INFO     | __main__:main:620 -   real_gin_aug_L2                           12/12  (1.0000)
+2026-02-13 16:28:13.519 | INFO     | __main__:main:620 -   real_gin_aug_L3                           12/12  (1.0000)
+2026-02-13 16:28:13.519 | INFO     | __main__:main:620 -   real_gin_aug_L4                           12/12  (1.0000)
+2026-02-13 16:28:13.520 | INFO     | __main__:main:620 -   wl_baseline                                0/12  (0.0000)
+2026-02-13 16:28:13.520 | INFO     | __main__:main:622 - ------------------------------------------------------------
+2026-02-13 16:28:13.520 | INFO     | __main__:main:623 - INTERFERENCE CONTRIBUTION (ISP-GIN vs RealGIN-Aug)
+2026-02-13 16:28:13.520 | INFO     | __main__:main:625 -   isp_vs_real_rw_t3_L1: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:28:13.520 | INFO     | __main__:main:625 -   isp_vs_real_rw_t3_L2: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:28:13.520 | INFO     | __main__:main:625 -   isp_vs_real_rw_t3_L3: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:28:13.520 | INFO     | __main__:main:625 -   isp_vs_real_rw_t3_L4: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:28:13.520 | INFO     | __main__:main:627 - ------------------------------------------------------------
+2026-02-13 16:28:13.520 | INFO     | __main__:main:628 - RANDOM WALK t-SWEEP (ISP-GIN, L=3)
+2026-02-13 16:28:13.520 | INFO     | __main__:main:630 -   t2: 0/12
+2026-02-13 16:28:13.520 | INFO     | __main__:main:630 -   t3: 9/12
+2026-02-13 16:28:13.520 | INFO     | __main__:main:630 -   t4: 9/12
+2026-02-13 16:28:13.520 | INFO     | __main__:main:630 -   t5: 9/12
+2026-02-13 16:28:13.521 | INFO     | __main__:main:630 -   t6: 9/12
+2026-02-13 16:28:13.522 | INFO     | __main__:main:634 - Saved results to mini_method_out_test.json
+2026-02-13 16:28:13.522 | INFO     | __main__:main:635 - Total runtime: 1.2s
+2026-02-13 16:31:21.397 | INFO     | __main__:main:601 - Loading data from mini_data_out.json
+2026-02-13 16:31:21.398 | INFO     | __main__:main:608 - Loaded 12 examples across 4 datasets
+2026-02-13 16:31:21.398 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_basic': 3 pairs
+2026-02-13 16:31:21.718 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_regular': 3 pairs
+2026-02-13 16:31:21.787 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_cfi': 3 pairs
+2026-02-13 16:31:21.848 | INFO     | __main__:run_experiment:356 - Processing dataset 'csl': 3 pairs
+2026-02-13 16:31:21.950 | INFO     | __main__:main:617 - Experiment completed in 0.6s
+2026-02-13 16:31:21.951 | INFO     | __main__:main:620 - ============================================================
+2026-02-13 16:31:21.951 | INFO     | __main__:main:621 - AGGREGATE RESULTS
+2026-02-13 16:31:21.951 | INFO     | __main__:main:622 - ============================================================
+2026-02-13 16:31:21.951 | INFO     | __main__:main:627 -   isp_gin_local_topology_L1                  9/12  (0.7500)
+2026-02-13 16:31:21.951 | INFO     | __main__:main:627 -   isp_gin_local_topology_L2                  9/12  (0.7500)
+2026-02-13 16:31:21.951 | INFO     | __main__:main:627 -   isp_gin_local_topology_L3                  9/12  (0.7500)
+2026-02-13 16:31:21.951 | INFO     | __main__:main:627 -   isp_gin_local_topology_L4                  9/12  (0.7500)
+2026-02-13 16:31:21.951 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L1                  9/12  (0.7500)
+2026-02-13 16:31:21.951 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L2                  9/12  (0.7500)
+2026-02-13 16:31:21.951 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L3                  9/12  (0.7500)
+2026-02-13 16:31:21.951 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L4                  9/12  (0.7500)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_gin_rw_t2_L3                           0/12  (0.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_gin_rw_t3_K16_L3                       9/12  (0.7500)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_gin_rw_t3_L3                           9/12  (0.7500)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_gin_rw_t4_L3                           9/12  (0.7500)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_gin_rw_t5_L3                           9/12  (0.7500)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_gin_rw_t6_L3                           9/12  (0.7500)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_nomp_mag_local_topology                0/12  (0.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_nomp_mag_random_walk_t3                0/12  (0.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_nomp_phase_local_topology             12/12  (1.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   isp_nomp_phase_random_walk_t3             12/12  (1.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   real_gin_aug_L1                           12/12  (1.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   real_gin_aug_L2                           12/12  (1.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   real_gin_aug_L3                           12/12  (1.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   real_gin_aug_L4                           12/12  (1.0000)
+2026-02-13 16:31:21.952 | INFO     | __main__:main:627 -   wl_baseline                                0/12  (0.0000)
+2026-02-13 16:31:21.953 | INFO     | __main__:main:629 - ------------------------------------------------------------
+2026-02-13 16:31:21.953 | INFO     | __main__:main:630 - INTERFERENCE CONTRIBUTION (ISP-GIN vs RealGIN-Aug)
+2026-02-13 16:31:21.953 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L1: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:31:21.953 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L2: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:31:21.953 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L3: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:31:21.953 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L4: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:31:21.953 | INFO     | __main__:main:634 - ------------------------------------------------------------
+2026-02-13 16:31:21.953 | INFO     | __main__:main:635 - RANDOM WALK t-SWEEP (ISP-GIN, L=3)
+2026-02-13 16:31:21.953 | INFO     | __main__:main:637 -   t2: 0/12
+2026-02-13 16:31:21.953 | INFO     | __main__:main:637 -   t3: 9/12
+2026-02-13 16:31:21.953 | INFO     | __main__:main:637 -   t4: 9/12
+2026-02-13 16:31:21.953 | INFO     | __main__:main:637 -   t5: 9/12
+2026-02-13 16:31:21.953 | INFO     | __main__:main:637 -   t6: 9/12
+2026-02-13 16:31:21.955 | INFO     | __main__:main:641 - Saved results to mini_method_out_test.json
+2026-02-13 16:31:21.955 | INFO     | __main__:main:642 - Total runtime: 0.6s
+2026-02-13 16:31:47.420 | INFO     | __main__:main:601 - Loading data from full_data_out.json
+2026-02-13 16:31:47.420 | INFO     | __main__:main:608 - Loaded 55 examples across 4 datasets
+2026-02-13 16:31:47.421 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_basic': 10 pairs
+2026-02-13 16:31:47.752 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_regular': 15 pairs
+2026-02-13 16:31:48.060 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_cfi': 10 pairs
+2026-02-13 16:31:48.285 | INFO     | __main__:run_experiment:356 - Processing dataset 'csl': 20 pairs
+2026-02-13 16:31:48.903 | INFO     | __main__:main:617 - Experiment completed in 1.5s
+2026-02-13 16:31:48.903 | INFO     | __main__:main:620 - ============================================================
+2026-02-13 16:31:48.903 | INFO     | __main__:main:621 - AGGREGATE RESULTS
+2026-02-13 16:31:48.903 | INFO     | __main__:main:622 - ============================================================
+2026-02-13 16:31:48.903 | INFO     | __main__:main:627 -   isp_gin_local_topology_L1                 35/55  (0.6364)
+2026-02-13 16:31:48.903 | INFO     | __main__:main:627 -   isp_gin_local_topology_L2                 35/55  (0.6364)
+2026-02-13 16:31:48.903 | INFO     | __main__:main:627 -   isp_gin_local_topology_L3                 35/55  (0.6364)
+2026-02-13 16:31:48.903 | INFO     | __main__:main:627 -   isp_gin_local_topology_L4                 35/55  (0.6364)
+2026-02-13 16:31:48.903 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L1                 35/55  (0.6364)
+2026-02-13 16:31:48.903 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L2                 35/55  (0.6364)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L3                 35/55  (0.6364)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L4                 35/55  (0.6364)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_gin_rw_t2_L3                           0/55  (0.0000)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_gin_rw_t3_K16_L3                      35/55  (0.6364)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_gin_rw_t3_L3                          35/55  (0.6364)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_gin_rw_t4_L3                          35/55  (0.6364)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_gin_rw_t5_L3                          35/55  (0.6364)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_gin_rw_t6_L3                          35/55  (0.6364)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_nomp_mag_local_topology                0/55  (0.0000)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_nomp_mag_random_walk_t3                0/55  (0.0000)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_nomp_phase_local_topology             44/55  (0.8000)
+2026-02-13 16:31:48.904 | INFO     | __main__:main:627 -   isp_nomp_phase_random_walk_t3             44/55  (0.8000)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:627 -   real_gin_aug_L1                           44/55  (0.8000)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:627 -   real_gin_aug_L2                           44/55  (0.8000)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:627 -   real_gin_aug_L3                           44/55  (0.8000)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:627 -   real_gin_aug_L4                           44/55  (0.8000)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:627 -   wl_baseline                                0/55  (0.0000)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:629 - ------------------------------------------------------------
+2026-02-13 16:31:48.905 | INFO     | __main__:main:630 - INTERFERENCE CONTRIBUTION (ISP-GIN vs RealGIN-Aug)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L1: 35 vs 44 out of 55 (ISP: 35/55, Real: 44/55)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L2: 35 vs 44 out of 55 (ISP: 35/55, Real: 44/55)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L3: 35 vs 44 out of 55 (ISP: 35/55, Real: 44/55)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L4: 35 vs 44 out of 55 (ISP: 35/55, Real: 44/55)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:634 - ------------------------------------------------------------
+2026-02-13 16:31:48.905 | INFO     | __main__:main:635 - RANDOM WALK t-SWEEP (ISP-GIN, L=3)
+2026-02-13 16:31:48.905 | INFO     | __main__:main:637 -   t2: 0/55
+2026-02-13 16:31:48.905 | INFO     | __main__:main:637 -   t3: 35/55
+2026-02-13 16:31:48.906 | INFO     | __main__:main:637 -   t4: 35/55
+2026-02-13 16:31:48.906 | INFO     | __main__:main:637 -   t5: 35/55
+2026-02-13 16:31:48.906 | INFO     | __main__:main:637 -   t6: 35/55
+2026-02-13 16:31:48.910 | INFO     | __main__:main:641 - Saved results to method_out.json
+2026-02-13 16:31:48.910 | INFO     | __main__:main:642 - Total runtime: 1.5s
+2026-02-13 16:32:56.883 | INFO     | __main__:main:601 - Loading data from mini_data_out.json
+2026-02-13 16:32:56.884 | INFO     | __main__:main:608 - Loaded 12 examples across 4 datasets
+2026-02-13 16:32:56.885 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_basic': 3 pairs
+2026-02-13 16:32:57.285 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_regular': 3 pairs
+2026-02-13 16:32:57.360 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_cfi': 3 pairs
+2026-02-13 16:32:57.433 | INFO     | __main__:run_experiment:356 - Processing dataset 'csl': 3 pairs
+2026-02-13 16:32:57.541 | INFO     | __main__:main:617 - Experiment completed in 0.7s
+2026-02-13 16:32:57.542 | INFO     | __main__:main:620 - ============================================================
+2026-02-13 16:32:57.542 | INFO     | __main__:main:621 - AGGREGATE RESULTS
+2026-02-13 16:32:57.542 | INFO     | __main__:main:622 - ============================================================
+2026-02-13 16:32:57.542 | INFO     | __main__:main:627 -   isp_gin_local_topology_L1                  9/12  (0.7500)
+2026-02-13 16:32:57.542 | INFO     | __main__:main:627 -   isp_gin_local_topology_L2                  9/12  (0.7500)
+2026-02-13 16:32:57.543 | INFO     | __main__:main:627 -   isp_gin_local_topology_L3                  9/12  (0.7500)
+2026-02-13 16:32:57.543 | INFO     | __main__:main:627 -   isp_gin_local_topology_L4                  9/12  (0.7500)
+2026-02-13 16:32:57.543 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L1                  9/12  (0.7500)
+2026-02-13 16:32:57.543 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L2                  9/12  (0.7500)
+2026-02-13 16:32:57.543 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L3                  9/12  (0.7500)
+2026-02-13 16:32:57.543 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L4                  9/12  (0.7500)
+2026-02-13 16:32:57.544 | INFO     | __main__:main:627 -   isp_gin_rw_t2_L3                           0/12  (0.0000)
+2026-02-13 16:32:57.544 | INFO     | __main__:main:627 -   isp_gin_rw_t3_K16_L3                       9/12  (0.7500)
+2026-02-13 16:32:57.544 | INFO     | __main__:main:627 -   isp_gin_rw_t3_L3                           9/12  (0.7500)
+2026-02-13 16:32:57.544 | INFO     | __main__:main:627 -   isp_gin_rw_t4_L3                           9/12  (0.7500)
+2026-02-13 16:32:57.544 | INFO     | __main__:main:627 -   isp_gin_rw_t5_L3                           9/12  (0.7500)
+2026-02-13 16:32:57.544 | INFO     | __main__:main:627 -   isp_gin_rw_t6_L3                           9/12  (0.7500)
+2026-02-13 16:32:57.545 | INFO     | __main__:main:627 -   isp_nomp_mag_local_topology                0/12  (0.0000)
+2026-02-13 16:32:57.545 | INFO     | __main__:main:627 -   isp_nomp_mag_random_walk_t3                0/12  (0.0000)
+2026-02-13 16:32:57.545 | INFO     | __main__:main:627 -   isp_nomp_phase_local_topology             12/12  (1.0000)
+2026-02-13 16:32:57.545 | INFO     | __main__:main:627 -   isp_nomp_phase_random_walk_t3             12/12  (1.0000)
+2026-02-13 16:32:57.545 | INFO     | __main__:main:627 -   real_gin_aug_L1                           12/12  (1.0000)
+2026-02-13 16:32:57.545 | INFO     | __main__:main:627 -   real_gin_aug_L2                           12/12  (1.0000)
+2026-02-13 16:32:57.546 | INFO     | __main__:main:627 -   real_gin_aug_L3                           12/12  (1.0000)
+2026-02-13 16:32:57.546 | INFO     | __main__:main:627 -   real_gin_aug_L4                           12/12  (1.0000)
+2026-02-13 16:32:57.546 | INFO     | __main__:main:627 -   wl_baseline                                0/12  (0.0000)
+2026-02-13 16:32:57.546 | INFO     | __main__:main:629 - ------------------------------------------------------------
+2026-02-13 16:32:57.546 | INFO     | __main__:main:630 - INTERFERENCE CONTRIBUTION (ISP-GIN vs RealGIN-Aug)
+2026-02-13 16:32:57.546 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L1: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:32:57.547 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L2: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:32:57.547 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L3: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:32:57.547 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L4: 9 vs 12 out of 12 (ISP: 9/12, Real: 12/12)
+2026-02-13 16:32:57.547 | INFO     | __main__:main:634 - ------------------------------------------------------------
+2026-02-13 16:32:57.547 | INFO     | __main__:main:635 - RANDOM WALK t-SWEEP (ISP-GIN, L=3)
+2026-02-13 16:32:57.547 | INFO     | __main__:main:637 -   t2: 0/12
+2026-02-13 16:32:57.547 | INFO     | __main__:main:637 -   t3: 9/12
+2026-02-13 16:32:57.548 | INFO     | __main__:main:637 -   t4: 9/12
+2026-02-13 16:32:57.548 | INFO     | __main__:main:637 -   t5: 9/12
+2026-02-13 16:32:57.548 | INFO     | __main__:main:637 -   t6: 9/12
+2026-02-13 16:32:57.551 | INFO     | __main__:main:641 - Saved results to mini_rerun.json
+2026-02-13 16:32:57.551 | INFO     | __main__:main:642 - Total runtime: 0.7s
+2026-02-13 16:32:57.970 | INFO     | __main__:main:601 - Loading data from full_data_out.json
+2026-02-13 16:32:57.984 | INFO     | __main__:main:608 - Loaded 55 examples across 4 datasets
+2026-02-13 16:32:57.984 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_basic': 10 pairs
+2026-02-13 16:32:58.449 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_regular': 15 pairs
+2026-02-13 16:32:58.738 | INFO     | __main__:run_experiment:356 - Processing dataset 'brec_cfi': 10 pairs
+2026-02-13 16:32:58.918 | INFO     | __main__:run_experiment:356 - Processing dataset 'csl': 20 pairs
+2026-02-13 16:32:59.533 | INFO     | __main__:main:617 - Experiment completed in 1.5s
+2026-02-13 16:32:59.533 | INFO     | __main__:main:620 - ============================================================
+2026-02-13 16:32:59.533 | INFO     | __main__:main:621 - AGGREGATE RESULTS
+2026-02-13 16:32:59.533 | INFO     | __main__:main:622 - ============================================================
+2026-02-13 16:32:59.533 | INFO     | __main__:main:627 -   isp_gin_local_topology_L1                 35/55  (0.6364)
+2026-02-13 16:32:59.533 | INFO     | __main__:main:627 -   isp_gin_local_topology_L2                 35/55  (0.6364)
+2026-02-13 16:32:59.533 | INFO     | __main__:main:627 -   isp_gin_local_topology_L3                 35/55  (0.6364)
+2026-02-13 16:32:59.533 | INFO     | __main__:main:627 -   isp_gin_local_topology_L4                 35/55  (0.6364)
+2026-02-13 16:32:59.533 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L1                 35/55  (0.6364)
+2026-02-13 16:32:59.533 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L2                 35/55  (0.6364)
+2026-02-13 16:32:59.533 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L3                 35/55  (0.6364)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_gin_random_walk_t3_L4                 35/55  (0.6364)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_gin_rw_t2_L3                           0/55  (0.0000)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_gin_rw_t3_K16_L3                      35/55  (0.6364)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_gin_rw_t3_L3                          35/55  (0.6364)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_gin_rw_t4_L3                          35/55  (0.6364)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_gin_rw_t5_L3                          35/55  (0.6364)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_gin_rw_t6_L3                          35/55  (0.6364)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_nomp_mag_local_topology                0/55  (0.0000)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_nomp_mag_random_walk_t3                0/55  (0.0000)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_nomp_phase_local_topology             44/55  (0.8000)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   isp_nomp_phase_random_walk_t3             44/55  (0.8000)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   real_gin_aug_L1                           44/55  (0.8000)
+2026-02-13 16:32:59.534 | INFO     | __main__:main:627 -   real_gin_aug_L2                           44/55  (0.8000)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:627 -   real_gin_aug_L3                           44/55  (0.8000)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:627 -   real_gin_aug_L4                           44/55  (0.8000)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:627 -   wl_baseline                                0/55  (0.0000)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:629 - ------------------------------------------------------------
+2026-02-13 16:32:59.535 | INFO     | __main__:main:630 - INTERFERENCE CONTRIBUTION (ISP-GIN vs RealGIN-Aug)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L1: 35 vs 44 out of 55 (ISP: 35/55, Real: 44/55)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L2: 35 vs 44 out of 55 (ISP: 35/55, Real: 44/55)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L3: 35 vs 44 out of 55 (ISP: 35/55, Real: 44/55)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:632 -   isp_vs_real_rw_t3_L4: 35 vs 44 out of 55 (ISP: 35/55, Real: 44/55)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:634 - ------------------------------------------------------------
+2026-02-13 16:32:59.535 | INFO     | __main__:main:635 - RANDOM WALK t-SWEEP (ISP-GIN, L=3)
+2026-02-13 16:32:59.535 | INFO     | __main__:main:637 -   t2: 0/55
+2026-02-13 16:32:59.535 | INFO     | __main__:main:637 -   t3: 35/55
+2026-02-13 16:32:59.535 | INFO     | __main__:main:637 -   t4: 35/55
+2026-02-13 16:32:59.535 | INFO     | __main__:main:637 -   t5: 35/55
+2026-02-13 16:32:59.536 | INFO     | __main__:main:637 -   t6: 35/55
+2026-02-13 16:32:59.539 | INFO     | __main__:main:641 - Saved results to method_out.json
+2026-02-13 16:32:59.539 | INFO     | __main__:main:642 - Total runtime: 1.5s

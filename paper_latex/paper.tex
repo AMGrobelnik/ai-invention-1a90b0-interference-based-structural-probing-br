@@ -1,0 +1,284 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{graphicx, geometry, amsmath, amssymb, hyperref, natbib, booktabs, xcolor}
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black}
+
+% Ensure figures fit within page
+\usepackage[export]{adjustbox}
+
+\title{Interference-Based Structural Probing: Can Complex-Valued Message Passing Break the 1-WL Barrier? A Negative Result}
+
+\author{Anonymous Authors}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+%% ============================================================
+%% ABSTRACT
+%% ============================================================
+\begin{abstract}
+Standard message-passing graph neural networks (MPNNs) are bounded in expressiveness by the 1-dimensional Weisfeiler--Leman (1-WL) test.
+We investigate whether this limitation is an artifact of real-valued arithmetic rather than a fundamental constraint of the message-passing paradigm.
+Specifically, we propose \emph{Interference-Based Structural Probing} (ISP), which replaces real-valued node features with complex-valued features initialized as deterministic harmonic functions of local topology, hypothesizing that wave interference during sum aggregation encodes structural motifs invisible to real-valued aggregation.
+Initial experiments on 55 benchmark graph pairs (spanning BREC and Circular Skip Link families) show ISP-GIN distinguishes 35/55 pairs that 1-WL cannot.
+However, a critical ablation reveals that a simple real-valued GIN augmented with the same topological features (RealGIN-Aug) distinguishes 44/55 pairs, significantly outperforming ISP-GIN (McNemar's test, $p=0.0039$).
+The gap is entirely attributable to regular graphs, where degree-based phase initialization degenerates.
+On downstream graph classification tasks (MUTAG, PROTEINS, IMDB-BINARY, PTC\_MR), complex-valued arithmetic actively degrades performance (51--68\% accuracy vs.\ 63--92\% for standard GIN).
+We conclude that complex-valued interference adds no expressiveness beyond real-valued topological feature augmentation, and frame this negative result as a methodological contribution: the physics-inspired wave interference analogy, while conceptually elegant, does not transfer to discrete graph structures.
+\end{abstract}
+
+%% ============================================================
+%% 1. INTRODUCTION
+%% ============================================================
+\section{Introduction}
+
+Message-passing neural networks (MPNNs) \citep{Gilmer2017} have become the dominant paradigm for learning on graph-structured data, with architectures such as GCN \citep{Kipf2017}, GraphSAGE \citep{Hamilton2017}, GAT \citep{Velickovic2018}, and GIN \citep{Xu2019} achieving strong performance across molecular property prediction, social network analysis, and combinatorial optimization. A foundational theoretical result establishes that the expressiveness of any MPNN is bounded by the 1-dimensional Weisfeiler--Leman (1-WL) graph isomorphism test \citep{Xu2019, Morris2019}: two graphs that 1-WL assigns identical color histograms are provably indistinguishable by any standard MPNN.
+
+This expressiveness ceiling has motivated a rich line of research on methods that provably exceed 1-WL. Higher-order $k$-WL methods \citep{Morris2019} scale as $O(n^k)$, making them impractical for $k \geq 3$. Subgraph GNNs \citep{Murphy2019, Bevilacqua2022, Frasca2022} enumerate and process multiple subgraphs at $O(n^2)$ cost. Graph Substructure Networks (GSN) \citep{Bouritsas2023} inject substructure counts as node features. Spectral methods require $O(n^3)$ eigendecomposition \citep{Lim2023, Zhang2024}. Random feature approaches such as PEARL \citep{Eliasof2023} and random node initialization \citep{Abboud2021, Sato2021} sacrifice determinism or require multiple forward passes.
+
+We ask a different question: \emph{is the 1-WL ceiling inherent to the message-passing paradigm, or merely to the use of real-valued arithmetic?} Drawing inspiration from wave physics---where interference patterns in X-ray crystallography reveal atomic structure invisible to individual measurements---we propose \textbf{Interference-Based Structural Probing (ISP)}. ISP replaces real-valued node features with complex-valued features initialized as $z_v = \exp(i \cdot \omega \cdot f(v))$, where $f(v)$ is a function of local topology and $\omega$ is a frequency parameter. The hypothesis is that when complex signals from different neighbors are summed, their phase relationships produce constructive or destructive interference encoding structural patterns (triangles, cycles, cliques) invisible to real-valued aggregation. Running $K$ parallel frequency channels and concatenating the resulting magnitudes produces a deterministic structural fingerprint.
+
+Our investigation proceeds through systematic experimentation: an initial 140-configuration sweep across 7 initialization strategies on 55 1-WL-equivalent graph pairs, followed by a critical ablation that isolates the contribution of complex-valued arithmetic from that of the topological features used for initialization. The key finding is \textbf{negative}: a simple real-valued GIN augmented with the same topological features (RealGIN-Aug) significantly outperforms ISP-GIN (44/55 vs.\ 35/55 distinguished pairs, McNemar $p = 0.0039$), and ISP-GIN catastrophically fails on regular graphs. On downstream classification, complex arithmetic actively degrades performance.
+
+Our contributions are threefold: (1)~we rigorously test a physics-inspired hypothesis about complex-valued message passing and expressiveness, (2)~we provide a clean ablation methodology that separates the contribution of feature augmentation from that of the number field, and (3)~we establish that the 1-WL barrier is not overcome by switching from real to complex arithmetic---the expressiveness gain resides entirely in topological feature augmentation itself.
+
+%% ============================================================
+%% 2. RELATED WORK
+%% ============================================================
+\section{Related Work}
+
+\subsection{Expressiveness of Message-Passing GNNs}
+
+The theoretical expressiveness of MPNNs was characterized independently by \citet{Xu2019} and \citet{Morris2019}, who proved that standard message-passing architectures are at most as powerful as the 1-WL test. The Graph Isomorphism Network (GIN) \citep{Xu2019} achieves this upper bound through injective sum aggregation. The 1-WL test itself is a classical graph isomorphism heuristic based on iterative color refinement \citep{Weisfeiler1968}, and the Cai--F\"{u}rer--Immerman (CFI) construction \citep{Cai1992} provides families of graphs that defeat $k$-WL for any fixed $k$.
+
+\subsection{Methods Exceeding 1-WL}
+
+\paragraph{Higher-order methods.} \citet{Morris2019} introduced $k$-GNNs based on the $k$-WL hierarchy, and \citet{Maron2019} developed invariant and equivariant graph networks. These approaches achieve strictly greater expressiveness but scale as $O(n^k)$, limiting practical applicability. \citet{Bodnar2021} proposed CW Networks that lift graphs to cell complexes.
+
+\paragraph{Subgraph GNNs.} \citet{Bevilacqua2022} introduced equivariant subgraph aggregation networks (ESAN), and \citet{Frasca2022} provided a complete analysis of subgraph GNN symmetries. These methods process multiple node-rooted subgraphs at $O(n^2)$ cost.
+
+\paragraph{Substructure counting.} Graph Substructure Networks (GSN) \citep{Bouritsas2023} augment message passing with subgraph isomorphism counts, proving that substructure-aware aggregation strictly exceeds 1-WL while maintaining linear forward-pass complexity, though preprocessing requires combinatorial substructure enumeration.
+
+\paragraph{Spectral approaches.} SignNet and BasisNet \citep{Lim2023} handle eigenvector sign and basis ambiguities for spectral graph representation learning. \citet{Zhang2024} characterized the expressive power of spectral invariant GNNs, proving they are strictly bounded by 3-WL. Homomorphism counts as structural encodings (MoSE) \citep{Bao2025} provide a theoretically grounded framework connecting structural encodings to graph homomorphism theory, showing that random walk structural encoding (RWSE) equals weighted cycle homomorphism counts.
+
+\paragraph{Random and probabilistic approaches.} Random node initialization \citep{Abboud2021} and random feature augmentation \citep{Sato2021} can break 1-WL in expectation. PEARL \citep{Eliasof2023} generates learnable positional embeddings via message-passing GNNs, surpassing 1-WL with provable stability guarantees. Probabilistic graph rewiring via virtual nodes (IPR-MPNN) \citep{Qian2024} adds learned virtual nodes with differentiable connectivity.
+
+\paragraph{Permutation-sensitive aggregation.} PG-GNN \citep{Huang2022} captures pairwise neighbor correlations via permutation groups, achieving expressiveness between 2-WL and 3-WL at reduced computational cost.
+
+\paragraph{Alternative paradigms.} The Neural Graph Pattern Machine (GPM) \citep{WangGPM2025} bypasses message passing entirely, learning from graph substructures sampled via random walks and encoded with transformers.
+
+\subsection{Complex-Valued GNNs}
+
+Complex-valued representations have been explored in graph learning, but primarily for \emph{directed} graphs. MagNet \citep{ZhangMagNet2021} uses the complex Hermitian magnetic Laplacian to encode edge directionality, targeting directed graph tasks rather than undirected expressiveness. MSH-GNN \citep{LiMSH2025} uses multi-scale harmonic encodings in the real domain and does not claim to break 1-WL. Our literature survey confirmed that no existing work uses complex-valued features on undirected graphs to break the 1-WL barrier via wave interference, establishing the novelty of the ISP hypothesis.
+
+\subsection{Benchmarks}
+
+The BREC benchmark \citep{WangBREC2024, Dwivedi2023} provides 400 graph pairs across four difficulty categories for systematically testing GNN expressiveness, with the best model (I$^2$-GNN) achieving 70.2\%. Standard graph classification benchmarks from the TUDataset collection \citep{Morris2020} (MUTAG, PROTEINS, IMDB-BINARY, PTC\_MR) evaluate downstream task performance.
+
+%% ============================================================
+%% 3. METHODS
+%% ============================================================
+\section{Methods}
+
+\subsection{Problem Formulation}
+
+Let $G = (V, E)$ be an undirected graph. Standard message-passing updates node features via
+\begin{equation}
+h_v^{(l+1)} = \phi\!\left(h_v^{(l)},\; \bigoplus_{u \in \mathcal{N}(v)} \psi\!\left(h_u^{(l)}\right)\right),
+\end{equation}
+where $\bigoplus$ is a permutation-invariant aggregation (typically sum), $\psi$ is a message function, and $\phi$ is an update function. For GIN \citep{Xu2019}, this reduces to
+\begin{equation}
+h_v^{(l+1)} = \mathrm{MLP}\!\left((1 + \epsilon) \cdot h_v^{(l)} + \sum_{u \in \mathcal{N}(v)} h_u^{(l)}\right).
+\end{equation}
+We seek to determine whether replacing $h_v \in \mathbb{R}^d$ with $z_v \in \mathbb{C}^d$ and performing the same sum aggregation in the complex domain can provably exceed 1-WL expressiveness.
+
+\subsection{ISP-GIN: Complex-Valued Message Passing}
+
+\paragraph{Harmonic Initialization.} Each node $v$ is assigned a complex feature vector across $K$ frequency channels:
+\begin{equation}
+z_v^{(0)}[k] = \exp\!\left(i \cdot \omega_k \cdot f(v)\right), \quad k = 1, \ldots, K
+\end{equation}
+where $f(v)$ is a scalar function of local topology and $\omega_k$ are frequency parameters spaced using the golden ratio: $\omega_k = k \cdot \varphi$ with $\varphi = (1 + \sqrt{5})/2$.
+
+\paragraph{Initialization Strategies.} We test seven strategies for $f(v)$: (i)~\emph{degree}: $f(v) = \deg(v)$; (ii)~\emph{random\_walk\_t2}: $f(v) = p_v^{(2)}$, the 2-step return probability; (iii)~\emph{random\_walk\_t3}: $f(v) = p_v^{(3)}$, the 3-step return probability; (iv)~\emph{wl\_color}: $f(v)$ encodes 3-iteration WL color; (v)~\emph{local\_topology}: $f(v)$ combines clustering coefficient, neighbor degree variance, and triangle count; (vi)~\emph{multihop\_hash}: hash of 2-hop neighborhood structure; (vii)~\emph{spectral}: first non-trivial Laplacian eigenvector component.
+
+\paragraph{Complex Message Passing.} For $L$ layers:
+\begin{equation}
+z_v^{(l+1)}[k] = z_v^{(l)}[k] + \sum_{u \in \mathcal{N}(v)} z_u^{(l)}[k]
+\end{equation}
+
+\paragraph{Structural Fingerprint Extraction.} After $L$ layers, node-level magnitudes are extracted and summed over nodes to produce a graph-level fingerprint:
+\begin{equation}
+\mathbf{g} = \left[\sum_{v \in V} \left|z_v^{(L)}[1]\right|,\; \ldots,\; \sum_{v \in V} \left|z_v^{(L)}[K]\right|\right] \in \mathbb{R}^K
+\end{equation}
+Two graphs are declared \emph{distinguished} if $\|\mathbf{g}_A - \mathbf{g}_B\|_2 > \epsilon$ for threshold $\epsilon = 10^{-6}$.
+
+\subsection{RealGIN-Aug: The Critical Ablation Baseline}
+
+To isolate the contribution of complex arithmetic from topological features, we define RealGIN-Aug: a standard GIN where each node $v$ is augmented with the same topological features used for ISP initialization---random walk return probabilities $p_v^{(t)}$ for $t = 2, \ldots, 6$, local clustering coefficient, neighbor degree mean and variance---concatenated to form a real-valued feature vector. Message passing proceeds in $\mathbb{R}^d$ with standard sum aggregation.
+
+\subsection{ISP-NoMP: No Message Passing Controls}
+
+We define two no-message-passing controls: \textbf{ISP-NoMP-Magnitude} extracts $|z_v^{(0)}[k]| = 1$ for all $v, k$ (trivially uninformative since $|\exp(i\theta)| = 1$), and \textbf{ISP-NoMP-Phase} extracts the phase angles $\theta_v[k] = \omega_k \cdot f(v)$ directly. These controls test whether the topological features alone, without message passing, suffice for distinguishability.
+
+%% ============================================================
+%% 4. EXPERIMENTAL SETUP
+%% ============================================================
+\section{Experimental Setup}
+
+\subsection{Expressiveness Benchmark}
+
+We evaluate on 55 non-isomorphic, 1-WL-equivalent graph pairs drawn from four categories: \textbf{brec\_basic} (10 pairs, general 1-WL-level graphs from the BREC benchmark \citep{WangBREC2024}), \textbf{brec\_regular} (15 pairs, strongly regular graphs from BREC), \textbf{brec\_cfi} (10 pairs, 3-WL-level CFI constructions from BREC), and \textbf{csl} (20 pairs, 41-node 4-regular Circular Skip Link graphs \citep{Murphy2019}). All pairs are confirmed non-isomorphic and WL-indistinguishable.
+
+\subsection{Classification Benchmark}
+
+We evaluate on four TUDataset benchmarks \citep{Morris2020}: MUTAG (188 graphs, 7 node features), PROTEINS (1113 graphs, 4 features), IMDB-BINARY (1000 graphs, degree features), and PTC\_MR (344 graphs, degree features). We use stratified 10-fold cross-validation with seed 42. Hyperparameters: hidden dimension 64, 3 GIN layers, dropout 0.5, learning rate 0.01 with Adam optimizer and ReduceLROnPlateau scheduler (patience 10, factor 0.5), early stopping with patience 20, batch size 32, and $K = 4$ frequency channels for ISP-GIN.
+
+\subsection{Configuration Space}
+
+The initial experiment sweeps 7 initialization strategies $\times$ 5 $K$-values $\{1, 2, 4, 8, 16\}$ $\times$ 4 $L$-values $\{1, 2, 3, 4\}$ = 140 configurations. The ablation experiment focuses on the best-performing initializations with additional random walk $t$-sweep ($t \in \{2, 3, 4, 5, 6\}$) and extended frequency sweep.
+
+%% ============================================================
+%% 5. RESULTS
+%% ============================================================
+\section{Results}
+
+\subsection{Initial Expressiveness Experiment}
+
+The initial 140-configuration sweep produced an apparently strong result: ISP-GIN distinguished 55/55 pairs (100\%) when taking the union across all initialization strategies and hyperparameters, compared to 0/55 for the WL baseline. Total runtime was 12.7 seconds. However, only 3 of 7 initialization strategies contributed any distinguishing power: random\_walk\_t3 and local\_topology each achieved 63.6\% (35/55) as the best single configuration, while spectral achieved 43.6\% (24/55). The degree, wl\_color, random\_walk\_t2, and multihop\_hash strategies all scored 0/55---an early warning that the interference mechanism alone, without informative initialization features, contributes nothing.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.92\textwidth,max height=0.4\textheight]{figures/fig_1_v0.png}
+  \caption{ISP-GIN expressiveness by initialization strategy on 55 graph pairs. Only 3 of 7 strategies (random\_walk\_t3, local\_topology, spectral) achieve nonzero expressiveness, revealing that the initialization function---not complex arithmetic---is the critical factor.}
+  \label{fig:init_strategy}
+\end{figure}
+
+Figure~\ref{fig:init_strategy} illustrates this pattern: the four strategies that produce constant $f(v)$ across structurally distinct nodes (degree on regular graphs, WL color on WL-equivalent graphs) yield zero discriminative power.
+
+\subsection{The Critical Ablation: Complex vs.\ Real Arithmetic}
+
+The ablation experiment introduced the decisive control: RealGIN-Aug, which uses the same topological features in the real domain.
+
+The results are presented in Table~\ref{tab:ablation}. RealGIN-Aug strictly dominates ISP-GIN: 44/55 (80.0\%) vs.\ 35/55 (63.6\%). The entire gap comes from CSL graphs, where ISP-GIN fails all 20 pairs while RealGIN-Aug distinguishes 9/20.
+
+\begin{table}[!htbp]
+\centering
+\caption{Expressiveness comparison across methods on 55 graph pairs. Best results per dataset in \textbf{bold}.}
+\label{tab:ablation}
+\begin{tabular}{lcccccc}
+\toprule
+Method & Basic & Regular & CFI & CSL & Total & Frac.\ \\
+ & (10) & (15) & (10) & (20) & (55) & \\
+\midrule
+WL Baseline & 0 & 0 & 0 & 0 & 0 & 0.00 \\
+ISP-NoMP-Mag & 0 & 0 & 0 & 0 & 0 & 0.00 \\
+ISP-NoMP-Phase & 10 & 15 & 10 & 9 & 44 & 0.80 \\
+ISP-GIN & 10 & 15 & 10 & 0 & 35 & 0.64 \\
+\textbf{RealGIN-Aug} & \textbf{10} & \textbf{15} & \textbf{10} & \textbf{9} & \textbf{44} & \textbf{0.80} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+McNemar's test confirms the difference is statistically significant: $\chi^2 = 9.0$, $p = 0.0039$, with Cohen's $h = 0.367$. The 95\% confidence intervals are non-overlapping: ISP-GIN $[0.496, 0.762]$ vs.\ RealGIN-Aug $[0.670, 0.896]$.
+
+The ISP-NoMP-Phase control achieves 44/55---identical to RealGIN-Aug---demonstrating that the discriminative power resides entirely in the topological features (random walk return probabilities, clustering coefficients), not in complex-valued message passing. The ISP-NoMP-Magnitude control achieves 0/55, which is mathematically guaranteed since $|\exp(i\theta)| = 1$ for all $\theta$.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.92\textwidth,max height=0.4\textheight]{figures/fig_2_v0.png}
+  \caption{Per-dataset expressiveness breakdown across five methods. ISP-GIN and RealGIN-Aug are tied on brec\_basic, brec\_regular, and brec\_cfi (35/35 each), but ISP-GIN catastrophically fails on CSL (0/20 vs.\ 9/20), where all nodes have identical degree.}
+  \label{fig:per_dataset}
+\end{figure}
+
+Figure~\ref{fig:per_dataset} reveals the critical pattern: ISP-GIN's failure is entirely concentrated on CSL graphs, precisely the subset where all nodes are structurally equivalent under degree-based features.
+
+\subsection{CSL Failure Analysis}
+
+The catastrophic failure on CSL graphs has a precise mathematical explanation. CSL graphs are 4-regular: every node has degree exactly 4. The harmonic initialization assigns $z_v = \exp(i \cdot \omega \cdot 4)$ to every node, producing identical phases with zero variance. Sum aggregation over identically-phased signals produces $\sum_{u \in \mathcal{N}(v)} z_u = 4 \cdot \exp(i \cdot \omega \cdot 4)$ for every node $v$ in every CSL graph, regardless of the skip parameter that distinguishes them. The interference mechanism degenerates completely when local topology is uniform.
+
+This reveals a fundamental limitation: the interference mechanism \emph{requires phase diversity}, which in turn requires that the initialization function $f(v)$ assigns distinct values to nodes in structurally different positions. On regular graphs---precisely the class where breaking 1-WL is most important---degree-based features provide no such diversity.
+
+\subsection{Random Walk $t$-Sweep}
+
+The random walk sweep confirms the importance of walk length: $t = 2$ achieves 0/55, while $t \geq 3$ achieves 35/55 uniformly. The transition at $t = 3$ corresponds to the minimum walk length needed to detect triangles, the simplest structural motif invisible to 1-WL.
+
+\subsection{Downstream Classification}
+
+Table~\ref{tab:classification} presents graph classification results on TUDatasets with 10-fold cross-validation.
+
+\begin{table}[!htbp]
+\centering
+\caption{Graph classification accuracy (\%) with standard deviation. Published GIN baselines from \citet{Xu2019} for comparison.}
+\label{tab:classification}
+\begin{tabular}{lcccc}
+\toprule
+Method & MUTAG & PROT. & IMDB-B & PTC \\
+\midrule
+GIN \citep{Xu2019} (pub.) & 89.4{\scriptsize$\pm$5.6} & 76.2{\scriptsize$\pm$2.8} & 75.1{\scriptsize$\pm$5.1} & 64.6{\scriptsize$\pm$7.0} \\
+GSN \citep{Bouritsas2023} (pub.) & 92.2{\scriptsize$\pm$7.5} & 76.6{\scriptsize$\pm$5.0} & 77.8{\scriptsize$\pm$3.3} & 68.2{\scriptsize$\pm$7.2} \\
+\midrule
+GIN (ours) & 92.3{\scriptsize$\pm$7.2} & 77.5{\scriptsize$\pm$4.0} & 73.2{\scriptsize$\pm$4.5} & 62.8{\scriptsize$\pm$2.8} \\
+RealGIN-Aug & 91.6{\scriptsize$\pm$6.6} & 76.5{\scriptsize$\pm$3.7} & 74.5{\scriptsize$\pm$4.2} & 66.3{\scriptsize$\pm$3.7} \\
+ISP-GIN & 67.6{\scriptsize$\pm$3.6} & 66.0{\scriptsize$\pm$5.2} & 51.0{\scriptsize$\pm$1.6} & 56.1{\scriptsize$\pm$0.9} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Standard GIN matches published baselines, validating our implementation. RealGIN-Aug shows modest gains on IMDB-BINARY (+1.3\%) and PTC\_MR (+3.5\%), consistent with the value of topological augmentation. ISP-GIN is catastrophically worse across all datasets: $-24.7$ points on MUTAG, $-11.5$ on PROTEINS, $-22.2$ on IMDB-BINARY, and $-6.7$ on PTC\_MR. On IMDB-BINARY, ISP-GIN achieves 51.0\%---essentially random chance for binary classification---with near-zero standard deviation (1.6\%), indicating complete failure to learn.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.92\textwidth,max height=0.4\textheight]{figures/fig_3_v0.png}
+  \caption{Graph classification accuracy across four TUDataset benchmarks. ISP-GIN's complex-valued arithmetic catastrophically degrades learned classification accuracy compared to both standard GIN and the real-valued augmented baseline. The dashed line indicates random chance (50\%).}
+  \label{fig:classification}
+\end{figure}
+
+Figure~\ref{fig:classification} visualizes the classification gap, highlighting ISP-GIN's near-chance performance on IMDB-BINARY.
+
+%% ============================================================
+%% 6. DISCUSSION
+%% ============================================================
+\section{Discussion}
+
+\subsection{The Interference Analogy Fails on Discrete Structures}
+
+The X-ray crystallography analogy that inspired ISP assumes continuous spatial structure where phase relationships encode geometric distances. In graphs, ``distances'' are discrete (hop counts), and the phase initialization is constrained to be a function of discrete local topology. When that topology is uniform---as in regular graphs, which are precisely the hardest cases for graph isomorphism---the analogy collapses entirely. The interference mechanism requires phase diversity, and graphs with homogeneous local structure provide none.
+
+\subsection{The Expressiveness Gain Is in the Features, Not the Field}
+
+The 100\% union result from the initial experiment was real, but its source was misattributed. Random walk return probabilities, local clustering coefficients, and spectral features genuinely break 1-WL when used as node augmentations---a result consistent with the GSN theory \citep{Bouritsas2023} that substructure count augmentation exceeds 1-WL. The MoSE framework \citep{Bao2025} further clarifies this: RWSE equals weighted cycle homomorphism counts, and the chain RWSE $\to$ cycle counts $\to$ breaks 1-WL follows from existing theory. Wrapping these features in complex exponentials and running complex aggregation adds computational overhead and optimization difficulty without adding expressiveness.
+
+\subsection{Why Complex Arithmetic Hurts Classification}
+
+The downstream classification results suggest that complex-valued backpropagation introduces a harder loss landscape. ISP-GIN's near-chance performance on IMDB-BINARY (51.0\%) with near-zero standard deviation (1.6\%) indicates the model converges to a trivial solution (predicting the majority class). The phase information that exists in the complex features appears not to be learnable by standard gradient descent. This aligns with known challenges in complex-valued neural network optimization, where the Cauchy--Riemann conditions impose constraints that can create saddle points and poor conditioning \citep{Keriven2019}.
+
+\subsection{Comparison with Existing Methods}
+
+On the expressiveness benchmark, RealGIN-Aug (44/55 = 80\%) is competitive with published methods on our 55-pair subset, though direct comparison with the full 400-pair BREC benchmark \citep{WangBREC2024} is not possible. For reference, on the full BREC benchmark, GSN achieves 63.5\%, KP-GNN 68.8\%, and I$^2$-GNN 70.2\% \citep{WangBREC2024}. The spectral initialization achieves 24/55 with a unique 20-pair marginal contribution on CSL, but this relies on eigendecomposition, undermining ISP's claimed $O(|E|)$ complexity advantage.
+
+\subsection{Limitations}
+
+Several limitations should be acknowledged. First, we tested only 55 of 400 BREC pairs; the full benchmark would provide more comprehensive characterization. Second, only sum aggregation was tested; complex-valued attention mechanisms might exploit phase information differently. Third, we did not test learned complex-valued initialization (as opposed to fixed harmonic initialization), which might overcome the regular graph degeneration. Fourth, our downstream classification used a pure PyTorch implementation rather than PyTorch Geometric, which may introduce implementation-specific effects. Fifth, no direct comparison with PEARL \citep{Eliasof2023} was conducted.
+
+%% ============================================================
+%% 7. CONCLUSION
+%% ============================================================
+\section{Conclusion}
+
+We proposed Interference-Based Structural Probing (ISP), a method inspired by wave physics that replaces real-valued GNN features with complex-valued harmonic features, hypothesizing that interference during sum aggregation would break the 1-WL expressiveness barrier at near-zero computational overhead. Through systematic experimentation and rigorous ablation, we definitively disconfirm this hypothesis: complex-valued interference adds no expressiveness beyond what real-valued topological feature augmentation already provides. The physics-inspired wave interference analogy, while conceptually elegant, does not transfer to discrete graph structures---particularly regular graphs, where the mechanism degenerates completely.
+
+This negative result has clear value for the community: it rules out a plausible-sounding approach, identifies the specific failure mode (phase degeneration on regular graphs), and provides a clean ablation methodology for evaluating feature augmentation methods. The finding that the expressiveness gain resides in topological features (random walk return probabilities, clustering coefficients) rather than in the number field redirects attention toward designing richer topological augmentations within the standard real-valued framework.
+
+Future work could explore learned (rather than fixed) complex-valued initialization, complex-valued attention mechanisms, or non-harmonic initialization strategies that maintain phase diversity on regular graphs. However, our results suggest that the burden of proof for complex-valued approaches is high: any proposed method must demonstrate gains \emph{beyond} what the same topological features provide in the real domain.
+
+%% ============================================================
+%% REFERENCES
+%% ============================================================
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

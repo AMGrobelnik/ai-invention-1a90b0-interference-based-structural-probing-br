@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "description": "Graph expressiveness benchmark for ISP testing",
+    "total_examples": 55,
+    "total_datasets": 4,
+    "sources": {
+      "BREC": "GitHub GraphPKU/BREC (NeurIPS 2023 benchmark)",
+      "CSL": "HuggingFace graphs-datasets/CSL (JMLR 2023)",
+      "programmatic": "NetworkX graph generation"
+    },
+    "schema": "exp_sel_data_out"
+  },
+  "datasets": [
+    {
+      "dataset": "brec_basic",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,3],[0,5],[0,7],[0,8],[1,4],[1,5],[1,6],[1,7],[1,8],[2,4],[2,6],[2,7],[2,8],[2,9],[3,6],[3,8],[3,9],[4,5],[4,6],[4,7],[4,9],[5,7],[5,8],[5,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 0,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 26,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 26,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 0, brec_basic"
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,1],[0,2],[0,3],[0,5],[0,6],[0,9],[1,3],[1,4],[1,5],[1,6],[1,7],[2,3],[2,6],[2,7],[2,8],[2,9],[3,8],[3,9],[4,5],[4,6],[4,8],[5,9],[6,7],[6,8],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 1,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 26,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 26,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 1, brec_basic"
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,3],[0,4],[0,6],[0,7],[0,8],[0,9],[1,2],[1,4],[1,5],[1,6],[1,8],[1,9],[2,3],[2,5],[2,6],[3,4],[3,6],[3,8],[4,7],[4,9],[5,7],[5,9],[6,8],[6,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 2,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 26,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 26,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 2, brec_basic"
+        }
+      ]
+    },
+    {
+      "dataset": "brec_regular",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,4],[0,7],[0,8],[0,9],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[2,9],[3,4],[3,6],[3,7],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 10,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 38,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 38,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 60, brec_regular"
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,2],[1,3],[1,5],[1,6],[1,7],[1,9],[2,5],[2,6],[2,7],[2,8],[3,4],[3,5],[3,6],[3,7],[3,8],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 11,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 38,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 38,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 61, brec_regular"
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[2,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 12,
+          "metadata_wl_level": "1-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 38,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 38,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 62, brec_regular"
+        }
+      ]
+    },
+    {
+      "dataset": "brec_cfi",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,1],[0,3],[0,7],[0,8],[0,9],[1,5],[2,3],[2,4],[2,6],[2,7],[2,9],[3,7],[3,8],[3,9],[4,5],[4,6],[4,7],[4,9],[6,7],[6,9],[7,8],[8,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 35,
+          "metadata_wl_level": "3-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 22,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 22,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 260, brec_cfi"
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,8],[0,9],[1,2],[1,3],[1,7],[1,8],[2,7],[2,8],[3,4],[3,7],[3,9],[4,7],[4,9],[5,6],[5,9],[6,8],[7,8],[7,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 36,
+          "metadata_wl_level": "3-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 22,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 22,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 261, brec_cfi"
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,2],[0,3],[0,4],[0,6],[0,7],[0,9],[1,3],[1,8],[2,4],[2,5],[2,8],[2,9],[3,5],[3,6],[3,7],[4,5],[4,9],[5,6],[5,7],[5,9],[6,7],[7,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 37,
+          "metadata_wl_level": "3-WL",
+          "metadata_same_wl_color": true,
+          "metadata_source": "BREC",
+          "metadata_graph_a_nodes": 10,
+          "metadata_graph_a_edges": 22,
+          "metadata_graph_b_nodes": 10,
+          "metadata_graph_b_edges": 22,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_notes": "BREC pair index 262, brec_cfi"
+        }
+      ]
+    }
+  ]
+}

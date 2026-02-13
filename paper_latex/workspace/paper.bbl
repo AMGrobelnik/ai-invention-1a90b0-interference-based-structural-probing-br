@@ -1,0 +1,251 @@
+\begin{thebibliography}{29}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abboud et~al.(2021)Abboud, Ceylan, Grohe, and Lukasiewicz]{Abboud2021}
+Ralph Abboud, {\.I}smail~{\.I}lkan Ceylan, Martin Grohe, and Thomas
+  Lukasiewicz.
+\newblock The surprising power of graph neural networks with random node
+  initialization.
+\newblock In \emph{Proceedings of the Thirtieth International Joint Conference
+  on Artificial Intelligence, {IJCAI} 2021, Virtual Event / Montreal, Canada,
+  19-27 August 2021}, pages 2112--2118. ijcai.org, 2021.
+\newblock \doi{10.24963/IJCAI.2021/291}.
+
+\bibitem[Bao et~al.(2025)Bao, Jin, Bronstein, Ceylan, and Lanzinger]{Bao2025}
+Linus Bao, Emily Jin, Michael~M. Bronstein, {\.I}smail~{\.I}lkan Ceylan, and
+  Matthias Lanzinger.
+\newblock Homomorphism counts as structural encodings for graph learning.
+\newblock In \emph{The Thirteenth International Conference on Learning
+  Representations, {ICLR} 2025, Singapore, April 24-28, 2025}. OpenReview.net,
+  2025.
+\newblock URL \url{https://openreview.net/forum?id=qFw2RFJS5g}.
+
+\bibitem[Bevilacqua et~al.(2022)Bevilacqua, Frasca, Lim, Srinivasan, Cai,
+  Balamurugan, Bronstein, and Maron]{Bevilacqua2022}
+Beatrice Bevilacqua, Fabrizio Frasca, Derek Lim, Balasubramaniam Srinivasan,
+  Chen Cai, Gopinath Balamurugan, Michael~M. Bronstein, and Haggai Maron.
+\newblock Equivariant subgraph aggregation networks.
+\newblock In \emph{The Tenth International Conference on Learning
+  Representations, {ICLR} 2022, Virtual Event, April 25-29, 2022}.
+  OpenReview.net, 2022.
+\newblock URL \url{https://openreview.net/forum?id=dFbKQaRk15w}.
+
+\bibitem[Bodnar et~al.(2021)Bodnar, Frasca, Otter, Wang, Li{\`{o}},
+  Mont{\'{u}}far, and Bronstein]{Bodnar2021}
+Cristian Bodnar, Fabrizio Frasca, Nina Otter, Yuguang Wang, Pietro Li{\`{o}},
+  Guido~F. Mont{\'{u}}far, and Michael~M. Bronstein.
+\newblock Weisfeiler and lehman go cellular: {CW} networks.
+\newblock In \emph{Advances in Neural Information Processing Systems 34: Annual
+  Conference on Neural Information Processing Systems 2021, NeurIPS 2021,
+  December 6-14, 2021, virtual}, pages 2625--2640, 2021.
+
+\bibitem[Bouritsas et~al.(2023)Bouritsas, Frasca, Zafeiriou, and
+  Bronstein]{Bouritsas2023}
+Giorgos Bouritsas, Fabrizio Frasca, Stefanos Zafeiriou, and Michael~M.
+  Bronstein.
+\newblock Improving graph neural network expressivity via subgraph isomorphism
+  counting.
+\newblock \emph{{IEEE} Trans. Pattern Anal. Mach. Intell.}, 45\penalty0
+  (1):\penalty0 657--668, 2023.
+\newblock \doi{10.1109/TPAMI.2022.3154319}.
+
+\bibitem[Cai et~al.(1992)Cai, F{\"{u}}rer, and Immerman]{Cai1992}
+Jin{-}yi Cai, Martin F{\"{u}}rer, and Neil Immerman.
+\newblock An optimal lower bound on the number of variables for graph
+  identification.
+\newblock \emph{Comb.}, 12\penalty0 (4):\penalty0 389--410, 1992.
+\newblock \doi{10.1007/BF01305232}.
+
+\bibitem[Dwivedi et~al.(2023)Dwivedi, Joshi, Luu, Laurent, Bengio, and
+  Bresson]{Dwivedi2023}
+Vijay~Prakash Dwivedi, Chaitanya~K. Joshi, Anh~Tuan Luu, Thomas Laurent, Yoshua
+  Bengio, and Xavier Bresson.
+\newblock Benchmarking graph neural networks.
+\newblock \emph{J. Mach. Learn. Res.}, 24:\penalty0 43:1--43:48, 2023.
+
+\bibitem[Eliasof et~al.(2023)Eliasof, Frasca, Bevilacqua, Treister, Chechik,
+  and Maron]{Eliasof2023}
+Moshe Eliasof, Fabrizio Frasca, Beatrice Bevilacqua, Eran Treister, Gal
+  Chechik, and Haggai Maron.
+\newblock Graph positional encoding via random feature propagation.
+\newblock In \emph{International Conference on Machine Learning, {ICML} 2023,
+  23-29 July 2023, Honolulu, Hawaii, {USA}}, volume 202 of \emph{Proceedings of
+  Machine Learning Research}, pages 9202--9223. {PMLR}, 2023.
+
+\bibitem[Frasca et~al.(2022)Frasca, Bevilacqua, Bronstein, and
+  Maron]{Frasca2022}
+Fabrizio Frasca, Beatrice Bevilacqua, Michael~M. Bronstein, and Haggai Maron.
+\newblock Understanding and extending subgraph gnns by rethinking their
+  symmetries.
+\newblock In \emph{Advances in Neural Information Processing Systems 35: Annual
+  Conference on Neural Information Processing Systems 2022, NeurIPS 2022, New
+  Orleans, LA, USA, November 28 - December 9, 2022}, 2022.
+
+\bibitem[Gilmer et~al.(2017)Gilmer, Schoenholz, Riley, Vinyals, and
+  Dahl]{Gilmer2017}
+Justin Gilmer, Samuel~S. Schoenholz, Patrick~F. Riley, Oriol Vinyals, and
+  George~E. Dahl.
+\newblock Neural message passing for quantum chemistry.
+\newblock In Doina Precup and Yee~Whye Teh, editors, \emph{Proceedings of the
+  34th International Conference on Machine Learning, {ICML} 2017, Sydney, NSW,
+  Australia, 6-11 August 2017}, volume~70 of \emph{Proceedings of Machine
+  Learning Research}, pages 1263--1272. {PMLR}, 2017.
+\newblock URL \url{http://proceedings.mlr.press/v70/gilmer17a.html}.
+
+\bibitem[Hamilton et~al.(2017)Hamilton, Ying, and Leskovec]{Hamilton2017}
+William~L. Hamilton, Zhitao Ying, and Jure Leskovec.
+\newblock Inductive representation learning on large graphs.
+\newblock In \emph{Advances in Neural Information Processing Systems 30: Annual
+  Conference on Neural Information Processing Systems 2017, December 4-9, 2017,
+  Long Beach, CA, {USA}}, pages 1024--1034, 2017.
+
+\bibitem[Huang et~al.(2022)Huang, Wang, Li, and He]{Huang2022}
+Zhongyu Huang, Yingheng Wang, Chaozhuo Li, and Huiguang He.
+\newblock Going deeper into permutation-sensitive graph neural networks.
+\newblock In \emph{International Conference on Machine Learning, {ICML} 2022,
+  17-23 July 2022, Baltimore, Maryland, {USA}}, volume 162 of \emph{Proceedings
+  of Machine Learning Research}, pages 9377--9409. {PMLR}, 2022.
+
+\bibitem[Keriven and Peyr{\'{e}}(2019)]{Keriven2019}
+Nicolas Keriven and Gabriel Peyr{\'{e}}.
+\newblock Universal invariant and equivariant graph neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems 32: Annual
+  Conference on Neural Information Processing Systems 2019, NeurIPS 2019,
+  December 8-14, 2019, Vancouver, BC, Canada}, pages 7090--7099, 2019.
+
+\bibitem[Kipf and Welling(2017)]{Kipf2017}
+Thomas~N. Kipf and Max Welling.
+\newblock Semi-supervised classification with graph convolutional networks.
+\newblock In \emph{5th International Conference on Learning Representations,
+  {ICLR} 2017, Toulon, France, April 24-26, 2017, Conference Track
+  Proceedings}. OpenReview.net, 2017.
+\newblock URL \url{https://openreview.net/forum?id=SJU4ayYgl}.
+
+\bibitem[Li et~al.(2025)Li, Qu, and Wang]{LiMSH2025}
+Longlong Li, Cunquan Qu, and Guanghui Wang.
+\newblock Beyond node attention: Multi-scale harmonic encoding for feature-wise
+  graph message passing.
+\newblock \emph{CoRR}, abs/2505.15015, 2025.
+\newblock \doi{10.48550/ARXIV.2505.15015}.
+
+\bibitem[Lim et~al.(2023)Lim, Robinson, Zhao, Smidt, Sra, Maron, and
+  Jegelka]{Lim2023}
+Derek Lim, Joshua~David Robinson, Lingxiao Zhao, Tess~E. Smidt, Suvrit Sra,
+  Haggai Maron, and Stefanie Jegelka.
+\newblock Sign and basis invariant networks for spectral graph representation
+  learning.
+\newblock In \emph{The Eleventh International Conference on Learning
+  Representations, {ICLR} 2023, Kigali, Rwanda, May 1-5, 2023}. OpenReview.net,
+  2023.
+\newblock URL \url{https://openreview.net/forum?id=Q-UHqMorzil}.
+
+\bibitem[Maron et~al.(2019)Maron, Ben{-}Hamu, Shamir, and Lipman]{Maron2019}
+Haggai Maron, Heli Ben{-}Hamu, Nadav Shamir, and Yaron Lipman.
+\newblock Invariant and equivariant graph networks.
+\newblock In \emph{7th International Conference on Learning Representations,
+  {ICLR} 2019, New Orleans, LA, USA, May 6-9, 2019}. OpenReview.net, 2019.
+\newblock URL \url{https://openreview.net/forum?id=Syx72jC9tm}.
+
+\bibitem[Morris et~al.(2019)Morris, Ritzert, Fey, Hamilton, Lenssen, Rattan,
+  and Grohe]{Morris2019}
+Christopher Morris, Martin Ritzert, Matthias Fey, William~L. Hamilton, Jan~Eric
+  Lenssen, Gaurav Rattan, and Martin Grohe.
+\newblock Weisfeiler and leman go neural: Higher-order graph neural networks.
+\newblock In \emph{The Thirty-Third {AAAI} Conference on Artificial
+  Intelligence, {AAAI} 2019, Honolulu, Hawaii, USA, January 27 - February 1,
+  2019}, pages 4602--4609. {AAAI} Press, 2019.
+\newblock \doi{10.1609/AAAI.V33I01.33014602}.
+
+\bibitem[Morris et~al.(2020)Morris, Kriege, Bause, Kersting, Mutzel, and
+  Neumann]{Morris2020}
+Christopher Morris, Nils~M. Kriege, Franka Bause, Kristian Kersting, Petra
+  Mutzel, and Marion Neumann.
+\newblock Tudataset: {A} collection of benchmark datasets for learning with
+  graphs.
+\newblock \emph{CoRR}, abs/2007.08663, 2020.
+
+\bibitem[Murphy et~al.(2019)Murphy, Srinivasan, Rao, and Ribeiro]{Murphy2019}
+Ryan~L. Murphy, Balasubramaniam Srinivasan, Vinayak~A. Rao, and Bruno Ribeiro.
+\newblock Relational pooling for graph representations.
+\newblock In \emph{Proceedings of the 36th International Conference on Machine
+  Learning, {ICML} 2019, 9-15 June 2019, Long Beach, California, {USA}},
+  volume~97 of \emph{Proceedings of Machine Learning Research}, pages
+  4663--4673. {PMLR}, 2019.
+\newblock URL \url{http://proceedings.mlr.press/v97/murphy19a.html}.
+
+\bibitem[Qian et~al.(2024)Qian, Manolache, Morris, and Niepert]{Qian2024}
+Chendi Qian, Andrei Manolache, Christopher Morris, and Mathias Niepert.
+\newblock Probabilistic graph rewiring via virtual nodes.
+\newblock In \emph{Advances in Neural Information Processing Systems 38: Annual
+  Conference on Neural Information Processing Systems 2024, NeurIPS 2024,
+  Vancouver, BC, Canada, December 10 - 15, 2024}, 2024.
+
+\bibitem[Sato et~al.(2021)Sato, Yamada, and Kashima]{Sato2021}
+Ryoma Sato, Makoto Yamada, and Hisashi Kashima.
+\newblock Random features strengthen graph neural networks.
+\newblock In \emph{Proceedings of the 2021 {SIAM} International Conference on
+  Data Mining, {SDM} 2021, Virtual Event, April 29 - May 1, 2021}, pages
+  333--341. {SIAM}, 2021.
+\newblock \doi{10.1137/1.9781611976700.38}.
+
+\bibitem[Velickovic et~al.(2018)Velickovic, Cucurull, Casanova, Romero,
+  Li{\`{o}}, and Bengio]{Velickovic2018}
+Petar Velickovic, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro
+  Li{\`{o}}, and Yoshua Bengio.
+\newblock Graph attention networks.
+\newblock In \emph{6th International Conference on Learning Representations,
+  {ICLR} 2018, Vancouver, BC, Canada, April 30 - May 3, 2018, Conference Track
+  Proceedings}. OpenReview.net, 2018.
+\newblock URL \url{https://openreview.net/forum?id=rJXMpikCZ}.
+
+\bibitem[Wang and Zhang(2024)]{WangBREC2024}
+Yanbo Wang and Muhan Zhang.
+\newblock An empirical study of realized {GNN} expressiveness.
+\newblock In \emph{Forty-first International Conference on Machine Learning,
+  {ICML} 2024, Vienna, Austria, July 21-27, 2024}, volume 235 of
+  \emph{Proceedings of Machine Learning Research}, pages 52134--52155. {PMLR},
+  2024.
+
+\bibitem[Wang et~al.(2025)Wang, Zhang, Ma, Chawla, Zhang, and Ye]{WangGPM2025}
+Zehong Wang, Zheyuan Zhang, Tianyi Ma, Nitesh~V. Chawla, Chuxu Zhang, and
+  Yanfang Ye.
+\newblock Beyond message passing: Neural graph pattern machine.
+\newblock In \emph{Forty-second International Conference on Machine Learning,
+  {ICML} 2025, Vancouver, BC, Canada, July 13-19, 2025}, volume 267 of
+  \emph{Proceedings of Machine Learning Research}. {PMLR}, 2025.
+
+\bibitem[Weisfeiler and Leman(1968)]{Weisfeiler1968}
+Boris Weisfeiler and Andrei Leman.
+\newblock The reduction of a graph to canonical form and the algebra which
+  appears therein.
+\newblock \emph{NTI, Series 2}, 9:\penalty0 12--16, 1968.
+
+\bibitem[Xu et~al.(2019)Xu, Hu, Leskovec, and Jegelka]{Xu2019}
+Keyulu Xu, Weihua Hu, Jure Leskovec, and Stefanie Jegelka.
+\newblock How powerful are graph neural networks?
+\newblock In \emph{7th International Conference on Learning Representations,
+  {ICLR} 2019, New Orleans, LA, USA, May 6-9, 2019}. OpenReview.net, 2019.
+\newblock URL \url{https://openreview.net/forum?id=ryGs6iA5Km}.
+
+\bibitem[Zhang et~al.(2024)Zhang, Zhao, and Maron]{Zhang2024}
+Bohang Zhang, Lingxiao Zhao, and Haggai Maron.
+\newblock On the expressive power of spectral invariant graph neural networks.
+\newblock In \emph{Forty-first International Conference on Machine Learning,
+  {ICML} 2024, Vienna, Austria, July 21-27, 2024}, volume 235 of
+  \emph{Proceedings of Machine Learning Research}, pages 60496--60526. {PMLR},
+  2024.
+
+\bibitem[Zhang et~al.(2021)Zhang, He, Brugnone, Perlmutter, and
+  Hirn]{ZhangMagNet2021}
+Xitong Zhang, Yixuan He, Nathan Brugnone, Michael Perlmutter, and Matthew~J.
+  Hirn.
+\newblock Magnet: {A} neural network for directed graphs.
+\newblock In \emph{Advances in Neural Information Processing Systems 34: Annual
+  Conference on Neural Information Processing Systems 2021, NeurIPS 2021,
+  December 6-14, 2021, virtual}, pages 27003--27015, 2021.
+
+\end{thebibliography}

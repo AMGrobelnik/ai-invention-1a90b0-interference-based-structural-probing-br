@@ -1,0 +1,705 @@
+2026-02-13 20:41:56.521 | INFO     | method:load_dataset:98 - Loading data from /home/adrian/projects/ai-inventor/aii_pipeline/runs/run__20260213_112012/3_invention_loop/iter_4/gen_art/exp_id1_it4__opus/mini_data_out.json
+2026-02-13 20:41:56.523 | INFO     | method:load_dataset:101 - Loaded 12 total graphs across 4 datasets
+2026-02-13 20:41:56.524 | INFO     | __main__:main:46 - ============================================================
+2026-02-13 20:41:56.524 | INFO     | __main__:main:47 - TEST 1: DATA LOADING & CONVERSION
+2026-02-13 20:41:56.524 | INFO     | __main__:main:48 - ============================================================
+2026-02-13 20:41:56.528 | INFO     | __main__:main:58 - 
+MUTAG: 3 graphs, feat_dim=7
+2026-02-13 20:41:56.529 | INFO     | __main__:main:60 -   graph_id=0, nodes=17, edges=19, x.shape=(17, 7), y=1
+2026-02-13 20:41:56.530 | INFO     | __main__:main:60 -   graph_id=1, nodes=13, edges=14, x.shape=(13, 7), y=0
+2026-02-13 20:41:56.530 | INFO     | __main__:main:60 -   graph_id=2, nodes=13, edges=14, x.shape=(13, 7), y=0
+2026-02-13 20:41:56.531 | INFO     | __main__:main:58 - 
+PROTEINS: 3 graphs, feat_dim=4
+2026-02-13 20:41:56.531 | INFO     | __main__:main:60 -   graph_id=0, nodes=42, edges=81, x.shape=(42, 4), y=0
+2026-02-13 20:41:56.536 | INFO     | __main__:main:60 -   graph_id=1, nodes=27, edges=46, x.shape=(27, 4), y=0
+2026-02-13 20:41:56.537 | INFO     | __main__:main:60 -   graph_id=2, nodes=10, edges=17, x.shape=(10, 4), y=0
+2026-02-13 20:41:56.538 | INFO     | __main__:main:58 - 
+IMDB-BINARY: 3 graphs, feat_dim=1
+2026-02-13 20:41:56.539 | INFO     | __main__:main:60 -   graph_id=0, nodes=20, edges=73, x.shape=(20, 1), y=0
+2026-02-13 20:41:56.539 | INFO     | __main__:main:60 -   graph_id=1, nodes=32, edges=128, x.shape=(32, 1), y=0
+2026-02-13 20:41:56.539 | INFO     | __main__:main:60 -   graph_id=2, nodes=21, edges=81, x.shape=(21, 1), y=0
+2026-02-13 20:41:56.540 | INFO     | __main__:main:58 - 
+PTC_MR: 3 graphs, feat_dim=18
+2026-02-13 20:41:56.540 | INFO     | __main__:main:60 -   graph_id=0, nodes=2, edges=1, x.shape=(2, 18), y=1
+2026-02-13 20:41:56.540 | INFO     | __main__:main:60 -   graph_id=1, nodes=4, edges=3, x.shape=(4, 18), y=0
+2026-02-13 20:41:56.540 | INFO     | __main__:main:60 -   graph_id=2, nodes=50, edges=49, x.shape=(50, 18), y=1
+2026-02-13 20:41:56.540 | INFO     | __main__:main:72 - 
+✓ All graph conversions successful
+2026-02-13 20:41:56.540 | INFO     | __main__:main:75 - 
+============================================================
+2026-02-13 20:41:56.543 | INFO     | __main__:main:76 - TEST 2: TOPOLOGICAL FEATURES
+2026-02-13 20:41:56.543 | INFO     | __main__:main:77 - ============================================================
+2026-02-13 20:41:57.330 | INFO     | __main__:main:93 -   MUTAG graph 0: topo min=0.000, max=1.000
+2026-02-13 20:41:57.331 | INFO     | __main__:main:93 -   MUTAG graph 1: topo min=0.000, max=1.000
+2026-02-13 20:41:57.331 | INFO     | __main__:main:93 -   MUTAG graph 2: topo min=0.000, max=1.000
+2026-02-13 20:41:57.345 | INFO     | __main__:main:93 -   PROTEINS graph 0: topo min=0.000, max=1.000
+2026-02-13 20:41:57.352 | INFO     | __main__:main:93 -   PROTEINS graph 1: topo min=0.000, max=1.000
+2026-02-13 20:41:57.352 | INFO     | __main__:main:93 -   PROTEINS graph 2: topo min=0.000, max=1.000
+2026-02-13 20:41:57.374 | INFO     | __main__:main:93 -   IMDB-BINARY graph 0: topo min=0.018, max=1.000
+2026-02-13 20:41:57.379 | INFO     | __main__:main:93 -   IMDB-BINARY graph 1: topo min=0.027, max=1.000
+2026-02-13 20:41:57.380 | INFO     | __main__:main:93 -   IMDB-BINARY graph 2: topo min=0.008, max=1.000
+2026-02-13 20:41:57.386 | INFO     | __main__:main:93 -   PTC_MR graph 0: topo min=0.000, max=1.000
+2026-02-13 20:41:57.387 | INFO     | __main__:main:93 -   PTC_MR graph 1: topo min=0.000, max=1.000
+2026-02-13 20:41:57.387 | INFO     | __main__:main:93 -   PTC_MR graph 2: topo min=0.000, max=1.000
+2026-02-13 20:41:57.387 | INFO     | __main__:main:98 - 
+✓ All topological features computed. No NaN/Inf. Ranges: [0, 1]
+2026-02-13 20:41:57.388 | INFO     | __main__:main:101 - 
+============================================================
+2026-02-13 20:41:57.388 | INFO     | __main__:main:102 - TEST 3: MODEL FORWARD PASS
+2026-02-13 20:41:57.388 | INFO     | __main__:main:103 - ============================================================
+2026-02-13 20:41:57.403 | INFO     | __main__:main:112 - Batch: 3 graphs, x.shape=(43, 7)
+2026-02-13 20:41:58.079 | INFO     | __main__:main:120 - GINBaseline: output=(3, 2), loss=5.0428 ✓
+2026-02-13 20:41:58.510 | INFO     | __main__:main:128 - RealGINAug:  output=(3, 2), loss=2.0120 ✓
+2026-02-13 20:42:00.841 | INFO     | __main__:main:136 - ISPGIN:      output=(3, 2), loss=0.3368 ✓
+2026-02-13 20:42:00.845 | INFO     | __main__:main:142 - 
+✓ All 3 models: forward pass OK, backward pass OK, output shape correct
+2026-02-13 20:42:00.845 | INFO     | __main__:main:145 - 
+============================================================
+2026-02-13 20:42:00.845 | INFO     | __main__:main:146 - TEST 4: MINI TRAINING LOOP (5 epochs)
+2026-02-13 20:42:00.845 | INFO     | __main__:main:147 - ============================================================
+2026-02-13 20:42:07.232 | INFO     | __main__:main:157 -   Epoch 0: loss=0.9167
+2026-02-13 20:42:07.854 | INFO     | __main__:main:157 -   Epoch 1: loss=0.7487
+2026-02-13 20:42:08.325 | INFO     | __main__:main:157 -   Epoch 2: loss=0.0970
+2026-02-13 20:42:08.787 | INFO     | __main__:main:157 -   Epoch 3: loss=0.0010
+2026-02-13 20:42:09.310 | INFO     | __main__:main:157 -   Epoch 4: loss=0.6502
+2026-02-13 20:42:09.311 | INFO     | __main__:main:159 -   Loss trajectory: ['0.9167', '0.7487', '0.0970', '0.0010', '0.6502']
+2026-02-13 20:42:09.311 | INFO     | __main__:main:160 -   Loss decreased from 0.9167 to 0.6502
+2026-02-13 20:42:09.493 | INFO     | __main__:main:165 -   Test accuracy: 0.3333, predictions: [1, 1, 1]
+2026-02-13 20:42:09.493 | SUCCESS  | __main__:main:167 - 
+✓ Mini training: loss decreased. All tests passed!
+2026-02-13 20:42:32.726 | INFO     | method:load_dataset:98 - Loading data from /home/adrian/projects/ai-inventor/aii_pipeline/runs/run__20260213_112012/3_invention_loop/iter_4/gen_art/exp_id1_it4__opus/full_data_out.json
+2026-02-13 20:42:32.757 | INFO     | method:load_dataset:101 - Loaded 2645 total graphs across 4 datasets
+2026-02-13 20:42:33.593 | INFO     | __main__:main:48 - MUTAG: 188 graphs, feat_dim=7
+2026-02-13 20:42:33.594 | INFO     | __main__:main:56 - Fold 0: 168 train, 20 test
+2026-02-13 20:42:56.678 | INFO     | __main__:main:79 - gin_baseline: acc=0.8000, best_epoch=3, time=23.1s
+2026-02-13 20:43:05.321 | INFO     | __main__:main:79 - realgin_aug: acc=0.8500, best_epoch=22, time=8.6s
+2026-02-13 20:43:44.969 | INFO     | __main__:main:79 - isp_gin: acc=0.6500, best_epoch=0, time=39.6s
+2026-02-13 20:43:44.971 | SUCCESS  | __main__:main:81 - Scale 2 test complete!
+2026-02-13 20:44:30.479 | INFO     | method:load_dataset:98 - Loading data from /home/adrian/projects/ai-inventor/aii_pipeline/runs/run__20260213_112012/3_invention_loop/iter_4/gen_art/exp_id1_it4__opus/full_data_out.json
+2026-02-13 20:44:30.500 | INFO     | method:load_dataset:101 - Loaded 2645 total graphs across 4 datasets
+2026-02-13 20:44:30.967 | INFO     | __main__:main:50 - MUTAG: 188 graphs, feat_dim=7
+2026-02-13 20:44:30.968 | INFO     | method:run_10fold_cv:678 -   [gin_baseline] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 20:44:57.091 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 0: acc=0.8000 (epoch 3, 26.1s)
+2026-02-13 20:45:04.089 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 1: acc=0.9000 (epoch 28, 7.0s)
+2026-02-13 20:45:12.251 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 2: acc=0.9000 (epoch 41, 8.2s)
+2026-02-13 20:45:17.140 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 3: acc=1.0000 (epoch 13, 4.9s)
+2026-02-13 20:45:21.091 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 4: acc=0.9474 (epoch 11, 4.0s)
+2026-02-13 20:45:24.567 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 5: acc=0.8889 (epoch 5, 3.5s)
+2026-02-13 20:45:28.316 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 6: acc=0.9444 (epoch 10, 3.7s)
+2026-02-13 20:45:33.547 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 7: acc=0.8333 (epoch 19, 5.2s)
+2026-02-13 20:45:37.524 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 8: acc=1.0000 (epoch 9, 4.0s)
+2026-02-13 20:45:43.234 | INFO     | method:run_10fold_cv:714 -   [gin_baseline] Fold 9: acc=1.0000 (epoch 15, 5.7s)
+2026-02-13 20:45:43.236 | INFO     | method:run_10fold_cv:723 -   [gin_baseline] MUTAG: 92.1 ± 6.6% (total 72.3s)
+2026-02-13 20:45:43.237 | INFO     | method:run_10fold_cv:678 -   [realgin_aug] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 20:45:47.680 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 0: acc=0.8000 (epoch 8, 4.4s)
+2026-02-13 20:45:51.022 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 1: acc=0.9000 (epoch 5, 3.3s)
+2026-02-13 20:45:56.264 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 2: acc=0.9000 (epoch 20, 5.2s)
+2026-02-13 20:45:59.762 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 3: acc=1.0000 (epoch 6, 3.5s)
+2026-02-13 20:46:03.368 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 4: acc=0.9474 (epoch 9, 3.6s)
+2026-02-13 20:46:08.227 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 5: acc=0.9444 (epoch 10, 4.9s)
+2026-02-13 20:46:22.965 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 6: acc=0.8889 (epoch 16, 14.7s)
+2026-02-13 20:46:27.774 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 7: acc=0.8333 (epoch 11, 4.8s)
+2026-02-13 20:46:35.295 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 8: acc=1.0000 (epoch 17, 7.5s)
+2026-02-13 20:46:39.331 | INFO     | method:run_10fold_cv:714 -   [realgin_aug] Fold 9: acc=1.0000 (epoch 7, 4.0s)
+2026-02-13 20:46:39.332 | INFO     | method:run_10fold_cv:723 -   [realgin_aug] MUTAG: 92.1 ± 6.6% (total 56.1s)
+2026-02-13 20:46:39.335 | INFO     | method:run_10fold_cv:678 -   [isp_gin] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 20:46:50.670 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 0: acc=0.6500 (epoch 1, 11.3s)
+2026-02-13 20:47:01.058 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 1: acc=0.6500 (epoch 0, 10.4s)
+2026-02-13 20:47:22.346 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 2: acc=0.6500 (epoch 0, 21.3s)
+2026-02-13 20:48:01.210 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 3: acc=0.8947 (epoch 28, 38.9s)
+2026-02-13 20:48:11.990 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 4: acc=0.6842 (epoch 0, 10.8s)
+2026-02-13 20:48:22.578 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 5: acc=0.6667 (epoch 0, 10.6s)
+2026-02-13 20:48:33.700 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 6: acc=0.6667 (epoch 0, 11.1s)
+2026-02-13 20:48:47.796 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 7: acc=0.7778 (epoch 7, 14.1s)
+2026-02-13 20:49:12.722 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 8: acc=0.6667 (epoch 1, 24.9s)
+2026-02-13 20:49:24.713 | INFO     | method:run_10fold_cv:714 -   [isp_gin] Fold 9: acc=0.6667 (epoch 0, 12.0s)
+2026-02-13 20:49:24.714 | INFO     | method:run_10fold_cv:723 -   [isp_gin] MUTAG: 69.7 ± 7.5% (total 165.4s)
+2026-02-13 20:49:24.714 | INFO     | __main__:main:92 - 
+==================================================
+2026-02-13 20:49:24.714 | INFO     | __main__:main:93 - MUTAG 10-fold CV Results:
+2026-02-13 20:49:24.714 | INFO     | __main__:main:94 -   GIN:       92.1 ± 6.6% (72s)
+2026-02-13 20:49:24.714 | INFO     | __main__:main:95 -   RealGIN+:  92.1 ± 6.6% (56s)
+2026-02-13 20:49:24.714 | INFO     | __main__:main:96 -   ISP-GIN:   69.7 ± 7.5% (165s)
+2026-02-13 20:49:24.714 | INFO     | __main__:main:97 -   Published: GIN-0 = 89.4 ± 5.6%
+2026-02-13 20:49:24.715 | INFO     | __main__:main:98 -   Total time: 294s
+2026-02-13 20:49:24.715 | INFO     | __main__:main:104 - 
+Extrapolated times (per 10-fold CV):
+2026-02-13 20:49:24.715 | INFO     | __main__:main:109 -   PROTEINS (1113 graphs): GIN~428s, ISP~979s, total~1621s
+2026-02-13 20:49:24.715 | INFO     | __main__:main:109 -   IMDB-BINARY (1000 graphs): GIN~384s, ISP~880s, total~1456s
+2026-02-13 20:49:24.715 | INFO     | __main__:main:109 -   PTC_MR (344 graphs): GIN~132s, ISP~303s, total~501s
+2026-02-13 20:49:24.715 | SUCCESS  | __main__:main:111 - Scale 3 complete!
+2026-02-13 20:49:50.543 | INFO     | __main__:load_dataset:98 - Loading data from /home/adrian/projects/ai-inventor/aii_pipeline/runs/run__20260213_112012/3_invention_loop/iter_4/gen_art/exp_id1_it4__opus/full_data_out.json
+2026-02-13 20:49:50.570 | INFO     | __main__:load_dataset:101 - Loaded 2645 total graphs across 4 datasets
+2026-02-13 20:49:50.584 | INFO     | __main__:main:937 - Converted MUTAG: 188 graphs, feat_dim=7
+2026-02-13 20:49:50.727 | INFO     | __main__:main:937 - Converted PROTEINS: 1113 graphs, feat_dim=4
+2026-02-13 20:49:50.920 | INFO     | __main__:main:937 - Converted IMDB-BINARY: 1000 graphs, feat_dim=1
+2026-02-13 20:49:50.958 | INFO     | __main__:main:937 - Converted PTC_MR: 344 graphs, feat_dim=18
+2026-02-13 20:49:50.959 | INFO     | __main__:main:940 - Precomputing topological features for all graphs...
+2026-02-13 20:49:51.629 | INFO     | __main__:main:947 -   Topological features computed for MUTAG
+2026-02-13 20:50:00.525 | INFO     | __main__:main:947 -   Topological features computed for PROTEINS
+2026-02-13 20:50:03.536 | INFO     | __main__:main:947 -   Topological features computed for IMDB-BINARY
+2026-02-13 20:50:04.012 | INFO     | __main__:main:947 -   Topological features computed for PTC_MR
+2026-02-13 20:50:04.013 | INFO     | __main__:main:949 - Topological feature computation: 13.1s total
+2026-02-13 20:50:04.013 | INFO     | __main__:main:968 - 
+============================================================
+2026-02-13 20:50:04.013 | INFO     | __main__:main:969 - Dataset: MUTAG (188 graphs, feat_dim=7)
+2026-02-13 20:50:04.013 | INFO     | __main__:main:970 - ============================================================
+2026-02-13 20:50:04.013 | INFO     | __main__:run_10fold_cv:678 -   [gin_baseline] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 20:50:08.173 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 0: acc=0.8000 (epoch 3, 4.2s)
+2026-02-13 20:50:12.730 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 1: acc=0.9000 (epoch 20, 4.6s)
+2026-02-13 20:50:28.119 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 2: acc=0.8000 (epoch 8, 15.4s)
+2026-02-13 20:50:32.966 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 3: acc=1.0000 (epoch 13, 4.8s)
+2026-02-13 20:50:39.579 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 4: acc=0.9474 (epoch 11, 6.6s)
+2026-02-13 20:50:42.735 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 5: acc=0.8889 (epoch 5, 3.2s)
+2026-02-13 20:50:46.653 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 6: acc=0.9444 (epoch 18, 3.9s)
+2026-02-13 20:50:51.903 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 7: acc=0.8333 (epoch 32, 5.2s)
+2026-02-13 20:50:56.220 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 8: acc=1.0000 (epoch 25, 4.3s)
+2026-02-13 20:50:59.564 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 9: acc=1.0000 (epoch 15, 3.3s)
+2026-02-13 20:50:59.565 | INFO     | __main__:run_10fold_cv:723 -   [gin_baseline] MUTAG: 91.1 ± 7.6% (total 55.5s)
+2026-02-13 20:50:59.565 | INFO     | __main__:run_10fold_cv:678 -   [realgin_aug] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 20:51:02.506 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 0: acc=0.8000 (epoch 8, 2.9s)
+2026-02-13 20:51:05.139 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 1: acc=0.9000 (epoch 5, 2.6s)
+2026-02-13 20:51:09.279 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 2: acc=0.9500 (epoch 24, 4.1s)
+2026-02-13 20:51:11.887 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 3: acc=1.0000 (epoch 6, 2.6s)
+2026-02-13 20:51:15.005 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 4: acc=0.9474 (epoch 9, 3.1s)
+2026-02-13 20:51:19.243 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 5: acc=0.9444 (epoch 23, 4.2s)
+2026-02-13 20:51:23.287 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 6: acc=0.8889 (epoch 16, 4.0s)
+2026-02-13 20:51:27.224 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 7: acc=0.8333 (epoch 11, 3.9s)
+2026-02-13 20:51:31.826 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 8: acc=1.0000 (epoch 17, 4.6s)
+2026-02-13 20:51:34.768 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 9: acc=1.0000 (epoch 7, 2.9s)
+2026-02-13 20:51:34.770 | INFO     | __main__:run_10fold_cv:723 -   [realgin_aug] MUTAG: 92.6 ± 6.7% (total 35.2s)
+2026-02-13 20:51:34.772 | INFO     | __main__:run_10fold_cv:678 -   [isp_gin] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 20:51:51.086 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 0: acc=0.6500 (epoch 1, 16.3s)
+2026-02-13 20:51:59.337 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 1: acc=0.6500 (epoch 0, 8.2s)
+2026-02-13 20:52:06.076 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 2: acc=0.6500 (epoch 0, 6.7s)
+2026-02-13 20:52:12.406 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 3: acc=0.6842 (epoch 0, 6.3s)
+2026-02-13 20:52:18.547 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 4: acc=0.6842 (epoch 0, 6.1s)
+2026-02-13 20:52:24.465 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 5: acc=0.6667 (epoch 0, 5.9s)
+2026-02-13 20:52:30.349 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 6: acc=0.6667 (epoch 0, 5.9s)
+2026-02-13 20:52:39.018 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 7: acc=0.7778 (epoch 7, 8.7s)
+2026-02-13 20:52:45.500 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 8: acc=0.6667 (epoch 1, 6.5s)
+2026-02-13 20:52:51.741 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 9: acc=0.6667 (epoch 0, 6.2s)
+2026-02-13 20:52:51.742 | INFO     | __main__:run_10fold_cv:723 -   [isp_gin] MUTAG: 67.6 ± 3.6% (total 77.0s)
+2026-02-13 20:52:51.742 | INFO     | __main__:main:1037 - Cumulative elapsed: 181s
+2026-02-13 20:52:51.743 | INFO     | __main__:main:968 - 
+============================================================
+2026-02-13 20:52:51.743 | INFO     | __main__:main:969 - Dataset: PROTEINS (1113 graphs, feat_dim=4)
+2026-02-13 20:52:51.743 | INFO     | __main__:main:970 - ============================================================
+2026-02-13 20:52:51.744 | INFO     | __main__:run_10fold_cv:678 -   [gin_baseline] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 20:53:24.037 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 0: acc=0.7500 (epoch 23, 32.3s)
+2026-02-13 20:53:37.309 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 1: acc=0.8125 (epoch 10, 13.3s)
+2026-02-13 20:53:52.822 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 2: acc=0.7232 (epoch 19, 15.5s)
+2026-02-13 20:54:05.448 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 3: acc=0.7207 (epoch 10, 12.6s)
+2026-02-13 20:54:17.615 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 4: acc=0.8018 (epoch 9, 12.2s)
+2026-02-13 20:54:43.595 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 5: acc=0.8108 (epoch 17, 26.0s)
+2026-02-13 20:55:02.963 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 6: acc=0.7928 (epoch 17, 19.4s)
+2026-02-13 20:55:24.718 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 7: acc=0.7748 (epoch 34, 21.8s)
+2026-02-13 20:56:01.038 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 8: acc=0.7477 (epoch 39, 36.3s)
+2026-02-13 20:56:17.044 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 9: acc=0.8378 (epoch 13, 16.0s)
+2026-02-13 20:56:17.045 | INFO     | __main__:run_10fold_cv:723 -   [gin_baseline] PROTEINS: 77.7 ± 3.8% (total 205.3s)
+2026-02-13 20:56:17.046 | INFO     | __main__:run_10fold_cv:678 -   [realgin_aug] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 20:56:31.987 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 0: acc=0.7589 (epoch 16, 14.9s)
+2026-02-13 20:56:50.730 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 1: acc=0.7946 (epoch 21, 18.7s)
+2026-02-13 20:57:05.035 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 2: acc=0.7589 (epoch 10, 14.3s)
+2026-02-13 20:57:26.071 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 3: acc=0.7658 (epoch 3, 21.0s)
+2026-02-13 20:57:47.155 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 4: acc=0.7568 (epoch 17, 21.1s)
+2026-02-13 20:58:02.859 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 5: acc=0.8198 (epoch 9, 15.7s)
+2026-02-13 20:58:25.889 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 6: acc=0.7838 (epoch 19, 23.0s)
+2026-02-13 20:58:55.346 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 7: acc=0.7658 (epoch 11, 29.5s)
+2026-02-13 20:59:28.379 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 8: acc=0.7838 (epoch 44, 33.0s)
+2026-02-13 20:59:48.958 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 9: acc=0.8288 (epoch 16, 20.6s)
+2026-02-13 20:59:48.960 | INFO     | __main__:run_10fold_cv:723 -   [realgin_aug] PROTEINS: 78.2 ± 2.5% (total 211.9s)
+2026-02-13 20:59:48.960 | INFO     | __main__:run_10fold_cv:678 -   [isp_gin] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 21:01:16.484 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 0: acc=0.7054 (epoch 2, 87.5s)
+2026-02-13 21:02:27.466 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 1: acc=0.7411 (epoch 0, 71.0s)
+2026-02-13 21:03:14.402 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 2: acc=0.5982 (epoch 0, 46.9s)
+2026-02-13 21:04:43.723 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 3: acc=0.7117 (epoch 16, 89.3s)
+2026-02-13 21:05:44.663 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 4: acc=0.5946 (epoch 1, 60.9s)
+2026-02-13 21:06:38.276 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 5: acc=0.6306 (epoch 0, 53.6s)
+2026-02-13 21:07:29.868 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 6: acc=0.7027 (epoch 4, 51.6s)
+2026-02-13 21:08:25.212 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 7: acc=0.7207 (epoch 0, 55.3s)
+2026-02-13 21:09:40.811 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 8: acc=0.7477 (epoch 12, 75.6s)
+2026-02-13 21:10:35.831 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 9: acc=0.6937 (epoch 0, 55.0s)
+2026-02-13 21:10:35.832 | INFO     | __main__:run_10fold_cv:723 -   [isp_gin] PROTEINS: 68.5 ± 5.3% (total 646.9s)
+2026-02-13 21:10:35.832 | INFO     | __main__:main:1037 - Cumulative elapsed: 1245s
+2026-02-13 21:10:35.832 | INFO     | __main__:main:968 - 
+============================================================
+2026-02-13 21:10:35.833 | INFO     | __main__:main:969 - Dataset: IMDB-BINARY (1000 graphs, feat_dim=1)
+2026-02-13 21:10:35.833 | INFO     | __main__:main:970 - ============================================================
+2026-02-13 21:10:35.833 | INFO     | __main__:run_10fold_cv:678 -   [gin_baseline] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 21:10:48.189 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 0: acc=0.8000 (epoch 12, 12.4s)
+2026-02-13 21:11:01.318 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 1: acc=0.7100 (epoch 6, 13.1s)
+2026-02-13 21:11:23.184 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 2: acc=0.7300 (epoch 45, 21.9s)
+2026-02-13 21:11:33.143 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 3: acc=0.7100 (epoch 6, 10.0s)
+2026-02-13 21:11:50.643 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 4: acc=0.7800 (epoch 7, 17.5s)
+2026-02-13 21:12:01.791 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 5: acc=0.7100 (epoch 2, 11.1s)
+2026-02-13 21:12:14.265 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 6: acc=0.6400 (epoch 10, 12.5s)
+2026-02-13 21:12:35.766 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 7: acc=0.8000 (epoch 42, 21.5s)
+2026-02-13 21:12:46.973 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 8: acc=0.7800 (epoch 9, 11.2s)
+2026-02-13 21:13:24.314 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 9: acc=0.7500 (epoch 47, 37.3s)
+2026-02-13 21:13:24.315 | INFO     | __main__:run_10fold_cv:723 -   [gin_baseline] IMDB-BINARY: 74.1 ± 4.8% (total 168.5s)
+2026-02-13 21:13:24.315 | INFO     | __main__:run_10fold_cv:678 -   [realgin_aug] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 21:13:41.536 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 0: acc=0.8100 (epoch 20, 17.2s)
+2026-02-13 21:14:06.455 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 1: acc=0.7500 (epoch 56, 24.9s)
+2026-02-13 21:14:19.113 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 2: acc=0.7300 (epoch 16, 12.7s)
+2026-02-13 21:14:40.089 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 3: acc=0.7200 (epoch 11, 21.0s)
+2026-02-13 21:14:57.522 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 4: acc=0.7800 (epoch 26, 17.4s)
+2026-02-13 21:15:07.106 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 5: acc=0.7100 (epoch 4, 9.6s)
+2026-02-13 21:15:17.123 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 6: acc=0.6600 (epoch 8, 10.0s)
+2026-02-13 21:15:35.033 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 7: acc=0.8000 (epoch 23, 17.9s)
+2026-02-13 21:15:45.893 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 8: acc=0.7800 (epoch 9, 10.9s)
+2026-02-13 21:16:13.811 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 9: acc=0.7500 (epoch 30, 27.9s)
+2026-02-13 21:16:13.812 | INFO     | __main__:run_10fold_cv:723 -   [realgin_aug] IMDB-BINARY: 74.9 ± 4.3% (total 169.5s)
+2026-02-13 21:16:13.813 | INFO     | __main__:run_10fold_cv:678 -   [isp_gin] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 21:16:49.731 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 0: acc=0.5000 (epoch 0, 35.9s)
+2026-02-13 21:17:36.877 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 1: acc=0.5000 (epoch 0, 47.1s)
+2026-02-13 21:18:16.002 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 2: acc=0.5200 (epoch 2, 39.1s)
+2026-02-13 21:19:07.111 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 3: acc=0.5200 (epoch 1, 51.1s)
+2026-02-13 21:19:43.002 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 4: acc=0.5000 (epoch 0, 35.9s)
+2026-02-13 21:20:35.441 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 5: acc=0.5400 (epoch 1, 52.4s)
+2026-02-13 21:21:16.173 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 6: acc=0.5200 (epoch 2, 40.7s)
+2026-02-13 21:22:05.155 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 7: acc=0.5000 (epoch 0, 49.0s)
+2026-02-13 21:22:42.872 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 8: acc=0.5000 (epoch 0, 37.7s)
+2026-02-13 21:23:31.688 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 9: acc=0.5200 (epoch 0, 48.8s)
+2026-02-13 21:23:31.690 | INFO     | __main__:run_10fold_cv:723 -   [isp_gin] IMDB-BINARY: 51.2 ± 1.3% (total 437.9s)
+2026-02-13 21:23:31.691 | INFO     | __main__:main:1037 - Cumulative elapsed: 2021s
+2026-02-13 21:23:31.691 | INFO     | __main__:main:968 - 
+============================================================
+2026-02-13 21:23:31.691 | INFO     | __main__:main:969 - Dataset: PTC_MR (344 graphs, feat_dim=18)
+2026-02-13 21:23:31.692 | INFO     | __main__:main:970 - ============================================================
+2026-02-13 21:23:31.692 | INFO     | __main__:run_10fold_cv:678 -   [gin_baseline] Starting 10-fold CV on PTC_MR (344 graphs)
+2026-02-13 21:23:34.912 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 0: acc=0.5556 (epoch 0, 3.2s)
+2026-02-13 21:23:40.591 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 1: acc=0.5833 (epoch 2, 5.7s)
+2026-02-13 21:23:45.655 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 2: acc=0.6765 (epoch 2, 5.1s)
+2026-02-13 21:23:50.868 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 3: acc=0.6176 (epoch 16, 5.2s)
+2026-02-13 21:23:54.086 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 4: acc=0.5882 (epoch 1, 3.2s)
+2026-02-13 21:23:59.949 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 5: acc=0.6765 (epoch 25, 5.9s)
+2026-02-13 21:24:04.270 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 6: acc=0.6176 (epoch 9, 4.3s)
+2026-02-13 21:24:18.468 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 7: acc=0.6176 (epoch 6, 14.2s)
+2026-02-13 21:24:22.498 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 8: acc=0.6471 (epoch 6, 4.0s)
+2026-02-13 21:24:28.344 | INFO     | __main__:run_10fold_cv:714 -   [gin_baseline] Fold 9: acc=0.6471 (epoch 16, 5.8s)
+2026-02-13 21:24:28.345 | INFO     | __main__:run_10fold_cv:723 -   [gin_baseline] PTC_MR: 62.3 ± 3.8% (total 56.6s)
+2026-02-13 21:24:28.346 | INFO     | __main__:run_10fold_cv:678 -   [realgin_aug] Starting 10-fold CV on PTC_MR (344 graphs)
+2026-02-13 21:24:41.217 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 0: acc=0.6944 (epoch 45, 12.9s)
+2026-02-13 21:24:44.692 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 1: acc=0.5833 (epoch 3, 3.5s)
+2026-02-13 21:24:50.016 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 2: acc=0.6471 (epoch 17, 5.3s)
+2026-02-13 21:24:56.470 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 3: acc=0.7059 (epoch 25, 6.5s)
+2026-02-13 21:25:00.240 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 4: acc=0.6765 (epoch 5, 3.8s)
+2026-02-13 21:25:05.698 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 5: acc=0.7353 (epoch 16, 5.5s)
+2026-02-13 21:25:10.178 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 6: acc=0.7059 (epoch 12, 4.5s)
+2026-02-13 21:25:14.479 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 7: acc=0.6471 (epoch 10, 4.3s)
+2026-02-13 21:25:17.955 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 8: acc=0.6471 (epoch 4, 3.5s)
+2026-02-13 21:25:21.327 | INFO     | __main__:run_10fold_cv:714 -   [realgin_aug] Fold 9: acc=0.6765 (epoch 2, 3.4s)
+2026-02-13 21:25:21.328 | INFO     | __main__:run_10fold_cv:723 -   [realgin_aug] PTC_MR: 67.2 ± 4.1% (total 53.0s)
+2026-02-13 21:25:21.328 | INFO     | __main__:run_10fold_cv:678 -   [isp_gin] Starting 10-fold CV on PTC_MR (344 graphs)
+2026-02-13 21:25:40.135 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 0: acc=0.5556 (epoch 0, 18.8s)
+2026-02-13 21:25:51.789 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 1: acc=0.5556 (epoch 0, 11.7s)
+2026-02-13 21:26:02.376 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 2: acc=0.5588 (epoch 1, 10.6s)
+2026-02-13 21:26:12.755 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 3: acc=0.5588 (epoch 0, 10.4s)
+2026-02-13 21:26:22.643 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 4: acc=0.5588 (epoch 0, 9.9s)
+2026-02-13 21:26:33.046 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 5: acc=0.5588 (epoch 0, 10.4s)
+2026-02-13 21:26:42.781 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 6: acc=0.5588 (epoch 0, 9.7s)
+2026-02-13 21:26:55.117 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 7: acc=0.5588 (epoch 2, 12.3s)
+2026-02-13 21:27:13.054 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 8: acc=0.5588 (epoch 0, 17.9s)
+2026-02-13 21:27:24.728 | INFO     | __main__:run_10fold_cv:714 -   [isp_gin] Fold 9: acc=0.5588 (epoch 1, 11.7s)
+2026-02-13 21:27:24.729 | INFO     | __main__:run_10fold_cv:723 -   [isp_gin] PTC_MR: 55.8 ± 0.1% (total 123.4s)
+2026-02-13 21:27:24.730 | INFO     | __main__:main:1037 - Cumulative elapsed: 2254s
+2026-02-13 21:27:24.730 | INFO     | __main__:main:1045 - 
+Time remaining: 1346s — running ablation on MUTAG and PROTEINS
+2026-02-13 21:27:24.730 | INFO     | __main__:run_ablation:762 -   [Ablation] MUTAG: removing normalized_degree (idx=0)
+2026-02-13 21:27:24.735 | INFO     | __main__:run_10fold_cv:678 -   [ablation_normalized_degree] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:27:27.500 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 0: acc=0.9000 (epoch 9, 2.8s)
+2026-02-13 21:27:30.553 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 1: acc=0.9000 (epoch 7, 3.1s)
+2026-02-13 21:27:40.867 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 2: acc=0.9500 (epoch 53, 10.3s)
+2026-02-13 21:27:43.707 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 3: acc=1.0000 (epoch 7, 2.8s)
+2026-02-13 21:27:46.114 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 4: acc=0.8947 (epoch 2, 2.4s)
+2026-02-13 21:27:49.040 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 5: acc=0.9444 (epoch 10, 2.9s)
+2026-02-13 21:27:52.617 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 6: acc=0.8889 (epoch 19, 3.6s)
+2026-02-13 21:27:55.557 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 7: acc=0.8333 (epoch 9, 2.9s)
+2026-02-13 21:27:58.274 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 8: acc=1.0000 (epoch 8, 2.7s)
+2026-02-13 21:28:01.759 | INFO     | __main__:run_10fold_cv:714 -   [ablation_normalized_degree] Fold 9: acc=1.0000 (epoch 13, 3.5s)
+2026-02-13 21:28:01.760 | INFO     | __main__:run_10fold_cv:723 -   [ablation_normalized_degree] MUTAG: 93.1 ± 5.4% (total 37.0s)
+2026-02-13 21:28:01.761 | INFO     | __main__:run_ablation:762 -   [Ablation] MUTAG: removing clustering_coeff (idx=1)
+2026-02-13 21:28:01.766 | INFO     | __main__:run_10fold_cv:678 -   [ablation_clustering_coeff] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:28:04.693 | INFO     | __main__:run_10fold_cv:714 -   [ablation_clustering_coeff] Fold 0: acc=0.8500 (epoch 8, 2.9s)
+2026-02-13 21:28:07.473 | INFO     | __main__:run_10fold_cv:714 -   [ablation_clustering_coeff] Fold 1: acc=0.8500 (epoch 6, 2.8s)
+2026-02-13 21:28:11.222 | INFO     | __main__:run_10fold_cv:714 -   [ablation_clustering_coeff] Fold 2: acc=0.9000 (epoch 20, 3.7s)
+2026-02-13 21:33:23.900 | INFO     | __main__:load_dataset:99 - Loading data from /home/adrian/projects/ai-inventor/aii_pipeline/runs/run__20260213_112012/3_invention_loop/iter_4/gen_art/exp_id1_it4__opus/full_data_out.json
+2026-02-13 21:33:23.916 | INFO     | __main__:load_dataset:102 - Loaded 2645 total graphs across 4 datasets
+2026-02-13 21:33:23.933 | INFO     | __main__:main:938 - Converted MUTAG: 188 graphs, feat_dim=7
+2026-02-13 21:33:24.038 | INFO     | __main__:main:938 - Converted PROTEINS: 1113 graphs, feat_dim=4
+2026-02-13 21:33:24.144 | INFO     | __main__:main:938 - Converted IMDB-BINARY: 1000 graphs, feat_dim=1
+2026-02-13 21:33:24.165 | INFO     | __main__:main:938 - Converted PTC_MR: 344 graphs, feat_dim=18
+2026-02-13 21:33:24.165 | INFO     | __main__:main:941 - Precomputing topological features for all graphs...
+2026-02-13 21:33:24.528 | INFO     | __main__:main:948 -   Topological features computed for MUTAG
+2026-02-13 21:33:33.599 | INFO     | __main__:main:948 -   Topological features computed for PROTEINS
+2026-02-13 21:33:35.558 | INFO     | __main__:main:948 -   Topological features computed for IMDB-BINARY
+2026-02-13 21:33:35.890 | INFO     | __main__:main:948 -   Topological features computed for PTC_MR
+2026-02-13 21:33:35.890 | INFO     | __main__:main:950 - Topological feature computation: 11.7s total
+2026-02-13 21:33:35.890 | INFO     | __main__:main:969 - 
+============================================================
+2026-02-13 21:33:35.890 | INFO     | __main__:main:970 - Dataset: MUTAG (188 graphs, feat_dim=7)
+2026-02-13 21:33:35.890 | INFO     | __main__:main:971 - ============================================================
+2026-02-13 21:33:35.890 | INFO     | __main__:run_10fold_cv:679 -   [gin_baseline] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:33:38.812 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 0: acc=0.8000 (epoch 3, 2.9s)
+2026-02-13 21:33:41.833 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 1: acc=0.9000 (epoch 20, 3.0s)
+2026-02-13 21:33:45.008 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 2: acc=0.8500 (epoch 11, 3.2s)
+2026-02-13 21:33:55.767 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 3: acc=1.0000 (epoch 13, 10.8s)
+2026-02-13 21:33:58.499 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 4: acc=0.9474 (epoch 11, 2.7s)
+2026-02-13 21:34:00.684 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 5: acc=0.8889 (epoch 5, 2.2s)
+2026-02-13 21:34:03.407 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 6: acc=0.9444 (epoch 10, 2.7s)
+2026-02-13 21:34:07.300 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 7: acc=0.7778 (epoch 17, 3.9s)
+2026-02-13 21:34:10.336 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 8: acc=1.0000 (epoch 19, 3.0s)
+2026-02-13 21:34:13.079 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 9: acc=1.0000 (epoch 15, 2.7s)
+2026-02-13 21:34:13.080 | INFO     | __main__:run_10fold_cv:724 -   [gin_baseline] MUTAG: 91.1 ± 7.8% (total 37.2s)
+2026-02-13 21:34:13.081 | INFO     | __main__:run_10fold_cv:679 -   [realgin_aug] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:34:18.676 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 0: acc=0.8500 (epoch 22, 5.6s)
+2026-02-13 21:34:21.826 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 1: acc=0.9000 (epoch 5, 3.1s)
+2026-02-13 21:34:25.147 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 2: acc=0.9000 (epoch 24, 3.3s)
+2026-02-13 21:34:27.317 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 3: acc=1.0000 (epoch 6, 2.2s)
+2026-02-13 21:34:29.567 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 4: acc=0.9474 (epoch 9, 2.2s)
+2026-02-13 21:34:31.875 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 5: acc=0.9444 (epoch 10, 2.3s)
+2026-02-13 21:34:34.680 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 6: acc=0.8889 (epoch 15, 2.8s)
+2026-02-13 21:34:37.196 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 7: acc=0.8333 (epoch 11, 2.5s)
+2026-02-13 21:34:39.976 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 8: acc=1.0000 (epoch 17, 2.8s)
+2026-02-13 21:34:42.123 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 9: acc=1.0000 (epoch 7, 2.1s)
+2026-02-13 21:34:42.125 | INFO     | __main__:run_10fold_cv:724 -   [realgin_aug] MUTAG: 92.6 ± 5.9% (total 29.0s)
+2026-02-13 21:34:42.125 | INFO     | __main__:run_10fold_cv:679 -   [isp_gin] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:34:48.307 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 0: acc=0.6500 (epoch 1, 6.2s)
+2026-02-13 21:34:53.729 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 1: acc=0.6500 (epoch 0, 5.4s)
+2026-02-13 21:34:59.614 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 2: acc=0.6500 (epoch 0, 5.9s)
+2026-02-13 21:35:05.776 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 3: acc=0.6842 (epoch 0, 6.2s)
+2026-02-13 21:35:21.229 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 4: acc=0.6842 (epoch 0, 15.5s)
+2026-02-13 21:35:27.126 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 5: acc=0.6667 (epoch 0, 5.9s)
+2026-02-13 21:35:33.879 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 6: acc=0.6667 (epoch 0, 6.8s)
+2026-02-13 21:35:40.866 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 7: acc=0.7778 (epoch 7, 7.0s)
+2026-02-13 21:35:46.678 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 8: acc=0.6667 (epoch 1, 5.8s)
+2026-02-13 21:35:52.729 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 9: acc=0.6667 (epoch 0, 6.0s)
+2026-02-13 21:35:52.730 | INFO     | __main__:run_10fold_cv:724 -   [isp_gin] MUTAG: 67.6 ± 3.6% (total 70.6s)
+2026-02-13 21:35:52.730 | INFO     | __main__:main:1038 - Cumulative elapsed: 149s
+2026-02-13 21:35:52.731 | INFO     | __main__:main:969 - 
+============================================================
+2026-02-13 21:35:52.731 | INFO     | __main__:main:970 - Dataset: PROTEINS (1113 graphs, feat_dim=4)
+2026-02-13 21:35:52.731 | INFO     | __main__:main:971 - ============================================================
+2026-02-13 21:35:52.731 | INFO     | __main__:run_10fold_cv:679 -   [gin_baseline] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 21:36:12.318 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 0: acc=0.7768 (epoch 29, 19.6s)
+2026-02-13 21:36:40.367 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 1: acc=0.7857 (epoch 28, 28.0s)
+2026-02-13 21:36:59.787 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 2: acc=0.7321 (epoch 27, 19.4s)
+2026-02-13 21:37:11.550 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 3: acc=0.7658 (epoch 10, 11.8s)
+2026-02-13 21:37:37.251 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 4: acc=0.7838 (epoch 46, 25.7s)
+2026-02-13 21:37:47.062 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 5: acc=0.7928 (epoch 5, 9.8s)
+2026-02-13 21:38:14.037 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 6: acc=0.7477 (epoch 14, 27.0s)
+2026-02-13 21:38:48.598 | INFO     | __main__:load_dataset:99 - Loading data from /home/adrian/projects/ai-inventor/aii_pipeline/runs/run__20260213_112012/3_invention_loop/iter_4/gen_art/exp_id1_it4__opus/full_data_out.json
+2026-02-13 21:38:48.623 | INFO     | __main__:load_dataset:102 - Loaded 2645 total graphs across 4 datasets
+2026-02-13 21:38:48.641 | INFO     | __main__:main:938 - Converted MUTAG: 188 graphs, feat_dim=7
+2026-02-13 21:38:48.813 | INFO     | __main__:main:938 - Converted PROTEINS: 1113 graphs, feat_dim=4
+2026-02-13 21:38:48.980 | INFO     | __main__:main:938 - Converted IMDB-BINARY: 1000 graphs, feat_dim=1
+2026-02-13 21:38:49.016 | INFO     | __main__:main:938 - Converted PTC_MR: 344 graphs, feat_dim=18
+2026-02-13 21:38:49.017 | INFO     | __main__:main:941 - Precomputing topological features for all graphs...
+2026-02-13 21:38:49.612 | INFO     | __main__:main:948 -   Topological features computed for MUTAG
+2026-02-13 21:39:02.004 | INFO     | __main__:main:948 -   Topological features computed for PROTEINS
+2026-02-13 21:39:04.795 | INFO     | __main__:main:948 -   Topological features computed for IMDB-BINARY
+2026-02-13 21:39:05.279 | INFO     | __main__:main:948 -   Topological features computed for PTC_MR
+2026-02-13 21:39:05.281 | INFO     | __main__:main:950 - Topological feature computation: 16.3s total
+2026-02-13 21:39:05.282 | INFO     | __main__:main:969 - 
+============================================================
+2026-02-13 21:39:05.283 | INFO     | __main__:main:970 - Dataset: MUTAG (188 graphs, feat_dim=7)
+2026-02-13 21:39:05.284 | INFO     | __main__:main:971 - ============================================================
+2026-02-13 21:39:05.284 | INFO     | __main__:run_10fold_cv:679 -   [gin_baseline] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:39:57.552 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 0: acc=0.8000 (epoch 3, 52.3s)
+2026-02-13 21:41:11.596 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 1: acc=0.8500 (epoch 17, 74.0s)
+2026-02-13 21:41:13.082 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 7: acc=0.7748 (epoch 66, 179.0s)
+2026-02-13 21:43:31.835 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 2: acc=0.9500 (epoch 57, 140.2s)
+2026-02-13 21:44:47.962 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 3: acc=1.0000 (epoch 30, 76.1s)
+2026-02-13 21:45:49.354 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 4: acc=0.9474 (epoch 11, 61.4s)
+2026-02-13 21:46:00.905 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 8: acc=0.7477 (epoch 22, 287.8s)
+2026-02-13 21:46:44.162 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 5: acc=0.8889 (epoch 5, 54.8s)
+2026-02-13 21:47:44.784 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 6: acc=0.9444 (epoch 11, 60.6s)
+2026-02-13 21:49:07.655 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 7: acc=0.8333 (epoch 25, 82.9s)
+2026-02-13 21:49:09.300 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 9: acc=0.7838 (epoch 3, 188.4s)
+2026-02-13 21:49:09.301 | INFO     | __main__:run_10fold_cv:724 -   [gin_baseline] PROTEINS: 76.9 ± 1.9% (total 796.6s)
+2026-02-13 21:49:09.302 | INFO     | __main__:run_10fold_cv:679 -   [realgin_aug] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 21:50:09.956 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 8: acc=1.0000 (epoch 19, 62.3s)
+2026-02-13 21:51:15.710 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 9: acc=1.0000 (epoch 15, 65.8s)
+2026-02-13 21:51:15.710 | INFO     | __main__:run_10fold_cv:724 -   [gin_baseline] MUTAG: 92.1 ± 7.0% (total 730.4s)
+2026-02-13 21:51:15.711 | INFO     | __main__:run_10fold_cv:679 -   [realgin_aug] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:52:05.645 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 0: acc=0.7589 (epoch 10, 176.3s)
+2026-02-13 21:52:17.839 | INFO     | __main__:load_dataset:102 - Loading data from /home/adrian/projects/ai-inventor/aii_pipeline/runs/run__20260213_112012/3_invention_loop/iter_4/gen_art/exp_id1_it4__opus/full_data_out.json
+2026-02-13 21:52:17.860 | INFO     | __main__:load_dataset:105 - Loaded 2645 total graphs across 4 datasets
+2026-02-13 21:52:17.881 | INFO     | __main__:main:941 - Converted MUTAG: 188 graphs, feat_dim=7
+2026-02-13 21:52:18.031 | INFO     | __main__:main:941 - Converted PROTEINS: 1113 graphs, feat_dim=4
+2026-02-13 21:52:18.188 | INFO     | __main__:main:941 - Converted IMDB-BINARY: 1000 graphs, feat_dim=1
+2026-02-13 21:52:18.221 | INFO     | __main__:main:941 - Converted PTC_MR: 344 graphs, feat_dim=18
+2026-02-13 21:52:18.222 | INFO     | __main__:main:944 - Precomputing topological features for all graphs...
+2026-02-13 21:52:18.801 | INFO     | __main__:main:951 -   Topological features computed for MUTAG
+2026-02-13 21:52:24.059 | INFO     | __main__:main:951 -   Topological features computed for PROTEINS
+2026-02-13 21:52:27.395 | INFO     | __main__:main:951 -   Topological features computed for IMDB-BINARY
+2026-02-13 21:52:28.018 | INFO     | __main__:main:951 -   Topological features computed for PTC_MR
+2026-02-13 21:52:28.022 | INFO     | __main__:main:953 - Topological feature computation: 9.8s total
+2026-02-13 21:52:28.022 | INFO     | __main__:main:972 - 
+============================================================
+2026-02-13 21:52:28.023 | INFO     | __main__:main:973 - Dataset: MUTAG (188 graphs, feat_dim=7)
+2026-02-13 21:52:28.024 | INFO     | __main__:main:974 - ============================================================
+2026-02-13 21:52:28.024 | INFO     | __main__:run_10fold_cv:682 -   [gin_baseline] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:52:31.513 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 0: acc=0.8000 (epoch 3, 3.5s)
+2026-02-13 21:52:33.571 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 1: acc=0.8500 (epoch 3, 2.1s)
+2026-02-13 21:52:35.781 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 2: acc=0.8500 (epoch 11, 2.2s)
+2026-02-13 21:52:37.858 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 3: acc=1.0000 (epoch 13, 2.1s)
+2026-02-13 21:52:40.691 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 4: acc=0.9474 (epoch 22, 2.8s)
+2026-02-13 21:52:42.306 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 5: acc=0.8889 (epoch 5, 1.6s)
+2026-02-13 21:52:45.116 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 6: acc=1.0000 (epoch 30, 2.8s)
+2026-02-13 21:52:48.306 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 7: acc=0.8889 (epoch 38, 3.2s)
+2026-02-13 21:52:50.534 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 8: acc=1.0000 (epoch 20, 2.2s)
+2026-02-13 21:52:52.427 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 9: acc=1.0000 (epoch 16, 1.9s)
+2026-02-13 21:52:52.432 | INFO     | __main__:run_10fold_cv:727 -   [gin_baseline] MUTAG: 92.3 ± 7.2% (total 24.4s)
+2026-02-13 21:52:52.433 | INFO     | __main__:run_10fold_cv:682 -   [realgin_aug] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:52:54.917 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 0: acc=0.8500 (epoch 24, 2.5s)
+2026-02-13 21:52:56.435 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 1: acc=0.8500 (epoch 7, 1.5s)
+2026-02-13 21:52:58.353 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 2: acc=0.8500 (epoch 15, 1.9s)
+2026-02-13 21:52:59.842 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 3: acc=1.0000 (epoch 6, 1.5s)
+2026-02-13 21:53:01.260 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 4: acc=0.9474 (epoch 6, 1.4s)
+2026-02-13 21:53:03.032 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 5: acc=0.9444 (epoch 7, 1.8s)
+2026-02-13 21:53:05.847 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 6: acc=0.8889 (epoch 23, 2.8s)
+2026-02-13 21:53:07.865 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 7: acc=0.8333 (epoch 7, 2.0s)
+2026-02-13 21:53:10.027 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 8: acc=1.0000 (epoch 9, 2.2s)
+2026-02-13 21:53:12.137 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 9: acc=1.0000 (epoch 12, 2.1s)
+2026-02-13 21:53:12.139 | INFO     | __main__:run_10fold_cv:727 -   [realgin_aug] MUTAG: 91.6 ± 6.6% (total 19.7s)
+2026-02-13 21:53:12.140 | INFO     | __main__:run_10fold_cv:682 -   [isp_gin] Starting 10-fold CV on MUTAG (188 graphs)
+2026-02-13 21:53:16.426 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 0: acc=0.6500 (epoch 1, 4.3s)
+2026-02-13 21:53:20.423 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 1: acc=0.6500 (epoch 0, 4.0s)
+2026-02-13 21:53:24.276 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 2: acc=0.6500 (epoch 0, 3.9s)
+2026-02-13 21:53:28.694 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 3: acc=0.6842 (epoch 0, 4.4s)
+2026-02-13 21:53:32.766 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 4: acc=0.6842 (epoch 0, 4.1s)
+2026-02-13 21:53:36.785 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 5: acc=0.6667 (epoch 0, 4.0s)
+2026-02-13 21:53:40.682 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 6: acc=0.6667 (epoch 0, 3.9s)
+2026-02-13 21:53:45.784 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 7: acc=0.7778 (epoch 7, 5.1s)
+2026-02-13 21:53:50.142 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 8: acc=0.6667 (epoch 1, 4.4s)
+2026-02-13 21:53:54.021 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 9: acc=0.6667 (epoch 0, 3.9s)
+2026-02-13 21:53:54.023 | INFO     | __main__:run_10fold_cv:727 -   [isp_gin] MUTAG: 67.6 ± 3.6% (total 41.9s)
+2026-02-13 21:53:54.023 | INFO     | __main__:main:1041 - Cumulative elapsed: 96s
+2026-02-13 21:53:54.023 | INFO     | __main__:main:972 - 
+============================================================
+2026-02-13 21:53:54.024 | INFO     | __main__:main:973 - Dataset: PROTEINS (1113 graphs, feat_dim=4)
+2026-02-13 21:53:54.024 | INFO     | __main__:main:974 - ============================================================
+2026-02-13 21:53:54.025 | INFO     | __main__:run_10fold_cv:682 -   [gin_baseline] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 21:54:05.986 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 0: acc=0.7679 (epoch 11, 12.0s)
+2026-02-13 21:54:15.126 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 1: acc=0.8036 (epoch 4, 9.1s)
+2026-02-13 21:54:26.524 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 2: acc=0.7143 (epoch 10, 11.4s)
+2026-02-13 21:54:45.579 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 3: acc=0.7297 (epoch 27, 19.1s)
+2026-02-13 21:55:10.353 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 4: acc=0.7928 (epoch 49, 24.8s)
+2026-02-13 21:55:20.539 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 1: acc=0.7946 (epoch 7, 194.9s)
+2026-02-13 21:55:20.850 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 5: acc=0.8108 (epoch 8, 10.5s)
+2026-02-13 21:55:32.126 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 6: acc=0.7658 (epoch 10, 11.3s)
+2026-02-13 21:55:52.422 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 7: acc=0.7748 (epoch 32, 20.3s)
+2026-02-13 21:56:02.798 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 8: acc=0.7387 (epoch 5, 10.4s)
+2026-02-13 21:56:28.237 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 9: acc=0.8559 (epoch 49, 25.4s)
+2026-02-13 21:56:28.237 | INFO     | __main__:run_10fold_cv:727 -   [gin_baseline] PROTEINS: 77.5 ± 4.0% (total 154.2s)
+2026-02-13 21:56:28.237 | INFO     | __main__:run_10fold_cv:682 -   [realgin_aug] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 21:56:39.562 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 0: acc=0.7768 (epoch 10, 11.3s)
+2026-02-13 21:56:49.973 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 1: acc=0.7768 (epoch 7, 10.4s)
+2026-02-13 21:56:57.994 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 2: acc=0.6786 (epoch 1, 8.0s)
+2026-02-13 21:57:12.058 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 3: acc=0.7477 (epoch 17, 14.1s)
+2026-02-13 21:57:26.630 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 4: acc=0.7658 (epoch 14, 14.6s)
+2026-02-13 21:57:37.489 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 5: acc=0.7658 (epoch 7, 10.9s)
+2026-02-13 21:57:48.290 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 6: acc=0.7658 (epoch 9, 10.8s)
+2026-02-13 21:58:13.824 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 7: acc=0.7838 (epoch 48, 25.5s)
+2026-02-13 21:58:21.978 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 8: acc=0.7477 (epoch 1, 8.2s)
+2026-02-13 21:58:32.227 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 9: acc=0.8378 (epoch 8, 10.2s)
+2026-02-13 21:58:32.228 | INFO     | __main__:run_10fold_cv:727 -   [realgin_aug] PROTEINS: 76.5 ± 3.7% (total 124.0s)
+2026-02-13 21:58:32.229 | INFO     | __main__:run_10fold_cv:682 -   [isp_gin] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 21:59:18.133 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 0: acc=0.7321 (epoch 2, 45.9s)
+2026-02-13 21:59:57.700 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 1: acc=0.6071 (epoch 0, 39.6s)
+2026-02-13 22:00:15.719 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 2: acc=0.7500 (epoch 13, 295.2s)
+2026-02-13 22:00:38.855 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 2: acc=0.5982 (epoch 0, 41.2s)
+2026-02-13 22:01:42.433 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 3: acc=0.7297 (epoch 12, 63.6s)
+2026-02-13 22:02:21.596 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 4: acc=0.6847 (epoch 0, 39.2s)
+2026-02-13 22:03:15.428 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 5: acc=0.6757 (epoch 6, 53.8s)
+2026-02-13 22:04:02.792 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 6: acc=0.7117 (epoch 4, 47.4s)
+2026-02-13 22:04:45.754 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 7: acc=0.5946 (epoch 1, 43.0s)
+2026-02-13 22:05:19.805 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 3: acc=0.7568 (epoch 15, 304.1s)
+2026-02-13 22:05:41.258 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 8: acc=0.6577 (epoch 8, 55.5s)
+2026-02-13 22:06:20.959 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 9: acc=0.6126 (epoch 0, 39.7s)
+2026-02-13 22:06:20.960 | INFO     | __main__:run_10fold_cv:727 -   [isp_gin] PROTEINS: 66.0 ± 5.2% (total 468.7s)
+2026-02-13 22:06:20.961 | INFO     | __main__:main:1041 - Cumulative elapsed: 843s
+2026-02-13 22:06:20.969 | INFO     | __main__:main:972 - 
+============================================================
+2026-02-13 22:06:20.970 | INFO     | __main__:main:973 - Dataset: IMDB-BINARY (1000 graphs, feat_dim=1)
+2026-02-13 22:06:20.971 | INFO     | __main__:main:974 - ============================================================
+2026-02-13 22:06:20.972 | INFO     | __main__:run_10fold_cv:682 -   [gin_baseline] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 22:06:30.044 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 0: acc=0.8200 (epoch 15, 9.1s)
+2026-02-13 22:06:37.268 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 1: acc=0.7100 (epoch 6, 7.2s)
+2026-02-13 22:06:44.065 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 2: acc=0.6900 (epoch 5, 6.8s)
+2026-02-13 22:06:50.969 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 3: acc=0.7200 (epoch 5, 6.9s)
+2026-02-13 22:06:58.794 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 4: acc=0.7700 (epoch 3, 7.8s)
+2026-02-13 22:07:10.778 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 5: acc=0.7000 (epoch 23, 12.0s)
+2026-02-13 22:07:19.223 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 6: acc=0.6600 (epoch 10, 8.4s)
+2026-02-13 22:07:26.362 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 7: acc=0.7500 (epoch 6, 7.1s)
+2026-02-13 22:07:37.884 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 8: acc=0.7800 (epoch 21, 11.5s)
+2026-02-13 22:07:48.098 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 9: acc=0.7200 (epoch 19, 10.2s)
+2026-02-13 22:07:48.101 | INFO     | __main__:run_10fold_cv:727 -   [gin_baseline] IMDB-BINARY: 73.2 ± 4.5% (total 87.1s)
+2026-02-13 22:07:48.104 | INFO     | __main__:run_10fold_cv:682 -   [realgin_aug] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 22:07:56.840 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 0: acc=0.8200 (epoch 12, 8.7s)
+2026-02-13 22:08:17.829 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 1: acc=0.7400 (epoch 52, 21.0s)
+2026-02-13 22:08:29.051 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 2: acc=0.7500 (epoch 20, 11.2s)
+2026-02-13 22:08:35.753 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 3: acc=0.7100 (epoch 2, 6.7s)
+2026-02-13 22:08:42.216 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 4: acc=0.7700 (epoch 3, 6.5s)
+2026-02-13 22:08:54.927 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 5: acc=0.7200 (epoch 24, 12.7s)
+2026-02-13 22:09:05.023 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 6: acc=0.6600 (epoch 17, 10.1s)
+2026-02-13 22:09:15.030 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 7: acc=0.7600 (epoch 17, 10.0s)
+2026-02-13 22:09:23.047 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 8: acc=0.7900 (epoch 9, 8.0s)
+2026-02-13 22:09:31.003 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 9: acc=0.7300 (epoch 8, 8.0s)
+2026-02-13 22:09:31.005 | INFO     | __main__:run_10fold_cv:727 -   [realgin_aug] IMDB-BINARY: 74.5 ± 4.2% (total 102.9s)
+2026-02-13 22:09:31.007 | INFO     | __main__:run_10fold_cv:682 -   [isp_gin] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 22:10:02.230 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 0: acc=0.5000 (epoch 0, 31.2s)
+2026-02-13 22:10:30.937 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 1: acc=0.5000 (epoch 0, 28.7s)
+2026-02-13 22:10:53.022 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 4: acc=0.7928 (epoch 18, 333.2s)
+2026-02-13 22:11:01.207 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 2: acc=0.5000 (epoch 0, 30.3s)
+2026-02-13 22:11:33.944 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 3: acc=0.5400 (epoch 2, 32.7s)
+2026-02-13 22:12:03.395 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 4: acc=0.5000 (epoch 0, 29.4s)
+2026-02-13 22:12:36.169 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 5: acc=0.5400 (epoch 1, 32.8s)
+2026-02-13 22:13:06.629 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 6: acc=0.5000 (epoch 1, 30.5s)
+2026-02-13 22:13:35.463 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 7: acc=0.5000 (epoch 0, 28.8s)
+2026-02-13 22:14:05.844 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 8: acc=0.5000 (epoch 0, 30.4s)
+2026-02-13 22:14:34.539 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 9: acc=0.5200 (epoch 0, 28.7s)
+2026-02-13 22:14:34.541 | INFO     | __main__:run_10fold_cv:727 -   [isp_gin] IMDB-BINARY: 51.0 ± 1.6% (total 303.5s)
+2026-02-13 22:14:34.542 | INFO     | __main__:main:1041 - Cumulative elapsed: 1337s
+2026-02-13 22:14:34.543 | INFO     | __main__:main:972 - 
+============================================================
+2026-02-13 22:14:34.544 | INFO     | __main__:main:973 - Dataset: PTC_MR (344 graphs, feat_dim=18)
+2026-02-13 22:14:34.545 | INFO     | __main__:main:974 - ============================================================
+2026-02-13 22:14:34.546 | INFO     | __main__:run_10fold_cv:682 -   [gin_baseline] Starting 10-fold CV on PTC_MR (344 graphs)
+2026-02-13 22:14:36.847 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 0: acc=0.6111 (epoch 6, 2.3s)
+2026-02-13 22:14:39.952 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 1: acc=0.6111 (epoch 16, 3.1s)
+2026-02-13 22:14:41.027 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 5: acc=0.8198 (epoch 5, 228.0s)
+2026-02-13 22:14:41.850 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 2: acc=0.6471 (epoch 2, 1.9s)
+2026-02-13 22:14:43.838 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 3: acc=0.5882 (epoch 2, 2.0s)
+2026-02-13 22:14:45.656 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 4: acc=0.5882 (epoch 1, 1.8s)
+2026-02-13 22:14:49.257 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 5: acc=0.6765 (epoch 21, 3.6s)
+2026-02-13 22:14:51.410 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 6: acc=0.6471 (epoch 3, 2.2s)
+2026-02-13 22:14:54.026 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 7: acc=0.6176 (epoch 9, 2.6s)
+2026-02-13 22:14:57.045 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 8: acc=0.6471 (epoch 14, 3.0s)
+2026-02-13 22:15:00.203 | INFO     | __main__:run_10fold_cv:718 -   [gin_baseline] Fold 9: acc=0.6471 (epoch 18, 3.2s)
+2026-02-13 22:15:00.206 | INFO     | __main__:run_10fold_cv:727 -   [gin_baseline] PTC_MR: 62.8 ± 2.8% (total 25.6s)
+2026-02-13 22:15:00.207 | INFO     | __main__:run_10fold_cv:682 -   [realgin_aug] Starting 10-fold CV on PTC_MR (344 graphs)
+2026-02-13 22:15:03.419 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 0: acc=0.6389 (epoch 19, 3.2s)
+2026-02-13 22:15:07.125 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 1: acc=0.6111 (epoch 19, 3.7s)
+2026-02-13 22:15:11.433 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 2: acc=0.6765 (epoch 12, 4.3s)
+2026-02-13 22:15:14.042 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 3: acc=0.6471 (epoch 3, 2.6s)
+2026-02-13 22:15:16.553 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 4: acc=0.7353 (epoch 5, 2.5s)
+2026-02-13 22:15:21.064 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 5: acc=0.7059 (epoch 30, 4.5s)
+2026-02-13 22:15:24.581 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 6: acc=0.6765 (epoch 20, 3.5s)
+2026-02-13 22:15:27.129 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 7: acc=0.6176 (epoch 6, 2.5s)
+2026-02-13 22:15:29.313 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 8: acc=0.6471 (epoch 4, 2.2s)
+2026-02-13 22:15:32.082 | INFO     | __main__:run_10fold_cv:718 -   [realgin_aug] Fold 9: acc=0.6765 (epoch 10, 2.8s)
+2026-02-13 22:15:32.084 | INFO     | __main__:run_10fold_cv:727 -   [realgin_aug] PTC_MR: 66.3 ± 3.7% (total 31.9s)
+2026-02-13 22:15:32.085 | INFO     | __main__:run_10fold_cv:682 -   [isp_gin] Starting 10-fold CV on PTC_MR (344 graphs)
+2026-02-13 22:15:37.623 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 0: acc=0.5556 (epoch 0, 5.5s)
+2026-02-13 22:15:43.500 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 1: acc=0.5556 (epoch 0, 5.9s)
+2026-02-13 22:15:49.558 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 2: acc=0.5588 (epoch 1, 6.1s)
+2026-02-13 22:15:55.152 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 3: acc=0.5588 (epoch 0, 5.6s)
+2026-02-13 22:16:00.667 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 4: acc=0.5588 (epoch 0, 5.5s)
+2026-02-13 22:16:06.323 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 5: acc=0.5588 (epoch 0, 5.7s)
+2026-02-13 22:16:12.126 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 6: acc=0.5882 (epoch 1, 5.8s)
+2026-02-13 22:16:18.097 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 7: acc=0.5588 (epoch 2, 6.0s)
+2026-02-13 22:16:23.710 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 8: acc=0.5588 (epoch 0, 5.6s)
+2026-02-13 22:16:29.893 | INFO     | __main__:run_10fold_cv:718 -   [isp_gin] Fold 9: acc=0.5588 (epoch 1, 6.2s)
+2026-02-13 22:16:29.896 | INFO     | __main__:run_10fold_cv:727 -   [isp_gin] PTC_MR: 56.1 ± 0.9% (total 57.8s)
+2026-02-13 22:16:29.897 | INFO     | __main__:main:1041 - Cumulative elapsed: 1452s
+2026-02-13 22:16:29.975 | INFO     | __main__:save_and_print:1063 - Saved method_out.json (3197 KB)
+2026-02-13 22:16:29.977 | INFO     | __main__:save_and_print:1065 - 
+============================================================
+2026-02-13 22:16:29.977 | INFO     | __main__:save_and_print:1066 - RESULTS SUMMARY (accuracy %)
+2026-02-13 22:16:29.978 | INFO     | __main__:save_and_print:1067 - ============================================================
+2026-02-13 22:16:29.979 | INFO     | __main__:save_and_print:1070 - Dataset               GIN   RealGIN+    ISP-GIN
+2026-02-13 22:16:29.980 | INFO     | __main__:save_and_print:1071 - --------------------------------------------------
+2026-02-13 22:16:29.981 | INFO     | __main__:save_and_print:1085 - MUTAG           92.3± 7.2  91.6± 6.6  67.6± 3.6
+2026-02-13 22:16:29.982 | INFO     | __main__:save_and_print:1085 - PROTEINS        77.5± 4.0  76.5± 3.7  66.0± 5.2
+2026-02-13 22:16:29.982 | INFO     | __main__:save_and_print:1085 - IMDB-BINARY     73.2± 4.5  74.5± 4.2  51.0± 1.6
+2026-02-13 22:16:29.983 | INFO     | __main__:save_and_print:1085 - PTC_MR          62.8± 2.8  66.3± 3.7  56.1± 0.9
+2026-02-13 22:16:29.984 | INFO     | __main__:save_and_print:1087 - 
+Total experiment time: 1452s
+2026-02-13 22:16:29.986 | SUCCESS  | __main__:main:1091 - Main experiment complete! Results saved.
+2026-02-13 22:16:29.988 | INFO     | __main__:main:1099 - Ablation skipped (remaining wall time: 2148s). Main results saved.
+2026-02-13 22:16:49.558 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 6: acc=0.7748 (epoch 19, 128.5s)
+2026-02-13 22:17:03.533 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 7: acc=0.7477 (epoch 12, 14.0s)
+2026-02-13 22:17:18.087 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 8: acc=0.7477 (epoch 17, 14.6s)
+2026-02-13 22:17:31.687 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 9: acc=0.8198 (epoch 13, 13.6s)
+2026-02-13 22:17:31.688 | INFO     | __main__:run_10fold_cv:724 -   [realgin_aug] PROTEINS: 77.6 ± 2.7% (total 1702.4s)
+2026-02-13 22:17:31.688 | INFO     | __main__:run_10fold_cv:679 -   [isp_gin] Starting 10-fold CV on PROTEINS (1113 graphs)
+2026-02-13 22:18:29.163 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 0: acc=0.6964 (epoch 1, 57.5s)
+2026-02-13 22:19:48.565 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 1: acc=0.5982 (epoch 0, 79.4s)
+2026-02-13 22:20:56.592 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 2: acc=0.5982 (epoch 0, 68.0s)
+2026-02-13 22:22:15.399 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 3: acc=0.7117 (epoch 16, 78.8s)
+2026-02-13 22:23:59.699 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 4: acc=0.5946 (epoch 2, 104.3s)
+2026-02-13 22:25:20.265 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 5: acc=0.6306 (epoch 0, 80.6s)
+2026-02-13 22:26:25.064 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 6: acc=0.7117 (epoch 1, 64.8s)
+2026-02-13 22:33:01.562 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 7: acc=0.7207 (epoch 0, 396.5s)
+2026-02-13 22:46:41.456 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 8: acc=0.7387 (epoch 8, 819.9s)
+2026-02-13 22:47:58.661 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 9: acc=0.6937 (epoch 0, 77.2s)
+2026-02-13 22:47:58.663 | INFO     | __main__:run_10fold_cv:724 -   [isp_gin] PROTEINS: 66.9 ± 5.4% (total 1827.0s)
+2026-02-13 22:47:58.663 | INFO     | __main__:main:1038 - Cumulative elapsed: 4475s
+2026-02-13 22:47:58.663 | INFO     | __main__:main:969 - 
+============================================================
+2026-02-13 22:47:58.664 | INFO     | __main__:main:970 - Dataset: IMDB-BINARY (1000 graphs, feat_dim=1)
+2026-02-13 22:47:58.665 | INFO     | __main__:main:971 - ============================================================
+2026-02-13 22:47:58.665 | INFO     | __main__:run_10fold_cv:679 -   [gin_baseline] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 22:48:28.605 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 0: acc=0.8300 (epoch 32, 29.9s)
+2026-02-13 22:48:40.086 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 1: acc=0.7100 (epoch 8, 11.5s)
+2026-02-13 22:48:55.722 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 2: acc=0.7200 (epoch 19, 15.6s)
+2026-02-13 22:49:20.799 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 3: acc=0.7200 (epoch 6, 25.1s)
+2026-02-13 22:49:33.677 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 4: acc=0.7800 (epoch 5, 12.9s)
+2026-02-13 22:49:44.384 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 5: acc=0.7100 (epoch 6, 10.7s)
+2026-02-13 22:49:57.576 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 6: acc=0.6600 (epoch 12, 13.2s)
+2026-02-13 22:50:17.016 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 7: acc=0.8000 (epoch 31, 19.4s)
+2026-02-13 22:50:47.484 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 8: acc=0.7800 (epoch 20, 30.5s)
+2026-02-13 22:51:26.665 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 9: acc=0.7500 (epoch 44, 39.2s)
+2026-02-13 22:51:26.666 | INFO     | __main__:run_10fold_cv:724 -   [gin_baseline] IMDB-BINARY: 74.6 ± 4.9% (total 208.0s)
+2026-02-13 22:51:26.666 | INFO     | __main__:run_10fold_cv:679 -   [realgin_aug] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 22:51:40.526 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 0: acc=0.8200 (epoch 15, 13.9s)
+2026-02-13 22:52:13.465 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 1: acc=0.7400 (epoch 40, 32.9s)
+2026-02-13 22:52:29.288 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 2: acc=0.7500 (epoch 19, 15.8s)
+2026-02-13 22:52:42.616 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 3: acc=0.7200 (epoch 8, 13.3s)
+2026-02-13 22:52:53.650 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 4: acc=0.7700 (epoch 10, 11.0s)
+2026-02-13 22:53:21.484 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 5: acc=0.7100 (epoch 28, 27.8s)
+2026-02-13 22:53:42.618 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 6: acc=0.6800 (epoch 30, 21.1s)
+2026-02-13 22:54:02.397 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 7: acc=0.8100 (epoch 37, 19.8s)
+2026-02-13 22:54:16.425 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 8: acc=0.7700 (epoch 18, 14.0s)
+2026-02-13 22:54:26.645 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 9: acc=0.7300 (epoch 7, 10.2s)
+2026-02-13 22:54:26.646 | INFO     | __main__:run_10fold_cv:724 -   [realgin_aug] IMDB-BINARY: 75.0 ± 4.1% (total 180.0s)
+2026-02-13 22:54:26.646 | INFO     | __main__:run_10fold_cv:679 -   [isp_gin] Starting 10-fold CV on IMDB-BINARY (1000 graphs)
+2026-02-13 22:55:17.494 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 0: acc=0.5000 (epoch 0, 50.8s)
+2026-02-13 22:56:06.883 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 1: acc=0.5000 (epoch 0, 49.4s)
+2026-02-13 22:56:46.157 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 2: acc=0.5100 (epoch 2, 39.3s)
+2026-02-13 22:57:37.223 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 3: acc=0.5200 (epoch 1, 51.1s)
+2026-02-13 22:58:13.151 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 4: acc=0.5000 (epoch 0, 35.9s)
+2026-02-13 22:59:02.751 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 5: acc=0.5400 (epoch 1, 49.6s)
+2026-02-13 22:59:48.982 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 6: acc=0.5000 (epoch 1, 46.2s)
+2026-02-13 23:00:44.366 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 7: acc=0.5000 (epoch 0, 55.4s)
+2026-02-13 23:01:23.445 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 8: acc=0.5000 (epoch 0, 39.1s)
+2026-02-13 23:02:11.713 | INFO     | __main__:run_10fold_cv:715 -   [isp_gin] Fold 9: acc=0.5200 (epoch 0, 48.3s)
+2026-02-13 23:02:11.714 | INFO     | __main__:run_10fold_cv:724 -   [isp_gin] IMDB-BINARY: 50.9 ± 1.3% (total 465.1s)
+2026-02-13 23:02:11.715 | INFO     | __main__:main:1038 - Cumulative elapsed: 5328s
+2026-02-13 23:02:11.715 | INFO     | __main__:main:969 - 
+============================================================
+2026-02-13 23:02:11.715 | INFO     | __main__:main:970 - Dataset: PTC_MR (344 graphs, feat_dim=18)
+2026-02-13 23:02:11.715 | INFO     | __main__:main:971 - ============================================================
+2026-02-13 23:02:11.715 | INFO     | __main__:run_10fold_cv:679 -   [gin_baseline] Starting 10-fold CV on PTC_MR (344 graphs)
+2026-02-13 23:02:16.698 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 0: acc=0.5833 (epoch 15, 5.0s)
+2026-02-13 23:02:19.813 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 1: acc=0.5833 (epoch 1, 3.1s)
+2026-02-13 23:02:23.498 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 2: acc=0.6765 (epoch 2, 3.7s)
+2026-02-13 23:02:29.570 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 3: acc=0.6176 (epoch 16, 6.1s)
+2026-02-13 23:02:32.552 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 4: acc=0.5882 (epoch 1, 3.0s)
+2026-02-13 23:02:37.837 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 5: acc=0.6471 (epoch 13, 5.3s)
+2026-02-13 23:02:41.086 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 6: acc=0.6176 (epoch 3, 3.2s)
+2026-02-13 23:02:45.295 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 7: acc=0.6176 (epoch 6, 4.2s)
+2026-02-13 23:02:57.577 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 8: acc=0.6471 (epoch 6, 12.3s)
+2026-02-13 23:03:01.850 | INFO     | __main__:run_10fold_cv:715 -   [gin_baseline] Fold 9: acc=0.6176 (epoch 11, 4.3s)
+2026-02-13 23:03:01.850 | INFO     | __main__:run_10fold_cv:724 -   [gin_baseline] PTC_MR: 62.0 ± 2.9% (total 50.1s)
+2026-02-13 23:03:01.851 | INFO     | __main__:run_10fold_cv:679 -   [realgin_aug] Starting 10-fold CV on PTC_MR (344 graphs)
+2026-02-13 23:03:08.011 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 0: acc=0.6944 (epoch 16, 6.2s)
+2026-02-13 23:03:13.788 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 1: acc=0.6111 (epoch 23, 5.8s)
+2026-02-13 23:03:18.764 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 2: acc=0.6176 (epoch 1, 5.0s)
+2026-02-13 23:03:22.779 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 3: acc=0.6471 (epoch 3, 4.0s)
+2026-02-13 23:03:30.548 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 4: acc=0.7353 (epoch 39, 7.8s)
+2026-02-13 23:03:34.760 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 5: acc=0.6765 (epoch 8, 4.2s)
+2026-02-13 23:03:38.940 | INFO     | __main__:run_10fold_cv:715 -   [realgin_aug] Fold 6: acc=0.6765 (epoch 12, 4.2s)

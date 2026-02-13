@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "evaluation_name": "ISP-GIN Comprehensive Final Evaluation",
+    "description": "Hypothesis verdict and disconfirmation analysis synthesizing experiments from iterations 2-3. Tests whether complex-valued message passing in ISP-GIN provides expressiveness beyond real-valued topolog...",
+    "dependency_experiments": [
+      "exp_id1_it2__opus (ISP-GIN 140-config sweep)",
+      "exp_id1_it3__opus (ISP-GIN ablation with 5 methods)",
+      "data_id2_it1__opus (55 graph pairs across 4 datasets)"
+    ],
+    "sections": [
+      "1. McNemar's test (ISP-GIN vs RealGIN-Aug)",
+      "2. Per-dataset breakdown with CIs",
+      "3. CSL failure mathematical analysis"
+    ],
+    "mcnemar_contingency": {
+      "a": 35,
+      "b": 0,
+      "c": 9,
+      "d": 11
+    },
+    "csl_mathematical_explanation": "On k-regular graphs (CSL: k=4, n=41), degree-based harmonic initialization assigns z_v = exp(i*omega*4) for ALL nodes v. Sum aggregation at any node v with neighbor set N(v) gives Σ_{u∈N(v)} z_u = |N(...",
+    "init_rank_order": [
+      "random_walk_t3",
+      "local_topology",
+      "spectral"
+    ],
+    "init_marginal_contributions": {
+      "degree": 0,
+      "random_walk_t2": 0,
+      "random_walk_t3": 0,
+      "wl_color_r3": 0,
+      "local_topology": 0,
+      "multihop_hash": 0,
+      "spectral": 20
+    },
+    "literature_comparability_note": "Results are NOT directly comparable: our 55-pair subset != full 400 pairs. Different pair composition and difficulty distribution.",
+    "hypothesis_verdicts": {
+      "assumption1": {
+        "verdict": "DISCONFIRMED",
+        "evidence": "RealGIN-Aug (44/55) strictly beats ISP-GIN (35/55). McNemar p-value = 0.003906. Cohen's h = 0.3673."
+      },
+      "assumption2": {
+        "verdict": "PARTIALLY_CONFIRMED",
+        "evidence": "ISP-GIN distinguishes 35/35 pairs on non-regular graphs (brec_basic + brec_regular + brec_cfi), but FAILS completely on CSL (0/20) because degree-based phase is uniform on k-regular graphs (degree var..."
+      },
+      "assumption3": {
+        "verdict": "NOT_TESTABLE_AS_STATED",
+        "evidence": "Since real-valued features match or exceed complex, the K-channel question is moot for ISP specifically. For RealGIN-Aug, K=8-16 topological features suffice. The iter2 sweep shows K=16 at best achiev..."
+      },
+      "assumption4": {
+        "verdict": "NOT_TESTED",
+        "evidence": "No gradient-based training was performed; only analytical fingerprint comparison was done. Training stability remains unknown."
+      },
+      "assumption5": {
+        "verdict": "DISCONFIRMED",
+        "evidence": "RealGIN-Aug captures everything ISP-GIN does and more. ISP-GIN distinguished 35/55, RealGIN-Aug distinguished 44/55. The contingency table shows b=0 pairs that ISP-only distinguishes vs c=9 pairs that..."
+      }
+    },
+    "overall_hypothesis_verdict": "DISCONFIRMED",
+    "pivoted_contribution": "Topological feature augmentation (random walk profiles, local clustering, spectral features) applied to standard real-valued GIN breaks 1-WL on 44/55 benchmark pairs at negligible cost. The complex-va..."
+  },
+  "metrics_agg": {
+    "mcnemar_pvalue": 0.00390625,
+    "mcnemar_statistic": 0.0,
+    "cohens_h": 0.3672744780296928,
+    "expressiveness_gap": 0.1636363636363637,
+    "isp_gin_total_rate": 0.6363636363636364,
+    "realgin_aug_total_rate": 0.8,
+    "wl_baseline_total_rate": 0.0,
+    "isp_nomp_mag_total_rate": 0.0,
+    "isp_nomp_phase_total_rate": 0.8,
+    "ci_lower_isp": 0.49563145491198646,
+    "ci_upper_isp": 0.7618616207865172,
+    "ci_lower_real": 0.6702714937123857,
+    "ci_upper_real": 0.8957040830742319,
+    "isp_gin_brec_basic": 1.0,
+    "realgin_aug_brec_basic": 1.0,
+    "wl_baseline_brec_basic": 0.0,
+    "nomp_mag_brec_basic": 0.0,
+    "nomp_phase_brec_basic": 1.0,
+    "isp_gin_brec_regular": 1.0,
+    "realgin_aug_brec_regular": 1.0,
+    "wl_baseline_brec_regular": 0.0,
+    "nomp_mag_brec_regular": 0.0,
+    "nomp_phase_brec_regular": 1.0,
+    "isp_gin_brec_cfi": 1.0,
+    "realgin_aug_brec_cfi": 1.0,
+    "wl_baseline_brec_cfi": 0.0,
+    "nomp_mag_brec_cfi": 0.0,
+    "nomp_phase_brec_cfi": 1.0,
+    "isp_gin_csl": 0.0,
+    "realgin_aug_csl": 0.45,
+    "wl_baseline_csl": 0.0,
+    "nomp_mag_csl": 0.0,
+    "nomp_phase_csl": 0.45,
+    "csl_degree_variance": 0.0,
+    "csl_phase_uniformity_score": 0.0,
+    "csl_isp_distinguished": 0.0,
+    "csl_real_distinguished": 9.0,
+    "best_single_init_rate": 0.6363636363636364,
+    "union_all_inits_rate": 1.0,
+    "init_rate_degree": 0.0,
+    "init_csl_degree": 0.0,
+    "init_rate_random_walk_t2": 0.0,
+    "init_csl_random_walk_t2": 0.0,
+    "init_rate_random_walk_t3": 0.6363636363636364,
+    "init_csl_random_walk_t3": 0.0,
+    "init_rate_wl_color_r3": 0.0,
+    "init_csl_wl_color_r3": 0.0,
+    "init_rate_local_topology": 0.6363636363636364,
+    "init_csl_local_topology": 0.0,
+    "init_rate_multihop_hash": 0.0,
+    "init_csl_multihop_hash": 0.0,
+    "init_rate_spectral": 0.43636363636363634,
+    "init_csl_spectral": 1.0,
+    "brec_published_i2gnn_rate": 0.7025,
+    "brec_published_gsn_rate": 0.635,
+    "brec_published_kp_gnn_rate": 0.6875,
+    "brec_published_gin_baseline_rate": 0.0,
+    "n_assumptions_confirmed": 0.0,
+    "n_assumptions_disconfirmed": 2.0,
+    "n_assumptions_partial": 1.0,
+    "n_assumptions_not_tested": 2.0
+  },
+  "datasets": [
+    {
+      "dataset": "brec_basic",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,3],[0,5],[0,7],[0,8],[1,4],[1,5],[1,6],[1,7],[1,8],[2,4],[2,6],[2,7],[2,8],[2,9],[3,6],[3,8],[3,9],[4,5],[4,6],[4,7],[4,9],[5,7],[5,8],[5,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 0,
+          "metadata_dataset": "brec_basic",
+          "metadata_wl_level": "1-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,1],[0,2],[0,3],[0,5],[0,6],[0,9],[1,3],[1,4],[1,5],[1,6],[1,7],[2,3],[2,6],[2,7],[2,8],[2,9],[3,8],[3,9],[4,5],[4,6],[4,8],[5,9],[6,7],[6,8],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 1,
+          "metadata_dataset": "brec_basic",
+          "metadata_wl_level": "1-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":26,\"edge_list\":[[0,3],[0,4],[0,6],[0,7],[0,8],[0,9],[1,2],[1,4],[1,5],[1,6],[1,8],[1,9],[2,3],[2,5],[2,6],[3,4],[3,6],[3,8],[4,7],[4,9],[5,7],[5,9],[6,8],[6,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 2,
+          "metadata_dataset": "brec_basic",
+          "metadata_wl_level": "1-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "brec_regular",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,4],[0,7],[0,8],[0,9],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[2,9],[3,4],[3,6],[3,7],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 10,
+          "metadata_dataset": "brec_regular",
+          "metadata_wl_level": "1-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,2],[1,3],[1,5],[1,6],[1,7],[1,9],[2,5],[2,6],[2,7],[2,8],[3,4],[3,5],[3,6],[3,7],[3,8],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 11,
+          "metadata_dataset": "brec_regular",
+          "metadata_wl_level": "1-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":38,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[1,2],[1,3],[1,4],[1,5],[1,6],[1,7],[1,8],[1,9],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],[2,9],[...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 12,
+          "metadata_dataset": "brec_regular",
+          "metadata_wl_level": "1-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "brec_cfi",
+      "examples": [
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,1],[0,3],[0,7],[0,8],[0,9],[1,5],[2,3],[2,4],[2,6],[2,7],[2,9],[3,7],[3,8],[3,9],[4,5],[4,6],[4,7],[4,9],[6,7],[6,9],[7,8],[8,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 35,
+          "metadata_dataset": "brec_cfi",
+          "metadata_wl_level": "3-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,1],[0,2],[0,3],[0,4],[0,8],[0,9],[1,2],[1,3],[1,7],[1,8],[2,7],[2,8],[3,4],[3,7],[3,9],[4,7],[4,9],[5,6],[5,9],[6,8],[7,8],[7,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 36,
+          "metadata_dataset": "brec_cfi",
+          "metadata_wl_level": "3-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        },
+        {
+          "input": "{\"graph_a\":{\"num_nodes\":10,\"num_edges\":22,\"edge_list\":[[0,2],[0,3],[0,4],[0,6],[0,7],[0,9],[1,3],[1,8],[2,4],[2,5],[2,8],[2,9],[3,5],[3,6],[3,7],[4,5],[4,9],[5,6],[5,7],[5,9],[6,7],[7,9]],\"node_degree...",
+          "output": "non_isomorphic",
+          "metadata_pair_id": 37,
+          "metadata_dataset": "brec_cfi",
+          "metadata_wl_level": "3-WL",
+          "predict_isp_gin": "distinguished",
+          "predict_realgin_aug": "distinguished",
+          "predict_wl_baseline": "not_distinguished",
+          "predict_isp_nomp_mag": "not_distinguished",
+          "predict_isp_nomp_phase": "distinguished",
+          "eval_isp_gin_correct": 1.0,
+          "eval_realgin_aug_correct": 1.0,
+          "eval_wl_baseline_correct": 0.0,
+          "eval_isp_nomp_mag_correct": 0.0,
+          "eval_isp_nomp_phase_correct": 1.0,
+          "eval_real_minus_isp": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,778 @@
+{
+  "metadata": {
+    "description": "Mini subset of MUTAG from TUDataset for demo purposes",
+    "source": "https://chrsmrrs.github.io/datasets/",
+    "source_paper": "Morris et al., TUDataset: A collection of benchmark datasets for learning with graphs, arXiv:2007.08663",
+    "cv_folds": 10,
+    "cv_seed": 42,
+    "evaluation_protocol": "Stratified 10-fold CV, report best epoch accuracy averaged over folds (GIN protocol)",
+    "total_graphs": 50,
+    "dataset_statistics": {
+      "MUTAG": {
+        "num_graphs": 188,
+        "num_classes": 2,
+        "avg_nodes": 17.93,
+        "avg_edges": 19.79,
+        "feature_dim": 7,
+        "description": "188 mutagenic aromatic/heteroaromatic nitro compounds, binary mutagenicity classification",
+        "label_distribution": {
+          "class_0": 63,
+          "class_1": 125
+        }
+      },
+      "PROTEINS": {
+        "num_graphs": 1113,
+        "num_classes": 2,
+        "avg_nodes": 39.06,
+        "avg_edges": 72.82,
+        "feature_dim": 4,
+        "description": "1113 protein graphs, binary enzyme/non-enzyme classification",
+        "label_distribution": {
+          "class_0": 663,
+          "class_1": 450
+        }
+      },
+      "IMDB-BINARY": {
+        "num_graphs": 1000,
+        "num_classes": 2,
+        "avg_nodes": 19.77,
+        "avg_edges": 96.53,
+        "feature_dim": 1,
+        "description": "1000 movie collaboration ego-networks, binary genre classification (Action vs Romance)",
+        "label_distribution": {
+          "class_0": 500,
+          "class_1": 500
+        }
+      },
+      "PTC_MR": {
+        "num_graphs": 344,
+        "num_classes": 2,
+        "avg_nodes": 14.29,
+        "avg_edges": 14.69,
+        "feature_dim": 18,
+        "description": "344 chemical compounds, binary carcinogenicity classification (male rats)",
+        "label_distribution": {
+          "class_0": 192,
+          "class_1": 152
+        }
+      }
+    },
+    "baselines": {
+      "source_papers": [
+        {
+          "name": "GIN",
+          "ref": "Xu et al., ICLR 2019",
+          "arxiv": "1810.00826",
+          "title": "How Powerful are Graph Neural Networks?"
+        },
+        {
+          "name": "GSN",
+          "ref": "Bouritsas et al., TPAMI 2022",
+          "arxiv": "2006.09252",
+          "title": "Improving Graph Neural Network Expressivity via Subgraph Isomorphism Counting"
+        },
+        {
+          "name": "PEARL",
+          "ref": "Kalogiannis et al., ICLR 2025",
+          "title": "Learning Efficient Positional Encodings with Graph Neural Networks",
+          "note": "PEARL results not available for MUTAG/PROTEINS/IMDB-BINARY/PTC_MR datasets. Evaluated on REDDIT-B/M and ZINC."
+        }
+      ],
+      "results": {
+        "MUTAG": {
+          "GIN-0": {
+            "mean": 89.4,
+            "std": 5.6
+          },
+          "GIN-eps": {
+            "mean": 89.0,
+            "std": 6.0
+          },
+          "GCN": {
+            "mean": 85.6,
+            "std": 5.8
+          },
+          "GraphSAGE": {
+            "mean": 85.1,
+            "std": 7.6
+          },
+          "WL_kernel": {
+            "mean": 90.4,
+            "std": 5.7
+          },
+          "GSN": {
+            "mean": 92.2,
+            "std": 7.5
+          },
+          "PPGN": {
+            "mean": 90.6,
+            "std": 8.7
+          },
+          "IGN": {
+            "mean": 83.9,
+            "std": 13.0
+          }
+        },
+        "PROTEINS": {
+          "GIN-0": {
+            "mean": 76.2,
+            "std": 2.8
+          },
+          "GIN-eps": {
+            "mean": 75.9,
+            "std": 3.8
+          },
+          "GCN": {
+            "mean": 76.0,
+            "std": 3.2
+          },
+          "GraphSAGE": {
+            "mean": 75.9,
+            "std": 3.2
+          },
+          "WL_kernel": {
+            "mean": 75.0,
+            "std": 3.1
+          },
+          "GSN": {
+            "mean": 76.6,
+            "std": 5.0
+          },
+          "PPGN": {
+            "mean": 77.2,
+            "std": 4.7
+          },
+          "IGN": {
+            "mean": 76.6,
+            "std": 5.5
+          }
+        },
+        "IMDB-BINARY": {
+          "GIN-0": {
+            "mean": 75.1,
+            "std": 5.1
+          },
+          "GIN-eps": {
+            "mean": 74.3,
+            "std": 5.1
+          },
+          "GCN": {
+            "mean": 74.0,
+            "std": 3.4
+          },
+          "GraphSAGE": {
+            "mean": 72.3,
+            "std": 5.3
+          },
+          "WL_kernel": {
+            "mean": 73.8,
+            "std": 3.9
+          },
+          "GSN": {
+            "mean": 77.8,
+            "std": 3.3
+          },
+          "PPGN": {
+            "mean": 73.0,
+            "std": 5.8
+          },
+          "IGN": {
+            "mean": 72.0,
+            "std": 5.5
+          }
+        },
+        "PTC_MR": {
+          "GIN-0": {
+            "mean": 64.6,
+            "std": 7.0
+          },
+          "GIN-eps": {
+            "mean": 63.7,
+            "std": 8.2
+          },
+          "GCN": {
+            "mean": 64.2,
+            "std": 4.3
+          },
+          "GraphSAGE": {
+            "mean": 63.9,
+            "std": 7.7
+          },
+          "WL_kernel": {
+            "mean": 59.9,
+            "std": 4.3
+          },
+          "GSN": {
+            "mean": 68.2,
+            "std": 7.2
+          },
+          "PPGN": {
+            "mean": 66.2,
+            "std": 6.6
+          },
+          "IGN": {
+            "mean": 58.5,
+            "std": 6.9
+          }
+        }
+      }
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "MUTAG",
+      "examples": [
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[4,6],[6,7],[6,8],[3,9]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,0,0,1,0]],\"num_nodes\":10,\"num_edges\":10}",
+          "output": "0",
+          "metadata_fold": 0,
+          "metadata_graph_id": 75,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 10,
+          "metadata_num_edges": 10,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[2,6],[5,7],[7,8],[7,9],[3,10],[10,11],[0,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0]],\"num_nodes\":12,\"num_edges\":13}",
+          "output": "0",
+          "metadata_fold": 0,
+          "metadata_graph_id": 153,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 13,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[3,8],[8,9],[0,9],[8,10],[10,11],[10,12]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":13,\"num_edges\":14}",
+          "output": "0",
+          "metadata_fold": 0,
+          "metadata_graph_id": 2,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[1,5],[4,6],[6,7],[7,8],[8,9],[3,9],[9,10],[10,11],[10,12]],\"node_features\":[[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":13,\"num_edges\":14}",
+          "output": "1",
+          "metadata_fold": 0,
+          "metadata_graph_id": 177,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[0,9],[8,10],[10,11],[6,11],[11,12],[12,13],[12,14]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":15,\"num_edges\":17}",
+          "output": "1",
+          "metadata_fold": 0,
+          "metadata_graph_id": 98,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 15,
+          "metadata_num_edges": 17,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[2,9]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,1,0,0,0]],\"num_nodes\":10,\"num_edges\":10}",
+          "output": "0",
+          "metadata_fold": 1,
+          "metadata_graph_id": 115,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 10,
+          "metadata_num_edges": 10,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[1,5],[5,6],[6,7],[7,8],[4,9],[9,10],[9,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":12,\"num_edges\":12}",
+          "output": "0",
+          "metadata_fold": 1,
+          "metadata_graph_id": 149,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 12,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[3,9],[9,10],[10,11],[2,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0]],\"num_nodes\":12,\"num_edges\":13}",
+          "output": "0",
+          "metadata_fold": 1,
+          "metadata_graph_id": 155,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 13,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[4,8],[0,8],[2,9],[9,10],[9,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":12,\"num_edges\":13}",
+          "output": "1",
+          "metadata_fold": 1,
+          "metadata_graph_id": 171,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 13,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[0,9],[8,10],[10,11],[10,12],[6,13],[13,14],[13,15]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":16,\"num_edges\":17}",
+          "output": "1",
+          "metadata_fold": 1,
+          "metadata_graph_id": 139,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 16,
+          "metadata_num_edges": 17,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[3,9],[2,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 2,
+          "metadata_graph_id": 61,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[3,8],[8,9],[0,9],[5,10],[10,11],[10,12]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":13,\"num_edges\":14}",
+          "output": "0",
+          "metadata_fold": 2,
+          "metadata_graph_id": 33,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[8,10],[3,11],[11,12],[1,12]],\"node_features\":[[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0]],\"num_nodes\":13,\"num_edges\":14}",
+          "output": "0",
+          "metadata_fold": 2,
+          "metadata_graph_id": 88,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[2,9],[9,10],[9,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":12,\"num_edges\":12}",
+          "output": "1",
+          "metadata_fold": 2,
+          "metadata_graph_id": 44,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 12,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[4,6],[6,7],[6,8],[2,9],[9,10],[9,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":12,\"num_edges\":12}",
+          "output": "1",
+          "metadata_fold": 2,
+          "metadata_graph_id": 80,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 12,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[3,7],[7,8],[7,9],[2,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,0,1,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,1,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 3,
+          "metadata_graph_id": 4,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[2,8],[8,9],[8,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 3,
+          "metadata_graph_id": 110,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[4,6],[6,7],[3,8],[8,9],[8,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 3,
+          "metadata_graph_id": 131,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[3,9],[9,10],[10,11],[2,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0]],\"num_nodes\":12,\"num_edges\":13}",
+          "output": "1",
+          "metadata_fold": 3,
+          "metadata_graph_id": 114,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 13,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[3,9],[9,10],[10,11],[2,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0]],\"num_nodes\":12,\"num_edges\":13}",
+          "output": "1",
+          "metadata_fold": 3,
+          "metadata_graph_id": 175,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 13,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[3,7],[7,8],[7,9],[2,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,0,0,0,1,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 4,
+          "metadata_graph_id": 138,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[4,6],[3,7],[2,8],[8,9],[8,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,0,0,0,1,0],[0,0,0,0,0,1,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 4,
+          "metadata_graph_id": 140,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[3,7],[7,8],[7,9],[2,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 4,
+          "metadata_graph_id": 180,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[0,9],[8,10],[10,11],[6,11],[5,12],[12,13],[12,14]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":15,\"num_edges\":17}",
+          "output": "1",
+          "metadata_fold": 4,
+          "metadata_graph_id": 111,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 15,
+          "metadata_num_edges": 17,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[4,6],[6,7],[7,8],[8,9],[3,9],[9,10],[10,11],[11,12],[12,13],[8,13],[7,14],[14,15],[14,16]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":17,\"num_edges\":19}",
+          "output": "1",
+          "metadata_fold": 4,
+          "metadata_graph_id": 10,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 17,
+          "metadata_num_edges": 19,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[3,7],[2,8],[8,9],[8,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,0,1,0,0,0],[0,0,0,1,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 5,
+          "metadata_graph_id": 123,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[0,9],[4,10],[10,11],[10,12]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":13,\"num_edges\":14}",
+          "output": "0",
+          "metadata_fold": 5,
+          "metadata_graph_id": 18,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9],[4,9],[9,10],[10,11],[2,11],[10,12],[12,13],[12,14]],\"node_features\":[[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":15,\"num_edges\":16}",
+          "output": "0",
+          "metadata_fold": 5,
+          "metadata_graph_id": 38,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 15,
+          "metadata_num_edges": 16,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[3,9],[9,10],[9,11],[2,12]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,1,0,0,0]],\"num_nodes\":13,\"num_edges\":13}",
+          "output": "1",
+          "metadata_fold": 5,
+          "metadata_graph_id": 168,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 13,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[3,8],[8,9],[0,9],[7,10],[10,11],[10,12],[4,13],[13,14],[2,14]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0]],\"num_nodes\":15,\"num_edges\":17}",
+          "output": "1",
+          "metadata_fold": 5,
+          "metadata_graph_id": 127,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 15,
+          "metadata_num_edges": 17,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[5,8],[8,9],[8,10]],\"node_features\":[[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 6,
+          "metadata_graph_id": 167,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[1,3],[3,4],[4,5],[5,6],[6,7],[7,8],[3,8],[6,9],[9,10],[9,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":12,\"num_edges\":12}",
+          "output": "0",
+          "metadata_fold": 6,
+          "metadata_graph_id": 87,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 12,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[3,8],[8,9],[9,10],[9,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":12,\"num_edges\":12}",
+          "output": "0",
+          "metadata_fold": 6,
+          "metadata_graph_id": 142,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 12,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[3,9],[9,10],[10,11],[11,12],[12,13],[13,14],[14,15],[10,15],[15,16],[2,16],[13,17],[12,18]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,0,0,1,0],[0,0,0,0,0,1,0]],\"num_nodes\":19,\"num_edges\":21}",
+          "output": "1",
+          "metadata_fold": 6,
+          "metadata_graph_id": 53,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 19,
+          "metadata_num_edges": 21,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[0,9],[8,10],[10,11],[10,12],[6,13],[13,14],[13,15],[4,16],[16,17],[16,18]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":19,\"num_edges\":20}",
+          "output": "1",
+          "metadata_fold": 6,
+          "metadata_graph_id": 59,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 19,
+          "metadata_num_edges": 20,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[4,6],[3,7],[7,8],[7,9],[2,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 7,
+          "metadata_graph_id": 16,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[2,6],[6,7],[7,8],[0,8],[8,9],[9,10],[9,11]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":12,\"num_edges\":13}",
+          "output": "0",
+          "metadata_fold": 7,
+          "metadata_graph_id": 8,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 12,
+          "metadata_num_edges": 13,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[1,9],[5,10],[10,11],[10,12]],\"node_features\":[[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":13,\"num_edges\":14}",
+          "output": "0",
+          "metadata_fold": 7,
+          "metadata_graph_id": 119,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[3,9],[9,10],[9,11],[2,12]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,0,0,1,0]],\"num_nodes\":13,\"num_edges\":13}",
+          "output": "1",
+          "metadata_fold": 7,
+          "metadata_graph_id": 25,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 13,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[3,9],[9,10],[10,11],[2,11],[11,12],[12,13],[13,14],[14,15],[10,15],[14,16]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,0,0,0,1,0]],\"num_nodes\":17,\"num_edges\":19}",
+          "output": "1",
+          "metadata_fold": 7,
+          "metadata_graph_id": 60,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 17,
+          "metadata_num_edges": 19,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[5,8],[8,9],[8,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 8,
+          "metadata_graph_id": 83,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[8,10]],\"node_features\":[[1,0,0,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 8,
+          "metadata_graph_id": 129,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[3,7],[7,8],[7,9],[2,10]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,0,0,0,0,1,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,0,0,1,0]],\"num_nodes\":11,\"num_edges\":11}",
+          "output": "0",
+          "metadata_fold": 8,
+          "metadata_graph_id": 143,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 11,
+          "metadata_num_edges": 11,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[3,8],[8,9],[0,9],[7,10],[10,11],[10,12],[4,13],[13,14],[2,14]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0]],\"num_nodes\":15,\"num_edges\":17}",
+          "output": "1",
+          "metadata_fold": 8,
+          "metadata_graph_id": 152,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 15,
+          "metadata_num_edges": 17,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[1,6],[5,7],[7,8],[8,9],[4,9],[9,10],[10,11],[11,12],[12,13],[8,13],[12,14],[14,15],[14,16]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":17,\"num_edges\":19}",
+          "output": "1",
+          "metadata_fold": 8,
+          "metadata_graph_id": 9,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 17,
+          "metadata_num_edges": 19,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[0,9],[8,10],[10,11],[10,12]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":13,\"num_edges\":14}",
+          "output": "0",
+          "metadata_fold": 9,
+          "metadata_graph_id": 1,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[2,7],[7,8],[8,9],[1,9],[4,10],[10,11],[10,12]],\"node_features\":[[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":13,\"num_edges\":14}",
+          "output": "0",
+          "metadata_fold": 9,
+          "metadata_graph_id": 13,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 13,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[5,6],[6,7],[6,8],[4,9],[3,10],[1,11],[11,12],[11,13]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0],[0,1,0,0,0,0,0],[0,0,0,0,0,0,1],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":14,\"num_edges\":14}",
+          "output": "0",
+          "metadata_fold": 9,
+          "metadata_graph_id": 159,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 14,
+          "metadata_num_edges": 14,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[4,6],[6,7],[7,8],[3,8],[8,9],[9,10],[10,11],[11,12],[7,12],[11,13],[13,14],[13,15]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":16,\"num_edges\":18}",
+          "output": "1",
+          "metadata_fold": 9,
+          "metadata_graph_id": 71,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 16,
+          "metadata_num_edges": 18,
+          "metadata_feature_dim": 7
+        },
+        {
+          "input": "{\"edge_list\":[[0,1],[1,2],[2,3],[3,4],[4,5],[0,5],[4,6],[6,7],[7,8],[8,9],[3,9],[9,10],[10,11],[11,12],[12,13],[8,13],[12,14],[14,15],[14,16]],\"node_features\":[[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,1,0,0,0,0]],\"num_nodes\":17,\"num_edges\":19}",
+          "output": "1",
+          "metadata_fold": 9,
+          "metadata_graph_id": 0,
+          "metadata_task_type": "classification",
+          "metadata_n_classes": 2,
+          "metadata_num_nodes": 17,
+          "metadata_num_edges": 19,
+          "metadata_feature_dim": 7
+        }
+      ]
+    }
+  ]
+}

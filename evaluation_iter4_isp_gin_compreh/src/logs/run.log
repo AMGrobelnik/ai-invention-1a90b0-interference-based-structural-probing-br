@@ -1,0 +1,354 @@
+2026-02-13 20:42:11.287 | INFO     | __main__:main:989 - ============================================================
+2026-02-13 20:42:11.289 | INFO     | __main__:main:990 - LOADING DEPENDENCY FILES
+2026-02-13 20:42:11.289 | INFO     | __main__:main:991 - ============================================================
+2026-02-13 20:42:11.290 | INFO     | __main__:load_json:129 - Loading mini_method_out.json (33.2 KB)
+2026-02-13 20:42:11.301 | INFO     | __main__:load_json:129 - Loading mini_method_out.json (41.4 KB)
+2026-02-13 20:42:11.303 | INFO     | __main__:load_json:129 - Loading mini_data_out.json (16.6 KB)
+2026-02-13 20:42:11.304 | INFO     | __main__:main:1011 - Iter3 examples: 12, Graph data examples: 12
+2026-02-13 20:42:11.305 | INFO     | __main__:compute_mcnemar_analysis:155 - ============================================================
+2026-02-13 20:42:11.305 | INFO     | __main__:compute_mcnemar_analysis:156 - SECTION 1: McNemar's Test — ISP-GIN vs RealGIN-Aug
+2026-02-13 20:42:11.306 | INFO     | __main__:compute_mcnemar_analysis:157 - ============================================================
+2026-02-13 20:42:11.307 | INFO     | __main__:compute_mcnemar_analysis:199 - Total pairs: 12
+2026-02-13 20:42:11.308 | INFO     | __main__:compute_mcnemar_analysis:212 - ISP-GIN: 9/12 = 0.7500
+2026-02-13 20:42:11.309 | INFO     | __main__:compute_mcnemar_analysis:213 - RealGIN-Aug: 12/12 = 1.0000
+2026-02-13 20:42:11.309 | INFO     | __main__:compute_mcnemar_analysis:214 - Gap: 0.2500 (25.0pp)
+2026-02-13 20:42:11.311 | INFO     | __main__:compute_mcnemar_analysis:215 - WL baseline: 0/12
+2026-02-13 20:42:11.311 | INFO     | __main__:compute_mcnemar_analysis:216 - ISP-NoMP magnitude: 0/12
+2026-02-13 20:42:11.312 | INFO     | __main__:compute_mcnemar_analysis:217 - ISP-NoMP phases: 12/12
+2026-02-13 20:42:11.313 | INFO     | __main__:compute_mcnemar_analysis:225 - Contingency: a=9 (both), b=0 (ISP only), c=3 (Real only), d=0 (neither)
+2026-02-13 20:42:11.315 | INFO     | __main__:compute_mcnemar_analysis:234 - McNemar statistic: 0.0000
+2026-02-13 20:42:11.316 | INFO     | __main__:compute_mcnemar_analysis:235 - McNemar p-value: 0.250000
+2026-02-13 20:42:11.318 | INFO     | __main__:compute_mcnemar_analysis:240 - ISP-GIN 95% CI: [0.4281, 0.9451]
+2026-02-13 20:42:11.319 | INFO     | __main__:compute_mcnemar_analysis:241 - RealGIN-Aug 95% CI: [0.7354, 1.0000]
+2026-02-13 20:42:11.319 | INFO     | __main__:compute_mcnemar_analysis:245 - Cohen's h: 1.0472 (|h|>0.8 = large effect)
+2026-02-13 20:42:11.319 | INFO     | __main__:compute_per_dataset_breakdown:272 - ============================================================
+2026-02-13 20:42:11.319 | INFO     | __main__:compute_per_dataset_breakdown:273 - SECTION 2: Per-Dataset Breakdown
+2026-02-13 20:42:11.319 | INFO     | __main__:compute_per_dataset_breakdown:274 - ============================================================
+2026-02-13 20:42:11.319 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_basic (3 pairs) ---
+2026-02-13 20:42:11.320 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 3/3 = 1.0000 CI=[0.2924, 1.0000]
+2026-02-13 20:42:11.320 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 3/3 = 1.0000 CI=[0.2924, 1.0000]
+2026-02-13 20:42:11.320 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/3 = 0.0000
+2026-02-13 20:42:11.320 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/3 = 0.0000
+2026-02-13 20:42:11.320 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 3/3 = 1.0000
+2026-02-13 20:42:11.320 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_regular (3 pairs) ---
+2026-02-13 20:42:11.321 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 3/3 = 1.0000 CI=[0.2924, 1.0000]
+2026-02-13 20:42:11.321 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 3/3 = 1.0000 CI=[0.2924, 1.0000]
+2026-02-13 20:42:11.321 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/3 = 0.0000
+2026-02-13 20:42:11.321 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/3 = 0.0000
+2026-02-13 20:42:11.321 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 3/3 = 1.0000
+2026-02-13 20:42:11.321 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_cfi (3 pairs) ---
+2026-02-13 20:42:11.322 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 3/3 = 1.0000 CI=[0.2924, 1.0000]
+2026-02-13 20:42:11.323 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 3/3 = 1.0000 CI=[0.2924, 1.0000]
+2026-02-13 20:42:11.323 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/3 = 0.0000
+2026-02-13 20:42:11.323 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/3 = 0.0000
+2026-02-13 20:42:11.323 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 3/3 = 1.0000
+2026-02-13 20:42:11.323 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- csl (3 pairs) ---
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 0/3 = 0.0000 CI=[0.0000, 0.7076]
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 3/3 = 1.0000 CI=[0.2924, 1.0000]
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/3 = 0.0000
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/3 = 0.0000
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 3/3 = 1.0000
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_csl_failure_analysis:358 - ============================================================
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_csl_failure_analysis:359 - SECTION 3: CSL Failure Mathematical Analysis
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_csl_failure_analysis:360 - ============================================================
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_csl_failure_analysis:376 - CSL ISP-GIN distinguished: 0/20
+2026-02-13 20:42:11.324 | INFO     | __main__:compute_csl_failure_analysis:377 - CSL RealGIN-Aug distinguished: 3/20
+2026-02-13 20:42:11.325 | INFO     | __main__:compute_csl_failure_analysis:403 - CSL degree variance (avg): 0.000000
+2026-02-13 20:42:11.325 | INFO     | __main__:compute_csl_failure_analysis:404 - CSL degree variance (max): 0.000000
+2026-02-13 20:42:11.326 | INFO     | __main__:compute_csl_failure_analysis:415 - CSL phase uniformity (avg std of phases): 0.0000000000
+2026-02-13 20:42:11.326 | INFO     | __main__:compute_csl_failure_analysis:429 - Mathematical mechanism: On k-regular graphs (CSL: k=4, n=41), degree-based harmonic initialization assigns z_v = exp(i*omega*4) for ALL nodes v. Sum aggregation at any node v with neighbor set N(v) gives Σ_{u∈N(v)} z_u = |N(...
+2026-02-13 20:42:11.326 | INFO     | __main__:compute_feature_importance:457 - ============================================================
+2026-02-13 20:42:11.326 | INFO     | __main__:compute_feature_importance:458 - SECTION 4: Feature/Initialization Importance (from iter2)
+2026-02-13 20:42:11.326 | INFO     | __main__:compute_feature_importance:459 - ============================================================
+2026-02-13 20:42:11.326 | INFO     | __main__:compute_feature_importance:503 - Analyzed 12 pairs across iter2 data
+2026-02-13 20:42:11.326 | INFO     | __main__:compute_feature_importance:534 -   degree              : best_single=0.0000, any_config=0.0000, csl=0/3
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:534 -   random_walk_t2      : best_single=0.0000, any_config=0.0000, csl=0/3
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:534 -   random_walk_t3      : best_single=0.6364, any_config=0.6364, csl=0/3
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:534 -   wl_color_r3         : best_single=0.0000, any_config=0.0000, csl=0/3
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:534 -   local_topology      : best_single=0.6364, any_config=0.6364, csl=0/3
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:534 -   multihop_hash       : best_single=0.0000, any_config=0.0000, csl=0/3
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:534 -   spectral            : best_single=0.4364, any_config=0.4364, csl=3/3
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:557 -   degree              : marginal (unique) = 0
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:557 -   random_walk_t2      : marginal (unique) = 0
+2026-02-13 20:42:11.327 | INFO     | __main__:compute_feature_importance:557 -   random_walk_t3      : marginal (unique) = 0
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_feature_importance:557 -   wl_color_r3         : marginal (unique) = 0
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_feature_importance:557 -   local_topology      : marginal (unique) = 0
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_feature_importance:557 -   multihop_hash       : marginal (unique) = 0
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_feature_importance:557 -   spectral            : marginal (unique) = 3
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_feature_importance:563 - Union across all inits: 12/12
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_feature_importance:584 - Init ranking (best→worst): ['random_walk_t3', 'local_topology', 'spectral', 'degree', 'random_walk_t2', 'wl_color_r3', 'multihop_hash']
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_literature_positioning:606 - ============================================================
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_literature_positioning:607 - SECTION 5: Literature Positioning
+2026-02-13 20:42:11.328 | INFO     | __main__:compute_literature_positioning:608 - ============================================================
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_literature_positioning:615 - Our ISP-GIN (55 pairs): 9/55 = 16.4%
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_literature_positioning:616 - Our RealGIN-Aug (55 pairs): 12/55 = 21.8%
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_literature_positioning:617 - Our union all inits (55 pairs): 12/55 = 21.8%
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_literature_positioning:621 - Published i2gnn (400 pairs): 281/400 = 70.2%
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_literature_positioning:621 - Published gsn (400 pairs): 254/400 = 63.5%
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_literature_positioning:621 - Published kp_gnn (400 pairs): 275/400 = 68.8%
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_literature_positioning:621 - Published gin_baseline (400 pairs): 0/400 = 0.0%
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_hypothesis_verdict:645 - ============================================================
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_hypothesis_verdict:646 - SECTION 6: Hypothesis Verdict
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_hypothesis_verdict:647 - ============================================================
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_hypothesis_verdict:750 - Overall verdict: DISCONFIRMED
+2026-02-13 20:42:11.329 | INFO     | __main__:compute_hypothesis_verdict:751 - Evidence: Of 5 assumptions: 0 confirmed, 1 partially confirmed, 2 disconfirmed, 2 not testable/tested. The core claim that complex-valued arithmetic provides expressiveness beyond what real-valued topological augmentation can achieve is falsified.
+2026-02-13 20:42:11.330 | INFO     | __main__:compute_hypothesis_verdict:752 - Pivoted contribution: Topological feature augmentation (random walk profiles, local clustering, spectral features) applied to standard real-valued GIN breaks 1-WL on 12/55 benchmark pairs at negligible cost. The complex-va...
+2026-02-13 20:42:11.330 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption1: DISCONFIRMED
+2026-02-13 20:42:11.330 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption2: PARTIALLY_CONFIRMED
+2026-02-13 20:42:11.330 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption3: NOT_TESTABLE_AS_STATED
+2026-02-13 20:42:11.330 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption4: NOT_TESTED
+2026-02-13 20:42:11.330 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption5: DISCONFIRMED
+2026-02-13 20:42:11.330 | INFO     | __main__:main:1027 - ============================================================
+2026-02-13 20:42:11.330 | INFO     | __main__:main:1028 - BUILDING OUTPUT
+2026-02-13 20:42:11.330 | INFO     | __main__:main:1029 - ============================================================
+2026-02-13 20:42:11.331 | INFO     | __main__:main:1046 - Saved eval output to eval_out_mini_test.json
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1047 - File size: 24.2 KB
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1048 - Total runtime: 0.0s
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1051 - ============================================================
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1052 - EVALUATION SUMMARY
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1053 - ============================================================
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1054 - ISP-GIN: 9/55 (75.0%)
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1055 - RealGIN-Aug: 12/55 (100.0%)
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1056 - McNemar p-value: 0.250000
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1057 - Cohen's h: 1.0472
+2026-02-13 20:42:11.332 | INFO     | __main__:main:1058 - Overall verdict: DISCONFIRMED
+2026-02-13 20:42:26.614 | INFO     | __main__:main:989 - ============================================================
+2026-02-13 20:42:26.615 | INFO     | __main__:main:990 - LOADING DEPENDENCY FILES
+2026-02-13 20:42:26.615 | INFO     | __main__:main:991 - ============================================================
+2026-02-13 20:42:26.615 | INFO     | __main__:load_json:129 - Loading full_method_out.json (142.5 KB)
+2026-02-13 20:42:26.616 | INFO     | __main__:load_json:129 - Loading full_method_out.json (163.0 KB)
+2026-02-13 20:42:26.618 | INFO     | __main__:load_json:129 - Loading full_data_out.json (78.8 KB)
+2026-02-13 20:42:26.620 | INFO     | __main__:main:1011 - Iter3 examples: 55, Graph data examples: 55
+2026-02-13 20:42:26.620 | INFO     | __main__:compute_mcnemar_analysis:155 - ============================================================
+2026-02-13 20:42:26.620 | INFO     | __main__:compute_mcnemar_analysis:156 - SECTION 1: McNemar's Test — ISP-GIN vs RealGIN-Aug
+2026-02-13 20:42:26.620 | INFO     | __main__:compute_mcnemar_analysis:157 - ============================================================
+2026-02-13 20:42:26.621 | INFO     | __main__:compute_mcnemar_analysis:199 - Total pairs: 55
+2026-02-13 20:42:26.621 | INFO     | __main__:compute_mcnemar_analysis:212 - ISP-GIN: 35/55 = 0.6364
+2026-02-13 20:42:26.621 | INFO     | __main__:compute_mcnemar_analysis:213 - RealGIN-Aug: 44/55 = 0.8000
+2026-02-13 20:42:26.621 | INFO     | __main__:compute_mcnemar_analysis:214 - Gap: 0.1636 (16.4pp)
+2026-02-13 20:42:26.621 | INFO     | __main__:compute_mcnemar_analysis:215 - WL baseline: 0/55
+2026-02-13 20:42:26.622 | INFO     | __main__:compute_mcnemar_analysis:216 - ISP-NoMP magnitude: 0/55
+2026-02-13 20:42:26.622 | INFO     | __main__:compute_mcnemar_analysis:217 - ISP-NoMP phases: 44/55
+2026-02-13 20:42:26.622 | INFO     | __main__:compute_mcnemar_analysis:225 - Contingency: a=35 (both), b=0 (ISP only), c=9 (Real only), d=11 (neither)
+2026-02-13 20:42:26.622 | INFO     | __main__:compute_mcnemar_analysis:234 - McNemar statistic: 0.0000
+2026-02-13 20:42:26.622 | INFO     | __main__:compute_mcnemar_analysis:235 - McNemar p-value: 0.003906
+2026-02-13 20:42:26.623 | INFO     | __main__:compute_mcnemar_analysis:240 - ISP-GIN 95% CI: [0.4956, 0.7619]
+2026-02-13 20:42:26.623 | INFO     | __main__:compute_mcnemar_analysis:241 - RealGIN-Aug 95% CI: [0.6703, 0.8957]
+2026-02-13 20:42:26.623 | INFO     | __main__:compute_mcnemar_analysis:245 - Cohen's h: 0.3673 (|h|>0.8 = large effect)
+2026-02-13 20:42:26.624 | INFO     | __main__:compute_per_dataset_breakdown:272 - ============================================================
+2026-02-13 20:42:26.624 | INFO     | __main__:compute_per_dataset_breakdown:273 - SECTION 2: Per-Dataset Breakdown
+2026-02-13 20:42:26.624 | INFO     | __main__:compute_per_dataset_breakdown:274 - ============================================================
+2026-02-13 20:42:26.624 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_basic (10 pairs) ---
+2026-02-13 20:42:26.624 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 10/10 = 1.0000 CI=[0.6915, 1.0000]
+2026-02-13 20:42:26.625 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 10/10 = 1.0000 CI=[0.6915, 1.0000]
+2026-02-13 20:42:26.625 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/10 = 0.0000
+2026-02-13 20:42:26.625 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/10 = 0.0000
+2026-02-13 20:42:26.625 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 10/10 = 1.0000
+2026-02-13 20:42:26.625 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_regular (15 pairs) ---
+2026-02-13 20:42:26.626 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 15/15 = 1.0000 CI=[0.7820, 1.0000]
+2026-02-13 20:42:26.626 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 15/15 = 1.0000 CI=[0.7820, 1.0000]
+2026-02-13 20:42:26.626 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/15 = 0.0000
+2026-02-13 20:42:26.626 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/15 = 0.0000
+2026-02-13 20:42:26.626 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 15/15 = 1.0000
+2026-02-13 20:42:26.626 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_cfi (10 pairs) ---
+2026-02-13 20:42:26.627 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 10/10 = 1.0000 CI=[0.6915, 1.0000]
+2026-02-13 20:42:26.627 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 10/10 = 1.0000 CI=[0.6915, 1.0000]
+2026-02-13 20:42:26.627 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/10 = 0.0000
+2026-02-13 20:42:26.627 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/10 = 0.0000
+2026-02-13 20:42:26.627 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 10/10 = 1.0000
+2026-02-13 20:42:26.628 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- csl (20 pairs) ---
+2026-02-13 20:42:26.629 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 0/20 = 0.0000 CI=[0.0000, 0.1684]
+2026-02-13 20:42:26.629 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 9/20 = 0.4500 CI=[0.2306, 0.6847]
+2026-02-13 20:42:26.629 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/20 = 0.0000
+2026-02-13 20:42:26.629 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/20 = 0.0000
+2026-02-13 20:42:26.629 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 9/20 = 0.4500
+2026-02-13 20:42:26.629 | INFO     | __main__:compute_csl_failure_analysis:358 - ============================================================
+2026-02-13 20:42:26.629 | INFO     | __main__:compute_csl_failure_analysis:359 - SECTION 3: CSL Failure Mathematical Analysis
+2026-02-13 20:42:26.629 | INFO     | __main__:compute_csl_failure_analysis:360 - ============================================================
+2026-02-13 20:42:26.630 | INFO     | __main__:compute_csl_failure_analysis:376 - CSL ISP-GIN distinguished: 0/20
+2026-02-13 20:42:26.630 | INFO     | __main__:compute_csl_failure_analysis:377 - CSL RealGIN-Aug distinguished: 9/20
+2026-02-13 20:42:26.634 | INFO     | __main__:compute_csl_failure_analysis:403 - CSL degree variance (avg): 0.000000
+2026-02-13 20:42:26.634 | INFO     | __main__:compute_csl_failure_analysis:404 - CSL degree variance (max): 0.000000
+2026-02-13 20:42:26.636 | INFO     | __main__:compute_csl_failure_analysis:415 - CSL phase uniformity (avg std of phases): 0.0000000000
+2026-02-13 20:42:26.636 | INFO     | __main__:compute_csl_failure_analysis:429 - Mathematical mechanism: On k-regular graphs (CSL: k=4, n=41), degree-based harmonic initialization assigns z_v = exp(i*omega*4) for ALL nodes v. Sum aggregation at any node v with neighbor set N(v) gives Σ_{u∈N(v)} z_u = |N(...
+2026-02-13 20:42:26.636 | INFO     | __main__:compute_feature_importance:457 - ============================================================
+2026-02-13 20:42:26.636 | INFO     | __main__:compute_feature_importance:458 - SECTION 4: Feature/Initialization Importance (from iter2)
+2026-02-13 20:42:26.637 | INFO     | __main__:compute_feature_importance:459 - ============================================================
+2026-02-13 20:42:26.638 | INFO     | __main__:compute_feature_importance:503 - Analyzed 55 pairs across iter2 data
+2026-02-13 20:42:26.638 | INFO     | __main__:compute_feature_importance:534 -   degree              : best_single=0.0000, any_config=0.0000, csl=0/20
+2026-02-13 20:42:26.639 | INFO     | __main__:compute_feature_importance:534 -   random_walk_t2      : best_single=0.0000, any_config=0.0000, csl=0/20
+2026-02-13 20:42:26.639 | INFO     | __main__:compute_feature_importance:534 -   random_walk_t3      : best_single=0.6364, any_config=0.6364, csl=0/20
+2026-02-13 20:42:26.639 | INFO     | __main__:compute_feature_importance:534 -   wl_color_r3         : best_single=0.0000, any_config=0.0000, csl=0/20
+2026-02-13 20:42:26.639 | INFO     | __main__:compute_feature_importance:534 -   local_topology      : best_single=0.6364, any_config=0.6364, csl=0/20
+2026-02-13 20:42:26.639 | INFO     | __main__:compute_feature_importance:534 -   multihop_hash       : best_single=0.0000, any_config=0.0000, csl=0/20
+2026-02-13 20:42:26.640 | INFO     | __main__:compute_feature_importance:534 -   spectral            : best_single=0.4364, any_config=0.4364, csl=20/20
+2026-02-13 20:42:26.640 | INFO     | __main__:compute_feature_importance:557 -   degree              : marginal (unique) = 0
+2026-02-13 20:42:26.640 | INFO     | __main__:compute_feature_importance:557 -   random_walk_t2      : marginal (unique) = 0
+2026-02-13 20:42:26.640 | INFO     | __main__:compute_feature_importance:557 -   random_walk_t3      : marginal (unique) = 0
+2026-02-13 20:42:26.641 | INFO     | __main__:compute_feature_importance:557 -   wl_color_r3         : marginal (unique) = 0
+2026-02-13 20:42:26.641 | INFO     | __main__:compute_feature_importance:557 -   local_topology      : marginal (unique) = 0
+2026-02-13 20:42:26.641 | INFO     | __main__:compute_feature_importance:557 -   multihop_hash       : marginal (unique) = 0
+2026-02-13 20:42:26.641 | INFO     | __main__:compute_feature_importance:557 -   spectral            : marginal (unique) = 20
+2026-02-13 20:42:26.641 | INFO     | __main__:compute_feature_importance:563 - Union across all inits: 55/55
+2026-02-13 20:42:26.642 | INFO     | __main__:compute_feature_importance:584 - Init ranking (best→worst): ['random_walk_t3', 'local_topology', 'spectral', 'degree', 'random_walk_t2', 'wl_color_r3', 'multihop_hash']
+2026-02-13 20:42:26.642 | INFO     | __main__:compute_literature_positioning:606 - ============================================================
+2026-02-13 20:42:26.642 | INFO     | __main__:compute_literature_positioning:607 - SECTION 5: Literature Positioning
+2026-02-13 20:42:26.642 | INFO     | __main__:compute_literature_positioning:608 - ============================================================
+2026-02-13 20:42:26.642 | INFO     | __main__:compute_literature_positioning:615 - Our ISP-GIN (55 pairs): 35/55 = 63.6%
+2026-02-13 20:42:26.642 | INFO     | __main__:compute_literature_positioning:616 - Our RealGIN-Aug (55 pairs): 44/55 = 80.0%
+2026-02-13 20:42:26.642 | INFO     | __main__:compute_literature_positioning:617 - Our union all inits (55 pairs): 55/55 = 100.0%
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_literature_positioning:621 - Published i2gnn (400 pairs): 281/400 = 70.2%
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_literature_positioning:621 - Published gsn (400 pairs): 254/400 = 63.5%
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_literature_positioning:621 - Published kp_gnn (400 pairs): 275/400 = 68.8%
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_literature_positioning:621 - Published gin_baseline (400 pairs): 0/400 = 0.0%
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_hypothesis_verdict:645 - ============================================================
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_hypothesis_verdict:646 - SECTION 6: Hypothesis Verdict
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_hypothesis_verdict:647 - ============================================================
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_hypothesis_verdict:750 - Overall verdict: DISCONFIRMED
+2026-02-13 20:42:26.643 | INFO     | __main__:compute_hypothesis_verdict:751 - Evidence: Of 5 assumptions: 0 confirmed, 1 partially confirmed, 2 disconfirmed, 2 not testable/tested. The core claim that complex-valued arithmetic provides expressiveness beyond what real-valued topological augmentation can achieve is falsified.
+2026-02-13 20:42:26.644 | INFO     | __main__:compute_hypothesis_verdict:752 - Pivoted contribution: Topological feature augmentation (random walk profiles, local clustering, spectral features) applied to standard real-valued GIN breaks 1-WL on 44/55 benchmark pairs at negligible cost. The complex-va...
+2026-02-13 20:42:26.644 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption1: DISCONFIRMED
+2026-02-13 20:42:26.644 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption2: PARTIALLY_CONFIRMED
+2026-02-13 20:42:26.644 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption3: NOT_TESTABLE_AS_STATED
+2026-02-13 20:42:26.644 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption4: NOT_TESTED
+2026-02-13 20:42:26.644 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption5: DISCONFIRMED
+2026-02-13 20:42:26.644 | INFO     | __main__:main:1027 - ============================================================
+2026-02-13 20:42:26.644 | INFO     | __main__:main:1028 - BUILDING OUTPUT
+2026-02-13 20:42:26.644 | INFO     | __main__:main:1029 - ============================================================
+2026-02-13 20:42:26.649 | INFO     | __main__:main:1046 - Saved eval output to /home/adrian/projects/ai-inventor/aii_pipeline/runs/run__20260213_112012/3_invention_loop/iter_4/gen_art/eval_id2_it4__opus/eval_out.json
+2026-02-13 20:42:26.649 | INFO     | __main__:main:1047 - File size: 92.3 KB
+2026-02-13 20:42:26.649 | INFO     | __main__:main:1048 - Total runtime: 0.0s
+2026-02-13 20:42:26.649 | INFO     | __main__:main:1051 - ============================================================
+2026-02-13 20:42:26.649 | INFO     | __main__:main:1052 - EVALUATION SUMMARY
+2026-02-13 20:42:26.649 | INFO     | __main__:main:1053 - ============================================================
+2026-02-13 20:42:26.650 | INFO     | __main__:main:1054 - ISP-GIN: 35/55 (63.6%)
+2026-02-13 20:42:26.650 | INFO     | __main__:main:1055 - RealGIN-Aug: 44/55 (80.0%)
+2026-02-13 20:42:26.650 | INFO     | __main__:main:1056 - McNemar p-value: 0.003906
+2026-02-13 20:42:26.650 | INFO     | __main__:main:1057 - Cohen's h: 0.3673
+2026-02-13 20:42:26.650 | INFO     | __main__:main:1058 - Overall verdict: DISCONFIRMED
+2026-02-13 20:42:54.864 | INFO     | __main__:main:989 - ============================================================
+2026-02-13 20:42:54.865 | INFO     | __main__:main:990 - LOADING DEPENDENCY FILES
+2026-02-13 20:42:54.866 | INFO     | __main__:main:991 - ============================================================
+2026-02-13 20:42:54.867 | INFO     | __main__:load_json:129 - Loading full_method_out.json (142.5 KB)
+2026-02-13 20:42:54.869 | INFO     | __main__:load_json:129 - Loading full_method_out.json (163.0 KB)
+2026-02-13 20:42:54.872 | INFO     | __main__:load_json:129 - Loading full_data_out.json (78.8 KB)
+2026-02-13 20:42:54.873 | INFO     | __main__:main:1011 - Iter3 examples: 55, Graph data examples: 55
+2026-02-13 20:42:54.874 | INFO     | __main__:compute_mcnemar_analysis:155 - ============================================================
+2026-02-13 20:42:54.874 | INFO     | __main__:compute_mcnemar_analysis:156 - SECTION 1: McNemar's Test — ISP-GIN vs RealGIN-Aug
+2026-02-13 20:42:54.875 | INFO     | __main__:compute_mcnemar_analysis:157 - ============================================================
+2026-02-13 20:42:54.877 | INFO     | __main__:compute_mcnemar_analysis:199 - Total pairs: 55
+2026-02-13 20:42:54.878 | INFO     | __main__:compute_mcnemar_analysis:212 - ISP-GIN: 35/55 = 0.6364
+2026-02-13 20:42:54.878 | INFO     | __main__:compute_mcnemar_analysis:213 - RealGIN-Aug: 44/55 = 0.8000
+2026-02-13 20:42:54.879 | INFO     | __main__:compute_mcnemar_analysis:214 - Gap: 0.1636 (16.4pp)
+2026-02-13 20:42:54.879 | INFO     | __main__:compute_mcnemar_analysis:215 - WL baseline: 0/55
+2026-02-13 20:42:54.880 | INFO     | __main__:compute_mcnemar_analysis:216 - ISP-NoMP magnitude: 0/55
+2026-02-13 20:42:54.881 | INFO     | __main__:compute_mcnemar_analysis:217 - ISP-NoMP phases: 44/55
+2026-02-13 20:42:54.882 | INFO     | __main__:compute_mcnemar_analysis:225 - Contingency: a=35 (both), b=0 (ISP only), c=9 (Real only), d=11 (neither)
+2026-02-13 20:42:54.883 | INFO     | __main__:compute_mcnemar_analysis:234 - McNemar statistic: 0.0000
+2026-02-13 20:42:54.883 | INFO     | __main__:compute_mcnemar_analysis:235 - McNemar p-value: 0.003906
+2026-02-13 20:42:54.886 | INFO     | __main__:compute_mcnemar_analysis:240 - ISP-GIN 95% CI: [0.4956, 0.7619]
+2026-02-13 20:42:54.887 | INFO     | __main__:compute_mcnemar_analysis:241 - RealGIN-Aug 95% CI: [0.6703, 0.8957]
+2026-02-13 20:42:54.889 | INFO     | __main__:compute_mcnemar_analysis:245 - Cohen's h: 0.3673 (|h|>0.8 = large effect)
+2026-02-13 20:42:54.890 | INFO     | __main__:compute_per_dataset_breakdown:272 - ============================================================
+2026-02-13 20:42:54.890 | INFO     | __main__:compute_per_dataset_breakdown:273 - SECTION 2: Per-Dataset Breakdown
+2026-02-13 20:42:54.892 | INFO     | __main__:compute_per_dataset_breakdown:274 - ============================================================
+2026-02-13 20:42:54.892 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_basic (10 pairs) ---
+2026-02-13 20:42:54.895 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 10/10 = 1.0000 CI=[0.6915, 1.0000]
+2026-02-13 20:42:54.896 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 10/10 = 1.0000 CI=[0.6915, 1.0000]
+2026-02-13 20:42:54.897 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/10 = 0.0000
+2026-02-13 20:42:54.898 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/10 = 0.0000
+2026-02-13 20:42:54.900 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 10/10 = 1.0000
+2026-02-13 20:42:54.901 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_regular (15 pairs) ---
+2026-02-13 20:42:54.903 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 15/15 = 1.0000 CI=[0.7820, 1.0000]
+2026-02-13 20:42:54.903 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 15/15 = 1.0000 CI=[0.7820, 1.0000]
+2026-02-13 20:42:54.904 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/15 = 0.0000
+2026-02-13 20:42:54.904 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/15 = 0.0000
+2026-02-13 20:42:54.904 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 15/15 = 1.0000
+2026-02-13 20:42:54.905 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- brec_cfi (10 pairs) ---
+2026-02-13 20:42:54.906 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 10/10 = 1.0000 CI=[0.6915, 1.0000]
+2026-02-13 20:42:54.906 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 10/10 = 1.0000 CI=[0.6915, 1.0000]
+2026-02-13 20:42:54.906 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/10 = 0.0000
+2026-02-13 20:42:54.907 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/10 = 0.0000
+2026-02-13 20:42:54.907 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 10/10 = 1.0000
+2026-02-13 20:42:54.908 | INFO     | __main__:compute_per_dataset_breakdown:281 - 
+--- csl (20 pairs) ---
+2026-02-13 20:42:54.909 | INFO     | __main__:compute_per_dataset_breakdown:319 -   ISP-GIN: 0/20 = 0.0000 CI=[0.0000, 0.1684]
+2026-02-13 20:42:54.909 | INFO     | __main__:compute_per_dataset_breakdown:320 -   RealGIN-Aug: 9/20 = 0.4500 CI=[0.2306, 0.6847]
+2026-02-13 20:42:54.910 | INFO     | __main__:compute_per_dataset_breakdown:321 -   WL baseline: 0/20 = 0.0000
+2026-02-13 20:42:54.910 | INFO     | __main__:compute_per_dataset_breakdown:322 -   ISP-NoMP mag: 0/20 = 0.0000
+2026-02-13 20:42:54.910 | INFO     | __main__:compute_per_dataset_breakdown:323 -   ISP-NoMP phase: 9/20 = 0.4500
+2026-02-13 20:42:54.911 | INFO     | __main__:compute_csl_failure_analysis:358 - ============================================================
+2026-02-13 20:42:54.911 | INFO     | __main__:compute_csl_failure_analysis:359 - SECTION 3: CSL Failure Mathematical Analysis
+2026-02-13 20:42:54.911 | INFO     | __main__:compute_csl_failure_analysis:360 - ============================================================
+2026-02-13 20:42:54.912 | INFO     | __main__:compute_csl_failure_analysis:376 - CSL ISP-GIN distinguished: 0/20
+2026-02-13 20:42:54.913 | INFO     | __main__:compute_csl_failure_analysis:377 - CSL RealGIN-Aug distinguished: 9/20
+2026-02-13 20:42:54.918 | INFO     | __main__:compute_csl_failure_analysis:403 - CSL degree variance (avg): 0.000000
+2026-02-13 20:42:54.928 | INFO     | __main__:compute_csl_failure_analysis:404 - CSL degree variance (max): 0.000000
+2026-02-13 20:42:54.931 | INFO     | __main__:compute_csl_failure_analysis:415 - CSL phase uniformity (avg std of phases): 0.0000000000
+2026-02-13 20:42:54.931 | INFO     | __main__:compute_csl_failure_analysis:429 - Mathematical mechanism: On k-regular graphs (CSL: k=4, n=41), degree-based harmonic initialization assigns z_v = exp(i*omega*4) for ALL nodes v. Sum aggregation at any node v with neighbor set N(v) gives Σ_{u∈N(v)} z_u = |N(...
+2026-02-13 20:42:54.931 | INFO     | __main__:compute_feature_importance:457 - ============================================================
+2026-02-13 20:42:54.931 | INFO     | __main__:compute_feature_importance:458 - SECTION 4: Feature/Initialization Importance (from iter2)
+2026-02-13 20:42:54.932 | INFO     | __main__:compute_feature_importance:459 - ============================================================
+2026-02-13 20:42:54.933 | INFO     | __main__:compute_feature_importance:503 - Analyzed 55 pairs across iter2 data
+2026-02-13 20:42:54.933 | INFO     | __main__:compute_feature_importance:534 -   degree              : best_single=0.0000, any_config=0.0000, csl=0/20
+2026-02-13 20:42:54.933 | INFO     | __main__:compute_feature_importance:534 -   random_walk_t2      : best_single=0.0000, any_config=0.0000, csl=0/20
+2026-02-13 20:42:54.933 | INFO     | __main__:compute_feature_importance:534 -   random_walk_t3      : best_single=0.6364, any_config=0.6364, csl=0/20
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:534 -   wl_color_r3         : best_single=0.0000, any_config=0.0000, csl=0/20
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:534 -   local_topology      : best_single=0.6364, any_config=0.6364, csl=0/20
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:534 -   multihop_hash       : best_single=0.0000, any_config=0.0000, csl=0/20
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:534 -   spectral            : best_single=0.4364, any_config=0.4364, csl=20/20
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:557 -   degree              : marginal (unique) = 0
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:557 -   random_walk_t2      : marginal (unique) = 0
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:557 -   random_walk_t3      : marginal (unique) = 0
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:557 -   wl_color_r3         : marginal (unique) = 0
+2026-02-13 20:42:54.934 | INFO     | __main__:compute_feature_importance:557 -   local_topology      : marginal (unique) = 0
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_feature_importance:557 -   multihop_hash       : marginal (unique) = 0
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_feature_importance:557 -   spectral            : marginal (unique) = 20
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_feature_importance:563 - Union across all inits: 55/55
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_feature_importance:584 - Init ranking (best→worst): ['random_walk_t3', 'local_topology', 'spectral', 'degree', 'random_walk_t2', 'wl_color_r3', 'multihop_hash']
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:606 - ============================================================
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:607 - SECTION 5: Literature Positioning
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:608 - ============================================================
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:615 - Our ISP-GIN (55 pairs): 35/55 = 63.6%
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:616 - Our RealGIN-Aug (55 pairs): 44/55 = 80.0%
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:617 - Our union all inits (55 pairs): 55/55 = 100.0%
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:621 - Published i2gnn (400 pairs): 281/400 = 70.2%
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:621 - Published gsn (400 pairs): 254/400 = 63.5%
+2026-02-13 20:42:54.935 | INFO     | __main__:compute_literature_positioning:621 - Published kp_gnn (400 pairs): 275/400 = 68.8%
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_literature_positioning:621 - Published gin_baseline (400 pairs): 0/400 = 0.0%
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:645 - ============================================================
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:646 - SECTION 6: Hypothesis Verdict
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:647 - ============================================================
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:750 - Overall verdict: DISCONFIRMED
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:751 - Evidence: Of 5 assumptions: 0 confirmed, 1 partially confirmed, 2 disconfirmed, 2 not testable/tested. The core claim that complex-valued arithmetic provides expressiveness beyond what real-valued topological augmentation can achieve is falsified.
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:752 - Pivoted contribution: Topological feature augmentation (random walk profiles, local clustering, spectral features) applied to standard real-valued GIN breaks 1-WL on 44/55 benchmark pairs at negligible cost. The complex-va...
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption1: DISCONFIRMED
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption2: PARTIALLY_CONFIRMED
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption3: NOT_TESTABLE_AS_STATED
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption4: NOT_TESTED
+2026-02-13 20:42:54.936 | INFO     | __main__:compute_hypothesis_verdict:755 -   assumption5: DISCONFIRMED
+2026-02-13 20:42:54.936 | INFO     | __main__:main:1027 - ============================================================
+2026-02-13 20:42:54.936 | INFO     | __main__:main:1028 - BUILDING OUTPUT
+2026-02-13 20:42:54.936 | INFO     | __main__:main:1029 - ============================================================
+2026-02-13 20:42:54.940 | INFO     | __main__:main:1046 - Saved eval output to eval_out.json
+2026-02-13 20:42:54.944 | INFO     | __main__:main:1047 - File size: 92.3 KB
+2026-02-13 20:42:54.944 | INFO     | __main__:main:1048 - Total runtime: 0.1s
+2026-02-13 20:42:54.944 | INFO     | __main__:main:1051 - ============================================================
+2026-02-13 20:42:54.944 | INFO     | __main__:main:1052 - EVALUATION SUMMARY
+2026-02-13 20:42:54.945 | INFO     | __main__:main:1053 - ============================================================
+2026-02-13 20:42:54.945 | INFO     | __main__:main:1054 - ISP-GIN: 35/55 (63.6%)
+2026-02-13 20:42:54.945 | INFO     | __main__:main:1055 - RealGIN-Aug: 44/55 (80.0%)
+2026-02-13 20:42:54.945 | INFO     | __main__:main:1056 - McNemar p-value: 0.003906
+2026-02-13 20:42:54.945 | INFO     | __main__:main:1057 - Cohen's h: 0.3673
+2026-02-13 20:42:54.945 | INFO     | __main__:main:1058 - Overall verdict: DISCONFIRMED

@@ -1,0 +1,136 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{Gilmer2017}
+\citation{Kipf2017}
+\citation{Hamilton2017}
+\citation{Velickovic2018}
+\citation{Xu2019}
+\citation{Xu2019,Morris2019}
+\citation{Morris2019}
+\citation{Murphy2019,Bevilacqua2022,Frasca2022}
+\citation{Bouritsas2023}
+\citation{Lim2023,Zhang2024}
+\citation{Eliasof2023}
+\citation{Abboud2021,Sato2021}
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{Xu2019}
+\citation{Morris2019}
+\citation{Xu2019}
+\citation{Weisfeiler1968}
+\citation{Cai1992}
+\citation{Morris2019}
+\citation{Maron2019}
+\citation{Bodnar2021}
+\citation{Bevilacqua2022}
+\citation{Frasca2022}
+\citation{Bouritsas2023}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Expressiveness of Message-Passing GNNs}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Methods Exceeding 1-WL}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Higher-order methods.}{2}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Subgraph GNNs.}{2}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Substructure counting.}{2}{section*.3}\protected@file@percent }
+\citation{Lim2023}
+\citation{Zhang2024}
+\citation{Bao2025}
+\citation{Abboud2021}
+\citation{Sato2021}
+\citation{Eliasof2023}
+\citation{Qian2024}
+\citation{Huang2022}
+\citation{WangGPM2025}
+\citation{ZhangMagNet2021}
+\citation{LiMSH2025}
+\citation{WangBREC2024,Dwivedi2023}
+\citation{Morris2020}
+\@writefile{toc}{\contentsline {paragraph}{Spectral approaches.}{3}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Random and probabilistic approaches.}{3}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Permutation-sensitive aggregation.}{3}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Alternative paradigms.}{3}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Complex-Valued GNNs}{3}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Benchmarks}{3}{subsection.2.4}\protected@file@percent }
+\citation{Xu2019}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methods}{4}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Problem Formulation}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}ISP-GIN: Complex-Valued Message Passing}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Harmonic Initialization.}{4}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Initialization Strategies.}{4}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Complex Message Passing.}{4}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Structural Fingerprint Extraction.}{4}{section*.11}\protected@file@percent }
+\citation{WangBREC2024}
+\citation{Murphy2019}
+\citation{Morris2020}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}RealGIN-Aug: The Critical Ablation Baseline}{5}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}ISP-NoMP: No Message Passing Controls}{5}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental Setup}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Expressiveness Benchmark}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Classification Benchmark}{5}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Configuration Space}{5}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results}{5}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Initial Expressiveness Experiment}{5}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces ISP-GIN expressiveness by initialization strategy on 55 graph pairs. Only 3 of 7 strategies (random\_walk\_t3, local\_topology, spectral) achieve nonzero expressiveness, revealing that the initialization function---not complex arithmetic---is the critical factor.}}{6}{figure.1}\protected@file@percent }
+\newlabel{fig:init_strategy}{{1}{6}{ISP-GIN expressiveness by initialization strategy on 55 graph pairs. Only 3 of 7 strategies (random\_walk\_t3, local\_topology, spectral) achieve nonzero expressiveness, revealing that the initialization function---not complex arithmetic---is the critical factor}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}The Critical Ablation: Complex vs.\ Real Arithmetic}{6}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Expressiveness comparison across methods on 55 graph pairs. Best results per dataset in \textbf  {bold}.}}{7}{table.1}\protected@file@percent }
+\newlabel{tab:ablation}{{1}{7}{Expressiveness comparison across methods on 55 graph pairs. Best results per dataset in \textbf {bold}}{table.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Per-dataset expressiveness breakdown across five methods. ISP-GIN and RealGIN-Aug are tied on brec\_basic, brec\_regular, and brec\_cfi (35/35 each), but ISP-GIN catastrophically fails on CSL (0/20 vs.\ 9/20), where all nodes have identical degree.}}{7}{figure.2}\protected@file@percent }
+\newlabel{fig:per_dataset}{{2}{7}{Per-dataset expressiveness breakdown across five methods. ISP-GIN and RealGIN-Aug are tied on brec\_basic, brec\_regular, and brec\_cfi (35/35 each), but ISP-GIN catastrophically fails on CSL (0/20 vs.\ 9/20), where all nodes have identical degree}{figure.2}{}}
+\citation{Xu2019}
+\citation{Xu2019}
+\citation{Xu2019}
+\citation{Bouritsas2023}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}CSL Failure Analysis}{8}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Random Walk $t$-Sweep}{8}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Downstream Classification}{8}{subsection.5.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Graph classification accuracy (\%) with standard deviation. Published GIN baselines from \citet  {Xu2019} for comparison.}}{8}{table.2}\protected@file@percent }
+\newlabel{tab:classification}{{2}{8}{Graph classification accuracy (\%) with standard deviation. Published GIN baselines from \citet {Xu2019} for comparison}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{8}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}The Interference Analogy Fails on Discrete Structures}{8}{subsection.6.1}\protected@file@percent }
+\citation{Bouritsas2023}
+\citation{Bao2025}
+\citation{Keriven2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Graph classification accuracy across four TUDataset benchmarks. ISP-GIN's complex-valued arithmetic catastrophically degrades learned classification accuracy compared to both standard GIN and the real-valued augmented baseline. The dashed line indicates random chance (50\%).}}{9}{figure.3}\protected@file@percent }
+\newlabel{fig:classification}{{3}{9}{Graph classification accuracy across four TUDataset benchmarks. ISP-GIN's complex-valued arithmetic catastrophically degrades learned classification accuracy compared to both standard GIN and the real-valued augmented baseline. The dashed line indicates random chance (50\%)}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}The Expressiveness Gain Is in the Features, Not the Field}{9}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Why Complex Arithmetic Hurts Classification}{9}{subsection.6.3}\protected@file@percent }
+\citation{WangBREC2024}
+\citation{WangBREC2024}
+\citation{Eliasof2023}
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{Abboud2021}{{1}{2021}{{Abboud et~al.}}{{Abboud, Ceylan, Grohe, and Lukasiewicz}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Comparison with Existing Methods}{10}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Limitations}{10}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}\protected@file@percent }
+\bibcite{Bao2025}{{2}{2025}{{Bao et~al.}}{{Bao, Jin, Bronstein, Ceylan, and Lanzinger}}}
+\bibcite{Bevilacqua2022}{{3}{2022}{{Bevilacqua et~al.}}{{Bevilacqua, Frasca, Lim, Srinivasan, Cai, Balamurugan, Bronstein, and Maron}}}
+\bibcite{Bodnar2021}{{4}{2021}{{Bodnar et~al.}}{{Bodnar, Frasca, Otter, Wang, Li{\`{o}}, Mont{\'{u}}far, and Bronstein}}}
+\bibcite{Bouritsas2023}{{5}{2023}{{Bouritsas et~al.}}{{Bouritsas, Frasca, Zafeiriou, and Bronstein}}}
+\bibcite{Cai1992}{{6}{1992}{{Cai et~al.}}{{Cai, F{\"{u}}rer, and Immerman}}}
+\bibcite{Dwivedi2023}{{7}{2023}{{Dwivedi et~al.}}{{Dwivedi, Joshi, Luu, Laurent, Bengio, and Bresson}}}
+\bibcite{Eliasof2023}{{8}{2023}{{Eliasof et~al.}}{{Eliasof, Frasca, Bevilacqua, Treister, Chechik, and Maron}}}
+\bibcite{Frasca2022}{{9}{2022}{{Frasca et~al.}}{{Frasca, Bevilacqua, Bronstein, and Maron}}}
+\bibcite{Gilmer2017}{{10}{2017}{{Gilmer et~al.}}{{Gilmer, Schoenholz, Riley, Vinyals, and Dahl}}}
+\bibcite{Hamilton2017}{{11}{2017}{{Hamilton et~al.}}{{Hamilton, Ying, and Leskovec}}}
+\bibcite{Huang2022}{{12}{2022}{{Huang et~al.}}{{Huang, Wang, Li, and He}}}
+\bibcite{Keriven2019}{{13}{2019}{{Keriven and Peyr{\'{e}}}}{{}}}
+\bibcite{Kipf2017}{{14}{2017}{{Kipf and Welling}}{{}}}
+\bibcite{LiMSH2025}{{15}{2025}{{Li et~al.}}{{Li, Qu, and Wang}}}
+\bibcite{Lim2023}{{16}{2023}{{Lim et~al.}}{{Lim, Robinson, Zhao, Smidt, Sra, Maron, and Jegelka}}}
+\bibcite{Maron2019}{{17}{2019}{{Maron et~al.}}{{Maron, Ben{-}Hamu, Shamir, and Lipman}}}
+\bibcite{Morris2019}{{18}{2019}{{Morris et~al.}}{{Morris, Ritzert, Fey, Hamilton, Lenssen, Rattan, and Grohe}}}
+\bibcite{Morris2020}{{19}{2020}{{Morris et~al.}}{{Morris, Kriege, Bause, Kersting, Mutzel, and Neumann}}}
+\bibcite{Murphy2019}{{20}{2019}{{Murphy et~al.}}{{Murphy, Srinivasan, Rao, and Ribeiro}}}
+\bibcite{Qian2024}{{21}{2024}{{Qian et~al.}}{{Qian, Manolache, Morris, and Niepert}}}
+\bibcite{Sato2021}{{22}{2021}{{Sato et~al.}}{{Sato, Yamada, and Kashima}}}
+\bibcite{Velickovic2018}{{23}{2018}{{Velickovic et~al.}}{{Velickovic, Cucurull, Casanova, Romero, Li{\`{o}}, and Bengio}}}
+\bibcite{WangBREC2024}{{24}{2024}{{Wang and Zhang}}{{}}}
+\bibcite{WangGPM2025}{{25}{2025}{{Wang et~al.}}{{Wang, Zhang, Ma, Chawla, Zhang, and Ye}}}
+\bibcite{Weisfeiler1968}{{26}{1968}{{Weisfeiler and Leman}}{{}}}
+\bibcite{Xu2019}{{27}{2019}{{Xu et~al.}}{{Xu, Hu, Leskovec, and Jegelka}}}
+\bibcite{Zhang2024}{{28}{2024}{{Zhang et~al.}}{{Zhang, Zhao, and Maron}}}
+\bibcite{ZhangMagNet2021}{{29}{2021}{{Zhang et~al.}}{{Zhang, He, Brugnone, Perlmutter, and Hirn}}}
+\gdef \@abspage@last{13}

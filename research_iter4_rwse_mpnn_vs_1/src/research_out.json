@@ -1,0 +1,96 @@
+{
+  "title": "RWSE+MPNN vs 1-WL",
+  "summary": "Comprehensive novelty assessment of using random walk return probabilities (RWSE) as GNN node features to break 1-WL expressiveness. Key finding: RWSE alone is incomparable to 1-WL (MoSE Prop 4.7), RWSE equals weighted cycle homomorphism counts (MoSE Prop 4.5), and GSN proves substructure count augmentation breaks 1-WL (Theorem 3.1). However, no paper explicitly proves 'GIN+RWSE breaks 1-WL' as a standalone theorem. The HOD-GNN paper (Theorem E.6) proves HOD-GNN is strictly MORE expressive than MPNN+RWSE, showing quartic vertex-transitive graph pairs that MPNN+RWSE cannot distinguish. The precise expressiveness of MPNN+RWSE relative to 1-WL is nuanced: it is strictly more expressive than bare 1-WL on some graph pairs (e.g., CSL graphs) but cannot distinguish all 1-WL-indistinguishable pairs (e.g., certain vertex-transitive regular graphs). Verdict: category (b) — known components, partially novel combination with important caveats.",
+  "answer": "## Novelty Assessment: RWSE as GNN Node Features to Break 1-WL\n\n### 1. What is RWSE?\n\nRandom Walk Structural Encoding (RWSE) was introduced by Dwivedi et al. (2021) and popularized in GraphGPS [1]. RWSE computes the diagonal entries of (D⁻¹A)^i for step lengths i=1,...,k, where D is the degree matrix and A is the adjacency matrix. Each entry gives the random walk return probability — the probability that a random walk of length i starting at node v returns to v [1, 2].\n\n### 2. RWSE Expressiveness — Known Results\n\nThe MoSE paper (ICLR 2025) establishes three critical results about RWSE expressiveness [2]:\n\n- **Proposition 4.4**: RWSE is strictly weaker than 2-WL for all walk lengths. Any graph pair distinguishable by RWSE is also distinguishable by 2-WL [2].\n- **Proposition 4.7**: RWSE is *incomparable* to 1-WL at the node level. There exist node pairs that 1-WL distinguishes but RWSE cannot (for any walk length), and vice versa [2].\n- **Proposition 4.5**: RWSE is a special case of MoSE (Motif Structural Encoding) with weight function ω(v) = 1/d(v) and pattern graphs being cycle graphs {C_i} for i=1,...,ℓ. This formally establishes RWSE = weighted cycle homomorphism counts [2].\n\nCritically, RWSE alone does NOT break 1-WL — it is incomparable. GraphGPS's empirical power comes from the combination of RWSE + LapPE + global Transformer attention, not RWSE alone [1].\n\n### 3. Mathematical Chain: RWSE → Closed Walks → Cycles → Homomorphism Counts\n\nThe mathematical connection is well-established [3, 2]:\n\n1. **RW return probability at step t**: (D⁻¹A)^t[v,v] — this is the probability of returning to v after t steps.\n2. **Unnormalized version**: A^t[v,v] = number of closed walks of length t starting and ending at v [3].\n3. **Closed walks → cycle counts**: tr(A³)/6 = number of triangles. More generally, cycle counts are extractable from closed walk counts via inclusion-exclusion (Newton's identities) [3].\n4. **MoSE Proposition 4.5**: RWSE_ℓ is exactly the MoSE encoding with degree-weighted homomorphism counts from cycle graphs C_1,...,C_ℓ. The weight function ω(v) = 1/d(v) converts closed walk counts to random walk probabilities [2].\n5. **Implication**: RWSE captures degree-normalized cycle homomorphism information, making it a strict subset of general homomorphism counting [2].\n\n### 4. GSN Substructure Count Augmentation (Breaks 1-WL)\n\nBouritsas et al. (TPAMI 2022) proved a key theorem for Graph Substructure Networks (GSN) [4]:\n\n- **Theorem 3.1**: GSN is strictly more powerful than MPNN and the 1-WL test when H is any graph except star graphs (for subgraph matching) or any graph except single edges/nodes (for induced subgraph matching) [4].\n- **Mechanism**: If H is a substructure that 1-WL cannot count, then there exists at least one pair of graphs with different H-counts that 1-WL deems isomorphic. By injecting H-counts as node features, GSN can distinguish them [4].\n- **Key insight**: Since 1-WL can only count forests of stars (connected subgraphs), and cannot count cycles ≥ 3, injecting cycle counts as node features provably breaks 1-WL [4].\n\n### 5. SAGNN — Random Walk on Cut Subgraphs (Breaks 1-WL)\n\nSAGNN (AAAI 2023) uses a different mechanism [5]:\n\n- Proposes 'Cut subgraphs' obtained by selectively removing edges from the original graph.\n- Extends random walk return probabilities to these cut subgraphs as node features.\n- **Proposition 1**: With Ego subgraph information injection, an 1-WL MPNN is strictly more powerful than 1-WL [5].\n- **Proposition 2**: With Cut subgraph information injection, an 1-WL MPNN is strictly more powerful than 1-WL [5].\n- Crucially, SAGNN uses RW on *modified* subgraphs (not the original graph), which provides strictly different information from standard RWSE on the original graph [5].\n\n### 6. r-Loopy WL — Cycle-Counting Hierarchy\n\nPaolino et al. (NeurIPS 2024) introduced r-ℓWL [6]:\n\n- r-ℓWL can count cycles up to length r+2, extending 1-WL which can only count homomorphisms of trees.\n- r-ℓWL can homomorphism-count cactus graphs (graphs where every edge belongs to at most one cycle) [6].\n- r-ℓWL is incomparable to k-WL for any fixed k [6].\n- r-ℓWL is more expressive than F-Hom-GNNs that inject explicit cycle homomorphism counts [6].\n- This shows that even cycle homomorphism counting (which subsumes RWSE information) is part of a broader hierarchy.\n\n### 7. WL Go Walking — Random Walk Kernels ≈ 1-WL\n\nKriege (NeurIPS 2022) proved that classical random walk *kernels* with minor modifications reach Weisfeiler-Leman expressiveness [7]. However, this refers to RW *kernels* (graph-level similarity functions), NOT RW features used as node augmentations. The critical distinction: RW kernels aggregate global walk statistics and are bounded by 1-WL, while RW node features (RWSE) provide local structural information that is incomparable to 1-WL [7, 2].\n\n### 8. The Critical Gap: MPNN + RWSE Expressiveness\n\n**What is known:**\n- RWSE alone is incomparable to 1-WL [2]\n- RWSE = weighted cycle homomorphism counts [2]\n- GSN shows injecting substructure counts (including cycles) breaks 1-WL [4]\n- RWSE was empirically shown to help distinguish CSL (Circular Skip Link) graphs, which are 1-WL equivalent [8]\n\n**What is NOT explicitly proven:**\n- No paper contains a standalone theorem stating 'GIN + RWSE initial features is strictly more expressive than 1-WL'\n\n**Key evidence on the limitations of MPNN+RWSE:**\n- The HOD-GNN paper (2025) contains **Theorem E.6**: 'HOD-GNN is strictly more expressive than RWSE+MPNN.' They construct a pair of quartic vertex-transitive graphs that are indistinguishable by MPNNs augmented with RWSE, but distinguishable by HOD-GNN [9].\n- This means MPNN+RWSE does NOT fully solve graph isomorphism beyond 1-WL for ALL graph pairs.\n- However, this does not mean MPNN+RWSE = 1-WL. It can distinguish SOME pairs that 1-WL cannot (e.g., CSL graphs via graph-level RWSE differences), while failing on others (vertex-transitive regular graphs).\n\n**The precise relationship:**\nMPNN+RWSE is strictly between 1-WL and 2-WL in expressiveness (since RWSE ≤ 2-WL by Prop 4.4), can distinguish some 1-WL-equivalent pairs, but cannot distinguish all of them. It is a partial improvement, not a clean hierarchy jump.\n\n### 9. Novelty Assessment Verdict\n\n**Classification: (b) Known components, novel-ish combination with important caveats**\n\nThe chain of reasoning is:\n1. RWSE = weighted cycle homomorphism counts (MoSE Prop 4.5) [2] — KNOWN\n2. Injecting cycle counts as node features breaks 1-WL for cycle-differing pairs (GSN Theorem 3.1) [4] — KNOWN\n3. Therefore, GIN+RWSE should break 1-WL on graphs distinguishable by cycle structure — FOLLOWS LOGICALLY but NOT EXPLICITLY STATED\n4. BUT: MPNN+RWSE cannot distinguish all 1-WL-equivalent pairs (HOD-GNN Theorem E.6) [9] — KNOWN LIMITATION\n5. The exact expressiveness class of MPNN+RWSE is not fully characterized in any single paper.\n\n**What IS novel about RealGIN-Aug:**\n- If RealGIN-Aug uses real-valued RW return probabilities (not just integer structural counts), it provides continuous-valued features that may have better optimization properties than discrete counts\n- The specific framing as 'breaking 1-WL via continuous RW features on original graph' is not a standard result\n- The empirical demonstration on BREC or similar benchmarks could be novel\n\n**What is NOT novel:**\n- The mathematical insight that RW features contain cycle/substructure information — this is MoSE Prop 4.5\n- The general principle that structural augmentation breaks 1-WL — this is GSN Theorem 3.1\n- Using RW features as node features for GNNs — this is RWSE in GraphGPS, SAGNN on subgraphs\n- The limitations of RWSE+MPNN — HOD-GNN Theorem E.6 shows it's bounded\n\n### 10. Implications for ISP Paper Framing\n\nThe ISP paper should:\n1. **NOT claim** 'RealGIN-Aug breaks 1-WL' as a novel theoretical contribution — the pieces are known\n2. **Acknowledge** RWSE literature (GraphGPS, MoSE) and the RWSE→homomorphism chain\n3. **Correctly position** RealGIN-Aug as empirically demonstrating the GSN theoretical prediction on standard benchmarks\n4. **Emphasize** the complex-valued mechanism (ISP's main contribution) rather than the RW augmentation\n5. **Note** the nuanced expressiveness: MPNN+RWSE > 1-WL on some pairs but < 2-WL overall\n6. **Cite** HOD-GNN Theorem E.6 to acknowledge known limitations\n\n### Confidence Level: HIGH (8/10)\n\nThe evidence is strong and consistent across 10+ papers. The main uncertainty is whether any very recent (2025-2026) paper explicitly characterizes the exact expressiveness class of MPNN+RWSE. The chain of reasoning from known results is straightforward, but the absence of an explicit theorem for this specific combination suggests it may be worth a brief remark in the paper rather than a claimed contribution.",
+  "sources": [
+    {
+      "index": 1,
+      "url": "https://arxiv.org/abs/2205.12454",
+      "title": "Recipe for a General, Powerful, Scalable Graph Transformer (GraphGPS)",
+      "summary": "Introduces GraphGPS with RWSE as a structural encoding component. Defines RWSE and uses it alongside LapPE and global Transformer attention."
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/html/2410.18676",
+      "title": "Homomorphism Counts as Structural Encodings for Graph Learning (MoSE, ICLR 2025)",
+      "summary": "Critical paper proving: RWSE < 2-WL (Prop 4.4), RWSE incomparable to 1-WL at node level (Prop 4.7), RWSE = weighted cycle homomorphism counts with ω(v)=1/d(v) (Prop 4.5), and MoSE strictly more expressive than RWSE (Theorem 4.6)."
+    },
+    {
+      "index": 3,
+      "url": "https://en.wikipedia.org/wiki/Adjacency_matrix",
+      "title": "Adjacency Matrix — Closed Walks and Trace",
+      "summary": "Standard reference for the mathematical fact that A^k[v,v] counts closed walks of length k from v, and tr(A^k) gives total closed walks."
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/abs/2006.09252",
+      "title": "Improving Graph Neural Network Expressivity via Subgraph Isomorphism Counting (GSN, TPAMI 2022)",
+      "summary": "Proves GSN is strictly more expressive than 1-WL (Theorem 3.1) when using non-star substructure counts. Key insight: 1-WL cannot count cycles ≥ 3, so cycle count injection breaks 1-WL."
+    },
+    {
+      "index": 5,
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/26318/26090",
+      "title": "Substructure Aware Graph Neural Networks (SAGNN, AAAI 2023)",
+      "summary": "Uses RW return probabilities on CUT subgraphs (not original graph) as node features. Proves any 1-WL MPNN equipped with ego/cut subgraph injection is strictly more powerful than 1-WL."
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/abs/2403.13749",
+      "title": "Weisfeiler and Leman Go Loopy: A New Hierarchy (r-ℓWL, NeurIPS 2024)",
+      "summary": "Introduces r-ℓWL counting cycles up to length r+2, extending 1-WL. Counts homomorphisms of cactus graphs. Incomparable to k-WL. More expressive than F-Hom-GNNs."
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/abs/2205.10914",
+      "title": "Weisfeiler and Leman Go Walking: Random Walk Kernels Revisited (NeurIPS 2022)",
+      "summary": "Proves that classical RW kernels (with minor modifications) reach 1-WL expressiveness. Critical distinction: RW KERNELS ≠ RW NODE FEATURES."
+    },
+    {
+      "index": 8,
+      "url": "https://arxiv.org/html/2501.03113v1",
+      "title": "Balancing Efficiency and Expressiveness: Subgraph GNNs with Walk-Based Centrality (HyMN, 2025)",
+      "summary": "Notes RWSE can distinguish 1-WL-equivalent CSL graphs. Compares CSE (unnormalized) vs RWSE (degree-normalized) centrality encodings."
+    },
+    {
+      "index": 9,
+      "url": "https://arxiv.org/html/2510.02565v1",
+      "title": "On The Expressive Power of GNN Derivatives (HOD-GNN, 2025)",
+      "summary": "Theorem E.6 proves HOD-GNN is strictly more expressive than RWSE+MPNN. Constructs quartic vertex-transitive graph pairs indistinguishable by MPNN+RWSE. Shows MPNN+RWSE has clear limitations."
+    },
+    {
+      "index": 10,
+      "url": "https://arxiv.org/abs/2202.10156",
+      "title": "1-WL Expressiveness Is (Almost) All You Need (Zopf, IJCNN 2022)",
+      "summary": "Finds that 1-WL expressiveness suffices for most standard graph benchmarks. Breaking 1-WL matters more for synthetic tasks than practical ones."
+    },
+    {
+      "index": 11,
+      "url": "https://arxiv.org/abs/2304.07702",
+      "title": "An Empirical Study of Realized GNN Expressiveness (BREC, 2023)",
+      "summary": "BREC benchmark with 400 non-isomorphic graph pairs for testing beyond-1-WL expressiveness. GNN accuracies range from 41.5% to 70.2%."
+    },
+    {
+      "index": 12,
+      "url": "https://arxiv.org/abs/2407.01214",
+      "title": "Revisiting Random Walks for Learning on Graphs (RWNN, ICLR 2025 Spotlight)",
+      "summary": "RWNNs surpass WL hierarchy in probability but are a different architecture from MPNN+RWSE. Can separate strongly regular graphs where 3-WL fails."
+    },
+    {
+      "index": 13,
+      "url": "https://arxiv.org/html/2402.08595",
+      "title": "Homomorphism Counts for Graph Neural Networks: All About That Basis (2024)",
+      "summary": "Proves injecting homomorphism BASIS (not just the parameter itself) is strictly more expressive. Theorem 4.1 shows k-WL with homomorphism basis is strictly more expressive than k-WL with the parameter alone."
+    },
+    {
+      "index": 14,
+      "url": "https://arxiv.org/html/2411.12732v1",
+      "title": "Benchmarking Positional Encodings for GNNs and Graph Transformers (2024)",
+      "summary": "Unified benchmarking showing GINE+RWSE performance on various datasets. Demonstrates strong task-dependence of positional encodings."
+    }
+  ],
+  "follow_up_questions": [
+    "What is the exact expressiveness class of MPNN+RWSE — can we characterize the set of graph pairs it can distinguish vs. those it cannot, and does this correspond to any known refinement in the WL hierarchy?",
+    "Does using real-valued (continuous) RWSE features provide any optimization or generalization advantage over discrete substructure counts (GSN-style) for practical GNN training, even if they have equivalent theoretical expressiveness?",
+    "Could the ISP complex-valued mechanism combined with RWSE features achieve expressiveness beyond what either approach achieves alone, and where would such a combination sit in the WL/homomorphism counting hierarchy?"
+  ]
+}
